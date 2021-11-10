@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
-import { StyleSheet, View, FlatList, Text } from 'react-native'
+import { StyleSheet, View, FlatList, Text, StatusBar as sb } from 'react-native'
 
 const articles = [
   { text: 'Pimiento rojo', id: '1' },
@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingTop: sb.currentHeight
   }
 })
