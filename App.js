@@ -18,7 +18,7 @@ export default function App() {
     <View style={styles.container}>
       <FlatList
         data={articles}
-        renderItem={({ item }) => <Text key={item.id}>{item.text}</Text>}
+        renderItem={({ item }) => <Text key={item.id} style={styles.item}>{item.text}</Text>}
         keyExtractor={item => item.id}
       />
       <ExpoStatusBar style="auto" />
@@ -30,8 +30,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
     marginTop: StatusBar.currentHeight || 0
+  },
+  item: {
+    fontSize: 20,
+    padding: 20,
+    paddingBottom: 0
   }
 })
