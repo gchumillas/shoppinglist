@@ -32,6 +32,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: StatusBar.currentHeight
+    marginTop: StatusBar.currentHeight || 0
   }
 })
