@@ -1,6 +1,6 @@
-import { StatusBar } from 'expo-status-bar'
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar'
 import React from 'react'
-import { StyleSheet, View, FlatList, Text, StatusBar as sb } from 'react-native'
+import { StyleSheet, View, FlatList, Text, StatusBar } from 'react-native'
 
 const articles = [
   { text: 'Pimiento rojo', id: '1' },
@@ -20,7 +20,7 @@ export default function App() {
         data={articles}
         renderItem={({ item }) => <Text key={item.id}>{item.text}</Text>}
       />
-      <StatusBar style="auto" />
+      <ExpoStatusBar style="auto" />
     </View>
   )
 }
@@ -31,6 +31,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: sb.currentHeight
+    paddingTop: StatusBar.currentHeight
   }
 })
