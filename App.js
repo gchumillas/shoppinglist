@@ -19,6 +19,7 @@ export default function App() {
       <FlatList
         data={articles}
         renderItem={({ item }) => <Text key={item.id}>{item.text}</Text>}
+        keyExtractor={item => item.id}
       />
       <ExpoStatusBar style="auto" />
     </View>
