@@ -22,6 +22,7 @@ module.exports = {
     'rules': {
         'semi': ['error', 'never'],
         'quotes': ['error', 'single'],
+        'comma-dangle': ['error', 'never'],
         'react-native/no-unused-styles': 2,
         'react-native/split-platform-components': 2,
         'react-native/no-inline-styles': 2,
