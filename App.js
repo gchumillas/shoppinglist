@@ -14,7 +14,7 @@ const articles = [
   { text: 'Sal', id: '8' }
 ]
 
-export default function App() {
+const App = () => {
   return (
     <View style={styles.container}>
       <FlatList
@@ -34,3 +34,5 @@ const styles = StyleSheet.create({
   },
   item: tailwind('text-lg pb-2')
 })
+
+export default App
