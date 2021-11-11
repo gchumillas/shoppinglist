@@ -1,7 +1,7 @@
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar'
 import React from 'react'
 import { StyleSheet, View, FlatList, Text, StatusBar } from 'react-native'
-import tailwind from 'tailwind-rn'
+import { tailwind } from './src/tailwind'
 
 const articles = [
   { text: 'Pimiento rojo', id: '1' },
