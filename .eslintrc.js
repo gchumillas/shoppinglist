@@ -10,7 +10,8 @@ module.exports = {
         }
     },
     'extends': [
-        'eslint:recommended',
+        'standard',
+        'standard-jsx',
         'plugin:react/recommended'
     ],
     'parserOptions': {
@@ -28,6 +29,7 @@ module.exports = {
         'semi': ['error', 'never'],
         'quotes': ['error', 'single'],
         'comma-dangle': ['error', 'never'],
+        'jsx-quotes': ['error', 'prefer-double'],
         'react-native/no-unused-styles': 2,
         'react-native/split-platform-components': 2,
         'react-native/no-inline-styles': 2,
