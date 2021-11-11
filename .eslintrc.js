@@ -30,6 +30,7 @@ module.exports = {
         'quotes': ['error', 'single'],
         'comma-dangle': ['error', 'never'],
         'jsx-quotes': ['error', 'prefer-double'],
+        'react/prop-types': 'off',
         'react-native/no-unused-styles': 2,
         'react-native/split-platform-components': 2,
         'react-native/no-inline-styles': 2,
