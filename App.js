@@ -1,6 +1,7 @@
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar'
 import React from 'react'
 import { StyleSheet, View, FlatList, Text, StatusBar } from 'react-native'
+import tailwind from 'tailwind-rn'
 
 const articles = [
   { text: 'Pimiento rojo', id: '1' },
@@ -13,7 +14,7 @@ const articles = [
   { text: 'Sal', id: '8' }
 ]
 
-export default function App() {
+const App = () => {
   return (
     <View style={styles.container}>
       <FlatList
@@ -28,13 +29,10 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    ...tailwind('flex bg-white py-3 px-4'),
     marginTop: StatusBar.currentHeight || 0
   },
-  item: {
-    fontSize: 20,
-    padding: 20,
-    paddingBottom: 0
-  }
+  item: tailwind('text-lg pb-2')
 })
+
+export default App
