@@ -1,44 +1,30 @@
 module.exports = {
-    'env': {
-        'browser': true,
-        'es2021': true,
-        'react-native/react-native': true
+    "env": {
+        "browser": true,
+        "es2021": true
     },
-    'settings': {
-        'react': {
-            'version': 'detect'
+    "settings": {
+        "react": {
+            "version": "detect"
         }
     },
-    'extends': [
-        'standard',
-        'standard-jsx',
-        'plugin:react/recommended'
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
     ],
-    'parserOptions': {
-        'ecmaFeatures': {
-            'jsx': true
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
         },
-        'ecmaVersion': 13,
-        'sourceType': 'module'
+        "ecmaVersion": 13,
+        "sourceType": "module"
     },
-    'plugins': [
-        'react',
-        'react-native'
+    "plugins": [
+        "react"
     ],
-    'rules': {
-        'semi': ['error', 'never'],
-        'quotes': ['error', 'single'],
-        'comma-dangle': ['error', 'never'],
-        'jsx-quotes': ['error', 'prefer-double'],
-        'camelcase': 'off',
-        'multiline-ternary': 'off',
-        'react/prop-types': 'off',
-        'react/jsx-wrap-multilines': 'off',
-        'react/jsx-closing-tag-location': 'off',
-        'react-native/no-unused-styles': 'error',
-        'react-native/split-platform-components': 'error',
-        'react-native/no-inline-styles': 'error',
-        'react-native/no-raw-text': 'error',
-        'react-native/no-single-element-style-arrays': 'error'
+    "rules": {
+        "semi": ["error", "never"],
+        "quotes": ["error", "single"],
+        "react/prop-types": "off"
     }
-}
+};
