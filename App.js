@@ -1,6 +1,8 @@
-import { StatusBar as ExpoStatusBar } from 'expo-status-bar'
 import React from 'react'
 import { StyleSheet, View, FlatList, StatusBar } from 'react-native'
+import { StatusBar as ExpoStatusBar } from 'expo-status-bar'
+import { useFonts } from 'expo-font'
+import { IndieFlower_400Regular } from '@expo-google-fonts/indie-flower'
 import { Text } from '~/src/elements'
 import { tailwind } from '~/src/tailwind'
 
@@ -16,7 +18,9 @@ const articles = [
 ]
 
 const App = () => {
-  return (
+  const [fontsLoaded] = useFonts({ IndieFlower_400Regular })
+
+  return fontsLoaded && (
     <View style={styles.container}>
       <FlatList
         data={articles}
