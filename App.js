@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     ...tailwind('flex bg-white py-3 px-4'),
     marginTop: StatusBar.currentHeight || 0
   },
-  item: tailwind('text-lg pb-2')
+  item: tailwind('text-2xl p-2 m-1')
 })
 
 export default AppInit
