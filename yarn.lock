@@ -1055,6 +1055,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@expo-google-fonts/indie-flower@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/indie-flower/-/indie-flower-0.2.0.tgz#893161f216e5f632f34e25c1ad816b81a2f58a7a"
+  integrity sha512-kLkxewl8k2xrWAO3GdJ64+GHx1EVp29R3t4VDiyN/lqXFBmtaebiNqZ6fCVq6ftD/e5ge+K95ZmfvYol9KeR8g==
+
 "@expo/config-plugins@3.1.0":
   version "3.1.0"
   resolved "https://registry.npmjs.org/@expo/config-plugins/-/config-plugins-3.1.0.tgz"
@@ -3000,7 +3005,7 @@ expo-file-system@~13.0.3:
     expo-modules-core "~0.4.4"
     uuid "^3.4.0"
 
-expo-font@~10.0.3:
+expo-font@^10.0.3, expo-font@~10.0.3:
   version "10.0.3"
   resolved "https://registry.npmjs.org/expo-font/-/expo-font-10.0.3.tgz"
   integrity sha512-xM5oqIduGvJ+qbsZHjMNNt+3hhjOMTunHUtOx5rAmW/D1ZVdfLwjDwOyWBVkH8ChoBRAZy9gsC2cRs7naw8NIw==
