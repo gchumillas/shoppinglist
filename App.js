@@ -1,10 +1,10 @@
 import React from 'react'
-import rn, { StyleSheet, View, FlatList, StatusBar } from 'react-native'
+import { StyleSheet, View, FlatList, StatusBar, ActivityIndicator } from 'react-native'
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar'
 import { useFonts } from 'expo-font'
 import { IndieFlower_400Regular } from '@expo-google-fonts/indie-flower'
 import { Text } from '~/src/elements'
-import { tailwind } from '~/src/tailwind'
+import { tailwind, getColor } from '~/src/tailwind'
 
 const articles = [
   { text: 'Pimiento rojo', id: '1' },
@@ -35,8 +35,10 @@ const AppInit = () => {
 
   return !fontsLoaded
     ? (
-      <View>
-        <rn.Text>Loading fonts...</rn.Text>
+      <View style={styles.container}>
+        {/* TODO: (all) define a palette */}
+        <ActivityIndicator size="large" color={getColor('gray-600')} />
+        <ExpoStatusBar style="auto" />
       </View>
       )
     : <App />
