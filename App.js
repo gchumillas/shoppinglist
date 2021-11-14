@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, FlatList, StatusBar, ActivityIndicator } from 'react-native'
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar'
 import { useFonts } from 'expo-font'
-import { IndieFlower_400Regular } from '@expo-google-fonts/indie-flower'
+import { IndieFlower_400Regular as indieFlower400Regular } from '@expo-google-fonts/indie-flower'
 import { Text } from '~/src/elements'
 import { tailwind, getColor } from '~/src/tailwind'
 
@@ -28,12 +28,14 @@ const App = () => {
 }
 
 const AppInit = () => {
-  const [fontsLoaded] = useFonts({ IndieFlower_400Regular })
+  const [fontsLoaded] = useFonts({ indieFlower400Regular })
 
-  return fontsLoaded ? <App /> : <View style={styles.container}>
-    <ActivityIndicator size="large" color={getColor('gray-600')} />
-    <ExpoStatusBar style="auto" />
-  </View>
+  return fontsLoaded
+    ? <App />
+    : <View style={styles.container}>
+      <ActivityIndicator size="large" color={getColor('gray-600')} />
+      <ExpoStatusBar style="auto" />
+    </View>
 }
 
 const styles = StyleSheet.create({
