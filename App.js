@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, FlatList, StatusBar } from 'react-native'
+import rn, { StyleSheet, View, FlatList, StatusBar } from 'react-native'
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar'
 import { useFonts } from 'expo-font'
 import { IndieFlower_400Regular } from '@expo-google-fonts/indie-flower'
@@ -18,9 +18,7 @@ const articles = [
 ]
 
 const App = () => {
-  const [fontsLoaded] = useFonts({ IndieFlower_400Regular })
-
-  return fontsLoaded && (
+  return (
     <View style={styles.container}>
       <FlatList
         data={articles}
@@ -32,6 +30,18 @@ const App = () => {
   )
 }
 
+const AppInit = () => {
+  const [fontsLoaded] = useFonts({ IndieFlower_400Regular })
+
+  return !fontsLoaded
+    ? (
+      <View>
+        <rn.Text>Loading fonts...</rn.Text>
+      </View>
+      )
+    : <App />
+}
+
 const styles = StyleSheet.create({
   container: {
     ...tailwind('flex bg-white py-3 px-4'),
@@ -40,4 +50,4 @@ const styles = StyleSheet.create({
   item: tailwind('text-lg pb-2')
 })
 
-export default App
+export default AppInit
