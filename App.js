@@ -22,8 +22,7 @@ const App = () => {
     <FlatList
       data={articles}
       renderItem={({ item }) => <Text key={item.id} style={styles.item}>{item.text}</Text>}
-      keyExtractor={item => item.id}
-    />
+      keyExtractor={item => item.id} />
     <ExpoStatusBar style="auto" />
   </View>
 }
