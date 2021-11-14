@@ -18,30 +18,23 @@ const articles = [
 ]
 
 const App = () => {
-  return (
-    <View style={styles.container}>
-      <FlatList
-        data={articles}
-        renderItem={({ item }) => <Text key={item.id} style={styles.item}>{item.text}</Text>}
-        keyExtractor={item => item.id}
-      />
-      <ExpoStatusBar style="auto" />
-    </View>
-  )
+  return <View style={styles.container}>
+    <FlatList
+      data={articles}
+      renderItem={({ item }) => <Text key={item.id} style={styles.item}>{item.text}</Text>}
+      keyExtractor={item => item.id}
+    />
+    <ExpoStatusBar style="auto" />
+  </View>
 }
 
 const AppInit = () => {
   const [fontsLoaded] = useFonts({ IndieFlower_400Regular })
 
-  return !fontsLoaded
-    ? (
-      <View style={styles.container}>
-        {/* TODO: (all) define a palette */}
-        <ActivityIndicator size="large" color={getColor('gray-600')} />
-        <ExpoStatusBar style="auto" />
-      </View>
-      )
-    : <App />
+  return fontsLoaded ? <App /> : <View style={styles.container}>
+    <ActivityIndicator size="large" color={getColor('gray-600')} />
+    <ExpoStatusBar style="auto" />
+  </View>
 }
 
 const styles = StyleSheet.create({
