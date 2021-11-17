@@ -1,8 +1,11 @@
 import React from 'react'
-import { StyleSheet, View, FlatList, StatusBar, ActivityIndicator, ImageBackground } from 'react-native'
+import { StyleSheet, View, FlatList, StatusBar, ActivityIndicator, ImageBackground, Pressable } from 'react-native'
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar'
 import { useFonts } from 'expo-font'
 import { PatrickHand_400Regular as patrickHand400Regular } from '@expo-google-fonts/patrick-hand'
+import NewIcon from '~/assets/icons/new.svg'
+import MicIcon from '~/assets/icons/mic.svg'
+import DeleteIcon from '~/assets/icons/delete.svg'
 import { Text } from '~/src/elements'
 import { tw, getColor } from '~/src/tailwind'
 
@@ -14,17 +17,37 @@ const articles = [
   { text: 'Vinagre', id: '5' },
   { text: 'Ajos', id: '6' },
   { text: 'Pimentón dulce', id: '7' },
-  { text: 'Sal', id: '8' }
+  { text: 'Sal', id: '8' },
+  { text: 'Pimiento rojo', id: '9' },
+  { text: 'Guindillas', id: '10' },
+  { text: 'Patatas pequeñas', id: '11' },
+  { text: 'Comino en grano', id: '12' },
+  { text: 'Vinagre', id: '13' },
+  { text: 'Ajos', id: '14' },
+  { text: 'Pimentón dulce', id: '15' },
+  { text: 'Sal', id: '16' }
 ]
 
 const App = () => {
   // TODO: (?) replace ImageBackground by a canvas
   return <ImageBackground source={require('./assets/bg.png')} style={styles.container}>
-    <FlatList
-      style={styles.list}
-      data={articles}
-      renderItem={({ item }) => <Text key={item.id} style={styles.item}>{item.text}</Text>}
-      keyExtractor={item => item.id} />
+    <View style={styles.list}>
+      <FlatList
+        data={articles}
+        renderItem={({ item }) => <Text key={item.id} style={styles.item}>{item.text}</Text>}
+        keyExtractor={item => item.id} />
+    </View>
+    <View style={styles.footer}>
+      <Pressable>
+        <NewIcon width={35} height={35} />
+      </Pressable>
+      <Pressable>
+        <MicIcon width={35} height={35} />
+      </Pressable>
+      <Pressable>
+        <DeleteIcon width={35} height={35} />
+      </Pressable>
+    </View>
     <ExpoStatusBar style="auto" />
   </ImageBackground>
 }
@@ -43,10 +66,11 @@ const AppInit = () => {
 const styles = StyleSheet.create({
   container: tw('flex h-full'),
   list: {
-    ...tw('py-3 px-4'),
+    ...tw('flex-shrink flex-grow py-3 px-4'),
     marginTop: StatusBar.currentHeight || 0
   },
-  item: tw('text-2xl p-2 m-1')
+  item: tw('text-2xl p-2 m-1'),
+  footer: tw('flex flex-row justify-around items-center py-3')
 })
 
 export default AppInit
