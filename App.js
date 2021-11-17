@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, FlatList, StatusBar, ActivityIndicator, ImageBackground } from 'react-native'
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar'
 import { useFonts } from 'expo-font'
-import { IndieFlower_400Regular as indieFlower400Regular } from '@expo-google-fonts/indie-flower'
+import { PatrickHand_400Regular as patrickHand400Regular } from '@expo-google-fonts/patrick-hand'
 import { Text } from '~/src/elements'
 import { tw, getColor } from '~/src/tailwind'
 
@@ -30,7 +30,7 @@ const App = () => {
 }
 
 const AppInit = () => {
-  const [fontsLoaded] = useFonts({ indieFlower400Regular })
+  const [fontsLoaded] = useFonts({ patrickHand400Regular })
 
   return fontsLoaded
     ? <App />

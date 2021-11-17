@@ -11,7 +11,7 @@
     "lint": "eslint App.js ./src"
   },
   "dependencies": {
-    "@expo-google-fonts/indie-flower": "^0.2.0",
+    "@expo-google-fonts/patrick-hand": "^0.2.0",
     "expo": "~43.0.0",
     "expo-font": "^10.0.3",
     "expo-status-bar": "~1.1.0",
