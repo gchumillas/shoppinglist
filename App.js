@@ -18,6 +18,7 @@ const articles = [
 ]
 
 const App = () => {
+  // TODO: (?) replace ImageBackground by a canvas
   return <ImageBackground source={require('./assets/bg.png')} style={styles.container}>
     <FlatList
       style={styles.list}
