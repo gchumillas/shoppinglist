@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, FlatList, StatusBar, ActivityIndicator } from 'react-native'
+import { StyleSheet, View, FlatList, StatusBar, ActivityIndicator, ImageBackground } from 'react-native'
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar'
 import { useFonts } from 'expo-font'
 import { IndieFlower_400Regular as indieFlower400Regular } from '@expo-google-fonts/indie-flower'
@@ -18,13 +18,14 @@ const articles = [
 ]
 
 const App = () => {
-  return <View style={styles.container}>
+  return <ImageBackground source={require('./assets/bg.png')} style={styles.container}>
     <FlatList
+      style={styles.list}
       data={articles}
       renderItem={({ item }) => <Text key={item.id} style={styles.item}>{item.text}</Text>}
       keyExtractor={item => item.id} />
     <ExpoStatusBar style="auto" />
-  </View>
+  </ImageBackground>
 }
 
 const AppInit = () => {
@@ -39,8 +40,9 @@ const AppInit = () => {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    ...tw('flex bg-white py-3 px-4'),
+  container: tw('flex h-full'),
+  list: {
+    ...tw('py-3 px-4'),
     marginTop: StatusBar.currentHeight || 0
   },
   item: tw('text-2xl p-2 m-1')
