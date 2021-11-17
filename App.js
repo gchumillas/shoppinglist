@@ -4,7 +4,7 @@ import { StatusBar as ExpoStatusBar } from 'expo-status-bar'
 import { useFonts } from 'expo-font'
 import { IndieFlower_400Regular as indieFlower400Regular } from '@expo-google-fonts/indie-flower'
 import { Text } from '~/src/elements'
-import { tailwind, getColor } from '~/src/tailwind'
+import { tw, getColor } from '~/src/tailwind'
 
 const articles = [
   { text: 'Pimiento rojo', id: '1' },
@@ -40,10 +40,10 @@ const AppInit = () => {
 
 const styles = StyleSheet.create({
   container: {
-    ...tailwind('flex bg-white py-3 px-4'),
+    ...tw('flex bg-white py-3 px-4'),
     marginTop: StatusBar.currentHeight || 0
   },
-  item: tailwind('text-2xl p-2 m-1')
+  item: tw('text-2xl p-2 m-1')
 })
 
 export default AppInit
