@@ -4,7 +4,6 @@ import { StatusBar as ExpoStatusBar } from 'expo-status-bar'
 import { useFonts } from 'expo-font'
 import { PatrickHand_400Regular as patrickHand400Regular } from '@expo-google-fonts/patrick-hand'
 import NewIcon from '~/assets/icons/new.svg'
-import MicIcon from '~/assets/icons/mic.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import { Text } from '~/src/components/elements'
 import { tw, getColor } from '~/src/libs/tailwind'
@@ -42,9 +41,6 @@ const App = () => {
         <NewIcon width={35} height={35} />
       </Pressable>
       <Pressable>
-        <MicIcon width={35} height={35} />
-      </Pressable>
-      <Pressable>
         <DeleteIcon width={35} height={35} />
       </Pressable>
     </View>
@@ -70,7 +66,7 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0
   },
   item: tw('text-2xl p-2 m-1'),
-  footer: tw('flex flex-row justify-around items-center py-3')
+  footer: tw('flex flex-row justify-evenly items-center py-3')
 })
 
 export default AppInit
