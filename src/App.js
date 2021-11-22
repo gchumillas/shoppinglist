@@ -30,7 +30,7 @@ const articles = [
 
 const App = () => {
   // TODO: (?) replace ImageBackground by a canvas
-  return <ImageBackground source={require('./assets/bg.png')} style={styles.container}>
+  return <ImageBackground source={require('~/assets/bg.png')} style={styles.container}>
     <View style={styles.list}>
       <FlatList
         data={articles}
