@@ -1,6 +1,6 @@
 import React from 'react'
 import rn from 'react-native'
-import { tw } from '~/src/tailwind'
+import { tw } from '~/src/libs/tailwind'
 
 const Text = ({ style, ...props }) => {
   const defaultStyle = { ...tw('text-base text-gray-800'), fontFamily: 'patrickHand400Regular' }

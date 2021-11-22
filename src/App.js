@@ -6,8 +6,8 @@ import { PatrickHand_400Regular as patrickHand400Regular } from '@expo-google-fo
 import NewIcon from '~/assets/icons/new.svg'
 import MicIcon from '~/assets/icons/mic.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
-import { Text } from '~/src/elements'
-import { tw, getColor } from '~/src/tailwind'
+import { Text } from '~/src/components/elements'
+import { tw, getColor } from '~/src/libs/tailwind'
 
 const articles = [
   { text: 'Pimiento rojo', id: '1' },
