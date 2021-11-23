@@ -2,8 +2,8 @@ import React from 'react'
 import { Pressable, Text, StyleSheet } from 'react-native'
 import { tw } from '~/src/libs/tailwind'
 
-const Component = ({ title, primary = false }) => {
-  return <Pressable style={[styles.wrapper, primary && styles.primary]}>
+const Component = ({ title, primary = false, ...props }) => {
+  return <Pressable style={[styles.wrapper, primary && styles.primary]} {...props}>
     <Text style={[styles.text, primary && styles.primaryText]}>{title}</Text>
   </Pressable>
 }
