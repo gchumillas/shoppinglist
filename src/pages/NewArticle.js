@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   container: tw('flex h-full justify-center items-center'),
   box: tw('bg-white p-5 max-w-xs w-full border rounded-lg'),
   input: tw('border'),
-  footer: tw('flex flex-row justify-around')
+  footer: tw('flex flex-row items-center justify-around')
 })
 
 export default Component
