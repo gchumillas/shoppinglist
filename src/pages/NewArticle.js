@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Modal, View, TextInput, Button } from 'react-native'
+import { StyleSheet, Modal, View, TextInput } from 'react-native'
 import { useNavigate } from 'react-router-native'
 import { tw } from '~/src/libs/tailwind'
 import { AppButton } from '~/src/components/elements'
@@ -17,7 +17,7 @@ const Component = () => {
         </View>
         <View style={styles.footer}>
           <AppButton title="Close" onPress={() => navigate('/')} />
-          <Button title="Save" />
+          <AppButton title="Save" primary />
         </View>
       </View>
     </View>
