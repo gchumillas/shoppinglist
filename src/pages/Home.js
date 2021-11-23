@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, FlatList, Pressable, StatusBar } from 'react-native'
+import { Link, Outlet } from 'react-router-native'
 import NewIcon from '~/assets/icons/new.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import { tw } from '~/src/libs/tailwind'
@@ -33,13 +34,14 @@ const Component = () => {
         keyExtractor={item => item.id} />
     </View>
     <View style={styles.footer}>
-      <Pressable>
+      <Link to="/new-article">
         <NewIcon width={35} height={35} />
-      </Pressable>
+      </Link>
       <Pressable>
         <DeleteIcon width={35} height={35} />
       </Pressable>
     </View>
+    <Outlet />
   </>
 }
 
