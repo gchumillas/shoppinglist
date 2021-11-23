@@ -4,7 +4,7 @@ import { Link, Outlet } from 'react-router-native'
 import NewIcon from '~/assets/icons/new.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import { tw } from '~/src/libs/tailwind'
-import { Text } from '~/src/components/elements'
+import { AppText } from '~/src/components/elements'
 
 const articles = [
   { text: 'Pimiento rojo', id: '1' },
@@ -30,7 +30,7 @@ const Component = () => {
     <View style={styles.list}>
       <FlatList
         data={articles}
-        renderItem={({ item }) => <Text key={item.id} style={styles.item}>{item.text}</Text>}
+        renderItem={({ item }) => <AppText key={item.id} style={styles.item}>{item.text}</AppText>}
         keyExtractor={item => item.id} />
     </View>
     <View style={styles.footer}>
