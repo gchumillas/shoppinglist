@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Modal, View, TextInput, Button } from 'react-native'
 import { useNavigate } from 'react-router-native'
 import { tw } from '~/src/libs/tailwind'
+import { AppButton } from '~/src/components/elements'
 
 const Component = () => {
   const navigate = useNavigate()
@@ -15,7 +16,7 @@ const Component = () => {
           <TextInput autoFocus value={text} onChangeText={setText} style={styles.input} />
         </View>
         <View style={styles.footer}>
-          <Button title="Close" onPress={() => navigate('/')} />
+          <AppButton title="Close" onPress={() => navigate('/')} />
           <Button title="Save" />
         </View>
       </View>
