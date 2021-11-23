@@ -14,7 +14,7 @@ const Component = () => {
           {/* TODO: add custom TextInput */}
           <TextInput autoFocus value={text} onChangeText={setText} style={styles.input} />
         </View>
-        <View>
+        <View style={styles.footer}>
           <Button title="Close" onPress={() => navigate('/')} />
           <Button title="Save" />
         </View>
@@ -26,7 +26,8 @@ const Component = () => {
 const styles = StyleSheet.create({
   container: tw('flex h-full justify-center items-center'),
   box: tw('bg-white p-5 max-w-xs w-full border rounded-lg'),
-  input: tw('border')
+  input: tw('border'),
+  footer: tw('flex flex-row justify-around')
 })
 
 export default Component
