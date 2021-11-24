@@ -6,7 +6,7 @@ import { AppButton, AppTextInput } from '~/src/components/elements'
 
 const Component = () => {
   const navigate = useNavigate()
-  const [text, setText] = React.useState('new article')
+  const [text, setText] = React.useState('')
 
   return <Modal animationType="slide" transparent>
     <View style={styles.container}>
