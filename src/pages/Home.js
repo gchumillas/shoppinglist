@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, FlatList, Pressable, StatusBar } from 'react-native'
-import { Link, Outlet } from 'react-router-native'
+import { Link, Outlet, useLocation } from 'react-router-native'
 import NewIcon from '~/assets/icons/new.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import { tw } from '~/src/libs/tailwind'
@@ -8,13 +8,15 @@ import { AppText } from '~/src/components/elements'
 import { getArticles } from '~/src/providers/articles'
 
 const Component = () => {
+  const location = useLocation()
   const [articles, setArticles] = React.useState([])
+  const { lastInsertId } = location.state || {}
 
   React.useEffect(() => {
     const loadArticles = async () => setArticles(await getArticles())
 
     loadArticles()
-  }, [])
+  }, [lastInsertId])
 
   return <>
     <View style={styles.list}>
