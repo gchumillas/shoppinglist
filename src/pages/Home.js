@@ -5,27 +5,17 @@ import NewIcon from '~/assets/icons/new.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import { tw } from '~/src/libs/tailwind'
 import { AppText } from '~/src/components/elements'
-
-const articles = [
-  { text: 'Pimiento rojo', id: '1' },
-  { text: 'Guindillas', id: '2' },
-  { text: 'Patatas pequeñas', id: '3' },
-  { text: 'Comino en grano', id: '4' },
-  { text: 'Vinagre', id: '5' },
-  { text: 'Ajos', id: '6' },
-  { text: 'Pimentón dulce', id: '7' },
-  { text: 'Sal', id: '8' },
-  { text: 'Pimiento rojo', id: '9' },
-  { text: 'Guindillas', id: '10' },
-  { text: 'Patatas pequeñas', id: '11' },
-  { text: 'Comino en grano', id: '12' },
-  { text: 'Vinagre', id: '13' },
-  { text: 'Ajos', id: '14' },
-  { text: 'Pimentón dulce', id: '15' },
-  { text: 'Sal', id: '16' }
-]
+import { getArticles } from '~/src/providers/articles'
 
 const Component = () => {
+  const [articles, setArticles] = React.useState([])
+
+  React.useEffect(() => {
+    const loadArticles = async () => setArticles(await getArticles())
+
+    loadArticles()
+  }, [])
+
   return <>
     <View style={styles.list}>
       <FlatList
