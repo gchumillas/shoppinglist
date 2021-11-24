@@ -7,7 +7,7 @@ const Component = ({ ...props }) => {
 }
 
 const styles = StyleSheet.create({
-  input: tw('border-0')
+  input: tw('border-b-2 text-gray-800')
 })
 
 export default Component
