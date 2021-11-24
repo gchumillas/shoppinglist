@@ -14,7 +14,7 @@ const Component = () => {
     navigate('/', { state: { lastInsertId: id } })
   }
 
-  return <Modal animationType="slide" transparent>
+  return <Modal animationType="fade" transparent>
     <View style={styles.container}>
       <View style={styles.box}>
         <View>
