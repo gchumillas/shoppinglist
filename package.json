@@ -20,6 +20,7 @@
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
     "react-native-svg": "12.1.1",
+    "react-native-uuid": "^2.0.1",
     "react-native-web": "0.17.1",
     "react-router-native": "^6.0.2",
     "tailwind-rn": "^3.0.1"
