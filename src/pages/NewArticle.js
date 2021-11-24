@@ -3,12 +3,18 @@ import { StyleSheet, Modal, View } from 'react-native'
 import { useNavigate } from 'react-router-native'
 import { tw } from '~/src/libs/tailwind'
 import { AppButton, AppTextInput } from '~/src/components/elements'
+import { createArticle } from '~/src/providers/articles'
 
 const Component = () => {
   const navigate = useNavigate()
   const [text, setText] = React.useState('')
 
-  return <Modal animationType="slide" transparent>
+  const doSave = async () => {
+    const id = await createArticle(text)
+    navigate('/', { state: { lastInsertId: id } })
+  }
+
+  return <Modal animationType="fade" transparent>
     <View style={styles.container}>
       <View style={styles.box}>
         <View>
@@ -17,7 +23,7 @@ const Component = () => {
         </View>
         <View style={styles.footer}>
           <AppButton title="Close" onPress={() => navigate('/')} />
-          <AppButton title="Save" primary />
+          <AppButton title="Save" primary onPress={doSave} />
         </View>
       </View>
     </View>
