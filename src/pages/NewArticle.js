@@ -1,19 +1,19 @@
 import React from 'react'
-import { StyleSheet, Modal, View, TextInput } from 'react-native'
+import { StyleSheet, Modal, View } from 'react-native'
 import { useNavigate } from 'react-router-native'
 import { tw } from '~/src/libs/tailwind'
-import { AppButton } from '~/src/components/elements'
+import { AppButton, AppTextInput } from '~/src/components/elements'
 
 const Component = () => {
   const navigate = useNavigate()
-  const [text, setText] = React.useState('')
+  const [text, setText] = React.useState('new article')
 
   return <Modal animationType="slide" transparent>
     <View style={styles.container}>
       <View style={styles.box}>
         <View>
           {/* TODO: add custom TextInput */}
-          <TextInput autoFocus value={text} onChangeText={setText} style={styles.input} />
+          <AppTextInput autoFocus value={text} onChangeText={setText} style={styles.input} />
         </View>
         <View style={styles.footer}>
           <AppButton title="Close" onPress={() => navigate('/')} />
