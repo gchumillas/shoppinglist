@@ -1,22 +1,32 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import { useNavigate } from 'react-router-native'
+import { useNavigate, useParams } from 'react-router-native'
 import { tw } from '~/src/libs/tailwind'
 import { AppButton, AppTextInput } from '~/src/components/elements'
 import ModalBox from '~/src/components/ModalBox'
-import { createArticle } from '~/src/providers/articles'
+import { updateArticle, readArticle } from '~/src/providers/articles'
 import { context } from './Home'
 
 const Component = () => {
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
+  const { id } = useParams()
   const [text, setText] = React.useState('')
 
   const doSave = async () => {
-    await createArticle(text)
+    await updateArticle(id, text)
     reload()
     navigate('/')
   }
+
+  React.useEffect(() => {
+    const init = async _ => {
+      const article = await readArticle(id)
+      setText(article.text)
+    }
+
+    init()
+  }, [])
 
   return <ModalBox visible>
     <View>

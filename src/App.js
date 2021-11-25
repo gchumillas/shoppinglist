@@ -3,8 +3,8 @@ import { StyleSheet, View, ActivityIndicator, ImageBackground } from 'react-nati
 import { StatusBar } from 'expo-status-bar'
 import { useFonts } from 'expo-font'
 import { PatrickHand_400Regular as patrickHand400Regular } from '@expo-google-fonts/patrick-hand'
-import Home from '~/src/pages/Home'
 import { tw, getColor } from '~/src/libs/tailwind'
+import Home from '~/src/pages/Home'
 
 const App = () => {
   // TODO: (?) replace ImageBackground by a canvas
