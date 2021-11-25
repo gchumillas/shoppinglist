@@ -25,6 +25,19 @@ export const createArticle = async (text) => {
   return id
 }
 
+/**
+ * @param {string} id
+ * @param {string} text
+ */
+export const updateArticle = async (id, text) => {
+  const articles = await getArticles()
+
+  await ss.setItemAsync(
+    'articles',
+    JSON.stringify(articles.map(x => x.id == id ? text : x.text))
+  )
+}
+
 export const deleteArticle = async (id) => {
   const articles = await getArticles()
 
