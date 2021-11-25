@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, FlatList, Pressable, StatusBar, Text } from 'react-native'
+import { StyleSheet, View, FlatList, Pressable, StatusBar } from 'react-native'
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-native'
 import NewIcon from '~/assets/icons/new.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
@@ -59,10 +59,10 @@ const Component = () => {
     </View>
     <ModalBox visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
       <Pressable onPress={doEditArticle}>
-        <Text style={styles.modalItemText}>Edit</Text>
+        <AppText style={styles.modalItemText}>Edit</AppText>
       </Pressable>
       <Pressable onPress={doDeleteArticle}>
-        <Text style={styles.modalItemText}>Delete</Text>
+        <AppText style={styles.modalItemText}>Delete</AppText>
       </Pressable>
     </ModalBox>
     <Outlet />
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0
   },
   itemWrapper: tw('flex flex-row items-center justify-between'),
-  itemText: tw('text-2xl p-2 m-1'),
+  itemText: { ...tw('text-2xl p-2 m-1'), fontFamily: 'patrickHand400Regular' },
   modalItemText: tw('py-2'),
   footer: tw('flex flex-row justify-evenly items-center py-3')
 })
