@@ -12,8 +12,7 @@ const Component = ({ title = '', ...props }) => {
 const styles = StyleSheet.create({
   wrapper: tw('mb-4'),
   title: tw('text-xs'),
-  // TODO: add color palette (for example text-primary, etc....)
-  input: tw('border-b-2 text-gray-800')
+  input: tw('border-b-2 text-primary')
 })
 
 export default Component
