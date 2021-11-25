@@ -7,18 +7,23 @@ import OptionsIcon from '~/assets/icons/options.svg'
 import { tw } from '~/src/libs/tailwind'
 import { AppText } from '~/src/components/elements'
 import ModalBox from '~/src/components/ModalBox'
-import { getArticles } from '~/src/providers/articles'
+import { getArticles, deleteArticle } from '~/src/providers/articles'
 
 const Component = () => {
   const location = useLocation()
-  const [optionsDialogVisible, setOptionsDialogVisible] = React.useState(false)
-  const [articles, setArticles] = React.useState([])
   const { lastInsertId } = location.state || {}
+  const [selectedArticleId, setSelectedArticleId] = React.useState('')
+  const [articles, setArticles] = React.useState([])
+  const reload = async () => setArticles(await getArticles())
+
+  const doDeleteArticle = async _ => {
+    await deleteArticle(selectedArticleId)
+    setSelectedArticleId('')
+    reload()
+  }
 
   React.useEffect(() => {
-    const loadArticles = async () => setArticles(await getArticles())
-
-    loadArticles()
+    reload()
   }, [lastInsertId])
 
   return <>
@@ -27,7 +32,7 @@ const Component = () => {
         data={articles}
         renderItem={({ item }) => <View style={styles.itemWrapper}>
           <AppText key={item.id} style={styles.itemText}>{item.text}</AppText>
-          <Pressable onPress={() => setOptionsDialogVisible(true)}>
+          <Pressable onPress={() => setSelectedArticleId(item.id)}>
             <OptionsIcon />
           </Pressable>
         </View>}
@@ -42,11 +47,11 @@ const Component = () => {
       </Pressable>
     </View>
     <Outlet />
-    <ModalBox visible={optionsDialogVisible}>
+    <ModalBox visible={!!selectedArticleId}>
       <Pressable onPress={() => console.log('edit')}>
         <Text style={styles.modalItemText}>Edit</Text>
       </Pressable>
-      <Pressable onPress={() => console.log('delete')}>
+      <Pressable onPress={doDeleteArticle}>
         <Text style={styles.modalItemText}>Delete</Text>
       </Pressable>
     </ModalBox>
