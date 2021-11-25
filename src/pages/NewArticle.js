@@ -1,8 +1,9 @@
 import React from 'react'
-import { StyleSheet, Modal, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { useNavigate } from 'react-router-native'
 import { tw } from '~/src/libs/tailwind'
 import { AppButton, AppTextInput } from '~/src/components/elements'
+import ModalBox from '~/src/components/ModalBox'
 import { createArticle } from '~/src/providers/articles'
 
 const Component = () => {
@@ -14,21 +15,16 @@ const Component = () => {
     navigate('/', { state: { lastInsertId: id } })
   }
 
-  // TODO: replace <Modal /> by <ModalBox />
-  return <Modal animationType="fade" transparent>
-    <View style={styles.container}>
-      <View style={styles.box}>
-        <View>
-          {/* TODO: add custom TextInput */}
-          <AppTextInput autoFocus value={text} onChangeText={setText} style={styles.input} />
-        </View>
-        <View style={styles.footer}>
-          <AppButton title="Close" onPress={() => navigate('/')} />
-          <AppButton title="Save" primary onPress={doSave} />
-        </View>
-      </View>
+  return <ModalBox visible>
+    <View>
+      {/* TODO: add custom TextInput */}
+      <AppTextInput autoFocus value={text} onChangeText={setText} style={styles.input} />
     </View>
-  </Modal>
+    <View style={styles.footer}>
+      <AppButton title="Close" onPress={() => navigate('/')} />
+      <AppButton title="Save" primary onPress={doSave} />
+    </View>
+  </ModalBox>
 }
 
 const styles = StyleSheet.create({

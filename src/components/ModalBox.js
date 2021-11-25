@@ -2,7 +2,7 @@ import React from 'react'
 import { Modal, Pressable, StyleSheet, View } from 'react-native'
 import { tw } from '~/src/libs/tailwind'
 
-const Component = ({ visible = false, onRequestClose, children }) => {
+const Component = ({ visible = false, onRequestClose = undefined, children }) => {
   return <Modal animationType="fade" transparent visible={visible} onRequestClose={onRequestClose}>
     <Pressable onPress={onRequestClose}>
       <View style={styles.wrapper}>
