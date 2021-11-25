@@ -38,6 +38,9 @@ export const updateArticle = async (id, text) => {
   )
 }
 
+/**
+ * @param {string} id
+ */
 export const deleteArticle = async (id) => {
   const articles = await getArticles()
 
