@@ -15,10 +15,11 @@ const Component = () => {
   const [selectedArticleId, setSelectedArticleId] = React.useState('')
   const [articles, setArticles] = React.useState([])
   const reload = async () => setArticles(await getArticles())
+  const doCloseDialog = () => setSelectedArticleId('')
 
   const doDeleteArticle = async _ => {
     await deleteArticle(selectedArticleId)
-    setSelectedArticleId('')
+    doCloseDialog()
     reload()
   }
 
@@ -47,7 +48,7 @@ const Component = () => {
       </Pressable>
     </View>
     <Outlet />
-    <ModalBox visible={!!selectedArticleId}>
+    <ModalBox visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
       <Pressable onPress={() => console.log('edit')}>
         <Text style={styles.modalItemText}>Edit</Text>
       </Pressable>

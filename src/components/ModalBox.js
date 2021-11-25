@@ -1,14 +1,16 @@
 import React from 'react'
-import { Modal, StyleSheet, View } from 'react-native'
+import { Modal, Pressable, StyleSheet, View } from 'react-native'
 import { tw } from '~/src/libs/tailwind'
 
-const Component = ({ visible = false, children }) => {
-  return <Modal animationType="fade" transparent visible={visible}>
-    <View style={styles.wrapper}>
-      <View style={styles.box}>
-        {children}
+const Component = ({ visible = false, onRequestClose, children }) => {
+  return <Modal animationType="fade" transparent visible={visible} onRequestClose={onRequestClose}>
+    <Pressable onPress={onRequestClose}>
+      <View style={styles.wrapper}>
+        <View style={styles.box} onStartShouldSetResponder={() => true}>
+          {children}
+        </View>
       </View>
-    </View>
+    </Pressable>
   </Modal>
 }
 
