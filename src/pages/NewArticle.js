@@ -5,15 +5,17 @@ import { tw } from '~/src/libs/tailwind'
 import { AppButton, AppTextInput } from '~/src/components/elements'
 import ModalBox from '~/src/components/ModalBox'
 import { createArticle } from '~/src/providers/articles'
+import { context } from './Home'
 
 const Component = () => {
+  const { reload } = React.useContext(context)
   const navigate = useNavigate()
   const [text, setText] = React.useState('')
 
   const doSave = async () => {
-    const id = await createArticle(text)
-    // TODO: use reload instead
-    navigate('/', { state: { lastInsertId: id } })
+    await createArticle(text)
+    reload()
+    navigate('/')
   }
 
   return <ModalBox visible>
