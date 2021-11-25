@@ -1,8 +1,11 @@
 import * as ss from 'expo-secure-store'
 import uuid from 'react-native-uuid'
+import { fix, pipes } from '@gchumillas/schema-fixer'
+
+const fixArticles = articles => fix(articles, pipes.array({ type: { id: 'string', text: 'string' } }))
 
 const saveArticles = async articles => {
-  await ss.setItemAsync('articles', JSON.stringify(articles))
+  await ss.setItemAsync('articles', JSON.stringify(fixArticles(articles)))
 }
 
 /**
@@ -10,8 +13,7 @@ const saveArticles = async articles => {
  */
 export const getArticles = async () => {
   try {
-    // TODO: ensure that article is string[]
-    return JSON.parse(await ss.getItemAsync('articles') ?? [])
+    return fixArticles(ss.getItemAsync('articles'))
   } catch {
     return []
   }
