@@ -1,15 +1,17 @@
 import React from 'react'
-import { StyleSheet, View, FlatList, Pressable, StatusBar } from 'react-native'
+import { StyleSheet, View, FlatList, Pressable, StatusBar, Text } from 'react-native'
 import { Link, Outlet, useLocation } from 'react-router-native'
 import NewIcon from '~/assets/icons/new.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import OptionsIcon from '~/assets/icons/options.svg'
 import { tw } from '~/src/libs/tailwind'
 import { AppText } from '~/src/components/elements'
+import ModalBox from '~/src/components/ModalBox'
 import { getArticles } from '~/src/providers/articles'
 
 const Component = () => {
   const location = useLocation()
+  const [optionsDialogVisible, setOptionsDialogVisible] = React.useState(false)
   const [articles, setArticles] = React.useState([])
   const { lastInsertId } = location.state || {}
 
@@ -25,7 +27,7 @@ const Component = () => {
         data={articles}
         renderItem={({ item }) => <View style={styles.itemWrapper}>
           <AppText key={item.id} style={styles.itemText}>{item.text}</AppText>
-          <Pressable>
+          <Pressable onPress={() => setOptionsDialogVisible(true)}>
             <OptionsIcon />
           </Pressable>
         </View>}
@@ -40,6 +42,14 @@ const Component = () => {
       </Pressable>
     </View>
     <Outlet />
+    <ModalBox visible={optionsDialogVisible}>
+      <Pressable onPress={() => console.log('edit')}>
+        <Text style={styles.modalItemText}>Edit</Text>
+      </Pressable>
+      <Pressable onPress={() => console.log('delete')}>
+        <Text style={styles.modalItemText}>Delete</Text>
+      </Pressable>
+    </ModalBox>
   </>
 }
 
@@ -50,6 +60,7 @@ const styles = StyleSheet.create({
   },
   itemWrapper: tw('flex flex-row items-center justify-between'),
   itemText: tw('text-2xl p-2 m-1'),
+  modalItemText: tw('py-2'),
   footer: tw('flex flex-row justify-evenly items-center py-3')
 })
 

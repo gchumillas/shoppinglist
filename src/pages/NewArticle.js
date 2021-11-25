@@ -14,6 +14,7 @@ const Component = () => {
     navigate('/', { state: { lastInsertId: id } })
   }
 
+  // TODO: replace <Modal /> by <ModalBox />
   return <Modal animationType="fade" transparent>
     <View style={styles.container}>
       <View style={styles.box}>
