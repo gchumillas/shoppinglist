@@ -24,3 +24,9 @@ export const createArticle = async (text) => {
   await ss.setItemAsync('articles', JSON.stringify([...articles, { id, text }]))
   return id
 }
+
+export const deleteArticle = async (id) => {
+  const articles = await getArticles()
+
+  await ss.setItemAsync('articles', JSON.stringify(articles.filter(x => x.id != id)))
+}
