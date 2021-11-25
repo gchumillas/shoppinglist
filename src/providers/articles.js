@@ -1,6 +1,10 @@
 import * as ss from 'expo-secure-store'
 import uuid from 'react-native-uuid'
 
+const saveArticles = async articles => {
+  await ss.setItemAsync('articles', JSON.stringify(articles))
+}
+
 /**
  * @returns {Promise<{ id: string, text: string }[]>}
  */
@@ -21,7 +25,7 @@ export const createArticle = async (text) => {
   const articles = await getArticles()
   const id = uuid.v1()
 
-  await ss.setItemAsync('articles', JSON.stringify([...articles, { id, text }]))
+  await saveArticles([...articles, { id, text }])
   return id
 }
 
@@ -42,10 +46,7 @@ export const readArticle = async (id) => {
 export const updateArticle = async (id, text) => {
   const articles = await getArticles()
 
-  await ss.setItemAsync(
-    'articles',
-    JSON.stringify(articles.map(x => ({ id: x.id, text: x.id == id ? text : x.text })))
-  )
+  await saveArticles(articles.map(x => ({ id: x.id, text: x.id == id ? text : x.text })))
 }
 
 /**
@@ -54,5 +55,5 @@ export const updateArticle = async (id, text) => {
 export const deleteArticle = async (id) => {
   const articles = await getArticles()
 
-  await ss.setItemAsync('articles', JSON.stringify(articles.filter(x => x.id != id)))
+  await saveArticles(articles.filter(x => x.id != id))
 }
