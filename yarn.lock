@@ -1184,6 +1184,11 @@
     lodash.pick "^4.4.0"
     lodash.template "^4.5.0"
 
+"@gchumillas/schema-fixer@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@gchumillas/schema-fixer/-/schema-fixer-0.1.2.tgz#b317185ea6508be991190f1d0d495da926978439"
+  integrity sha512-/ERSwGoerCOo9FuTozABE8cOts3NHK0qotaJY9oLcv5rDUf76KX89Nks5kKX31PCYgEY8xc8fVt42uXu5XKqfQ==
+
 "@hapi/hoek@^9.0.0":
   version "9.2.1"
   resolved "https://registry.npmjs.org/@hapi/hoek/-/hoek-9.2.1.tgz"
