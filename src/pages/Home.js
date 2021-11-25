@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, FlatList, Pressable, StatusBar, Text } from 'react-native'
-import { Link, Outlet, useLocation } from 'react-router-native'
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-native'
 import NewIcon from '~/assets/icons/new.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import OptionsIcon from '~/assets/icons/options.svg'
@@ -9,7 +9,12 @@ import { AppText } from '~/src/components/elements'
 import ModalBox from '~/src/components/ModalBox'
 import { getArticles, deleteArticle } from '~/src/providers/articles'
 
+export const context = React.createContext({
+  reload: () => {}
+})
+
 const Component = () => {
+  const navigate = useNavigate()
   const location = useLocation()
   const { lastInsertId } = location.state || {}
   const [selectedArticleId, setSelectedArticleId] = React.useState('')
@@ -23,11 +28,16 @@ const Component = () => {
     reload()
   }
 
+  const doEditArticle = async _ => {
+    navigate(`/edit-article/${selectedArticleId}`)
+    doCloseDialog()
+  }
+
   React.useEffect(() => {
     reload()
   }, [lastInsertId])
 
-  return <>
+  return <context.Provider value={{ reload }}>
     <View style={styles.list}>
       <FlatList
         data={articles}
@@ -47,16 +57,16 @@ const Component = () => {
         <DeleteIcon width={35} height={35} />
       </Pressable>
     </View>
-    <Outlet />
     <ModalBox visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
-      <Pressable onPress={() => console.log('edit')}>
+      <Pressable onPress={doEditArticle}>
         <Text style={styles.modalItemText}>Edit</Text>
       </Pressable>
       <Pressable onPress={doDeleteArticle}>
         <Text style={styles.modalItemText}>Delete</Text>
       </Pressable>
     </ModalBox>
-  </>
+    <Outlet />
+  </context.Provider>
 }
 
 const styles = StyleSheet.create({
