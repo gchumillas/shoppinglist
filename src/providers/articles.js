@@ -1,14 +1,21 @@
 import * as ss from 'expo-secure-store'
 import uuid from 'react-native-uuid'
+import { fix, pipes } from '@gchumillas/schema-fixer'
+
+const fixArticles = articles => fix(articles, pipes.array({ type: { id: 'string', text: 'string' } }))
+
+const saveArticles = async articles => {
+  await ss.setItemAsync('articles', JSON.stringify(fixArticles(articles)))
+}
 
 /**
  * @returns {Promise<{ id: string, text: string }[]>}
  */
 export const getArticles = async () => {
   try {
-    // TODO: ensure that article is string[]
-    return JSON.parse(await ss.getItemAsync('articles') ?? [])
-  } catch {
+    return fixArticles(JSON.parse(await ss.getItemAsync('articles')))
+  } catch (err) {
+    console.error(err)
     return []
   }
 }
@@ -21,7 +28,7 @@ export const createArticle = async (text) => {
   const articles = await getArticles()
   const id = uuid.v1()
 
-  await ss.setItemAsync('articles', JSON.stringify([...articles, { id, text }]))
+  await saveArticles([...articles, { id, text }])
   return id
 }
 
@@ -42,17 +49,22 @@ export const readArticle = async (id) => {
 export const updateArticle = async (id, text) => {
   const articles = await getArticles()
 
-  await ss.setItemAsync(
-    'articles',
-    JSON.stringify(articles.map(x => ({ id: x.id, text: x.id == id ? text : x.text })))
-  )
+  await saveArticles(articles.map(x => ({ id: x.id, text: x.id == id ? text : x.text })))
 }
 
+// TODO: (all) enforce id vs. (id)
 /**
  * @param {string} id
  */
 export const deleteArticle = async (id) => {
   const articles = await getArticles()
 
-  await ss.setItemAsync('articles', JSON.stringify(articles.filter(x => x.id != id)))
+  await saveArticles(articles.filter(x => x.id != id))
+}
+
+/**
+ * @param {string} id
+ */
+export const deleteAllArticles = async id => {
+  await saveArticles([])
 }

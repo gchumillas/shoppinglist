@@ -1,30 +1,30 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { useNavigate } from 'react-router-native'
 import { tw } from '~/src/libs/tailwind'
-import { AppButton, AppTextInput } from '~/src/components/elements'
+import { AppButton, AppText } from '~/src/components/elements'
 import ModalBox from '~/src/components/ModalBox'
-import { createArticle } from '~/src/providers/articles'
+import { deleteAllArticles } from '~/src/providers/articles'
 import { context } from './Home'
 
 const Component = () => {
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
-  const [text, setText] = React.useState('')
 
-  const doSave = async () => {
-    await createArticle(text)
+  // TODO: (all) enforce _ vs. ()
+  const doDeleteAll = async _ => {
+    await deleteAllArticles()
     reload()
     navigate('/')
   }
 
   return <ModalBox visible>
     <View>
-      <AppTextInput autoFocus value={text} onChangeText={setText} />
+      <AppText style={tw('text-center pb-6')}>Delete all articles?</AppText>
     </View>
     <View style={styles.footer}>
-      <AppButton title="Close" onPress={() => navigate('/')} />
-      <AppButton title="Save" primary onPress={doSave} />
+      <AppButton title="No" onPress={() => navigate('/')} />
+      <AppButton title="Yes" primary onPress={doDeleteAll} />
     </View>
   </ModalBox>
 }

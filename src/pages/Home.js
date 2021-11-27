@@ -53,9 +53,9 @@ const Component = () => {
       <Link to="/new-article">
         <NewIcon width={35} height={35} />
       </Link>
-      <Pressable>
+      <Link to="/delete-all-articles">
         <DeleteIcon width={35} height={35} />
-      </Pressable>
+      </Link>
     </View>
     <ModalBox visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
       <Pressable onPress={doEditArticle}>
