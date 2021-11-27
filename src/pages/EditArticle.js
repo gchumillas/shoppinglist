@@ -14,7 +14,7 @@ const Component = () => {
   const [text, setText] = React.useState('')
 
   const doSave = async () => {
-    await updateArticle(id, text)
+    await updateArticle({ id, text })
     reload()
     navigate('/')
   }

@@ -43,13 +43,12 @@ export const readArticle = async (id) => {
 }
 
 /**
- * @param {string} id
- * @param {string} text
+ * @param {{ id: string, text?: string }} props
  */
-export const updateArticle = async (id, text) => {
+export const updateArticle = async ({ id, ...rest }) => {
   const articles = await getArticles()
 
-  await saveArticles(articles.map(x => ({ id: x.id, text: x.id == id ? text : x.text })))
+  await saveArticles(articles.map(x => x.id == id ? ({ ...x, ...rest }) : x))
 }
 
 // TODO: (all) enforce id vs. (id)
