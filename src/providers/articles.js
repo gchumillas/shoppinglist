@@ -2,14 +2,14 @@ import * as ss from 'expo-secure-store'
 import uuid from 'react-native-uuid'
 import { fix, pipes } from '@gchumillas/schema-fixer'
 
-const fixArticles = articles => fix(articles, pipes.array({ type: { id: 'string', text: 'string' } }))
+const fixArticles = articles => fix(articles, pipes.array({ type: { id: 'string', text: 'string', checked: 'boolean' } }))
 
 const saveArticles = async articles => {
   await ss.setItemAsync('articles', JSON.stringify(fixArticles(articles)))
 }
 
 /**
- * @returns {Promise<{ id: string, text: string }[]>}
+ * @returns {Promise<{ id: string, text: string, checked: boolean }[]>}
  */
 export const getArticles = async () => {
   try {
@@ -28,13 +28,13 @@ export const createArticle = async ({ text }) => {
   const articles = await getArticles()
   const id = uuid.v1()
 
-  await saveArticles([...articles, { id, text }])
+  await saveArticles([...articles, { id, text, checked: false }])
   return id
 }
 
 /**
- * @param {*} id
- * @returns {Promise<{ id: string, text: string }>}
+ * @param {string} id
+ * @returns {Promise<{ id: string, text: string, checked: boolean }>}
  */
 export const readArticle = async (id) => {
   const articles = await getArticles()
@@ -43,7 +43,7 @@ export const readArticle = async (id) => {
 }
 
 /**
- * @param {{ id: string, text?: string }} props
+ * @param {{ id: string, text?: string, checked?: boolean }} props
  */
 export const updateArticle = async ({ id, ...rest }) => {
   const articles = await getArticles()
