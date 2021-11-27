@@ -13,8 +13,9 @@ const saveArticles = async articles => {
  */
 export const getArticles = async () => {
   try {
-    return fixArticles(ss.getItemAsync('articles'))
-  } catch {
+    return fixArticles(JSON.parse(await ss.getItemAsync('articles')))
+  } catch (err) {
+    console.error(err)
     return []
   }
 }
@@ -51,6 +52,7 @@ export const updateArticle = async (id, text) => {
   await saveArticles(articles.map(x => ({ id: x.id, text: x.id == id ? text : x.text })))
 }
 
+// TODO: (all) enforce id vs. (id)
 /**
  * @param {string} id
  */
@@ -58,4 +60,11 @@ export const deleteArticle = async (id) => {
   const articles = await getArticles()
 
   await saveArticles(articles.filter(x => x.id != id))
+}
+
+/**
+ * @param {string} id
+ */
+export const deleteAllArticles = async id => {
+  await saveArticles([])
 }
