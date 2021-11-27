@@ -21,10 +21,10 @@ export const getArticles = async () => {
 }
 
 /**
- * @param {string} text
+ * @param {{ text: string }} props
  * @returns {Promise<string>}
  */
-export const createArticle = async (text) => {
+export const createArticle = async ({ text }) => {
   const articles = await getArticles()
   const id = uuid.v1()
 
