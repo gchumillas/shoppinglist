@@ -67,3 +67,21 @@ export const deleteArticle = async (id) => {
 export const deleteAllArticles = async id => {
   await saveArticles([])
 }
+
+/**
+ * Checkes / Unchecks an article.
+ * @param {string} id
+ */
+export const toggleArticle = async id => {
+  const articles = await getArticles()
+  const pos = articles.findIndex(x => x.id == id)
+  let article = articles.splice(pos, 1)[0]
+  const checkedArticles = articles.filter(x => x.checked)
+  const uncheckedArticles = articles.filter(x => !x.checked)
+
+  article = { ...article, checked: !article.checked }
+  await saveArticles(article.checked
+    ? [...uncheckedArticles, article, ...checkedArticles]
+    : [article, ...uncheckedArticles, ...checkedArticles]
+  )
+}

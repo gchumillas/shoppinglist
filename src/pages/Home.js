@@ -7,7 +7,7 @@ import OptionsIcon from '~/assets/icons/options.svg'
 import { tw } from '~/src/libs/tailwind'
 import { AppText } from '~/src/components/elements'
 import ModalBox from '~/src/components/ModalBox'
-import { getArticles, deleteArticle, updateArticle } from '~/src/providers/articles'
+import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
 
 export const context = React.createContext({
   reload: () => {}
@@ -34,8 +34,8 @@ const Component = () => {
   }
 
   // checks or unchecks an article
-  const doToggleArticle = async ({ id, checked }) => {
-    await updateArticle({ id, checked: !checked })
+  const doToggleArticle = async ({ id }) => {
+    await toggleArticle(id)
     reload()
   }
 
