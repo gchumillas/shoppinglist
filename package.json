@@ -8,7 +8,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "lint": "eslint App.js ./src"
+    "lint": "eslint ./src"
   },
   "dependencies": {
     "@expo-google-fonts/patrick-hand": "^0.2.0",
