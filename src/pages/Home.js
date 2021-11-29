@@ -63,10 +63,10 @@ const Component = _ => {
     </View>
     <View style={styles.footer}>
       <Link to="/new-article">
-        <NewIcon width={35} height={35} />
+        <NewIcon width={70} height={70} />
       </Link>
       <Link to="/delete-all-articles">
-        <DeleteIcon width={35} height={35} />
+        <DeleteIcon width={70} height={70} />
       </Link>
     </View>
     <ModalBox visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   itemText: { ...tw('text-2xl p-2 m-1'), fontFamily: 'patrickHand400Regular' },
   itemTextChecked: tw('line-through'),
   modalItemText: tw('py-2'),
-  footer: tw('flex flex-row justify-evenly items-center py-3')
+  footer: tw('flex flex-row justify-evenly items-center py-7')
 })
 
 export default Component
