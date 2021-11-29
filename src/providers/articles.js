@@ -36,7 +36,7 @@ export const createArticle = async ({ text }) => {
  * @param {string} id
  * @returns {Promise<{ id: string, text: string, checked: boolean }>}
  */
-export const readArticle = async (id) => {
+export const readArticle = async id => {
   const articles = await getArticles()
 
   return articles.find(x => x.id == id)
@@ -55,7 +55,7 @@ export const updateArticle = async ({ id, ...rest }) => {
 /**
  * @param {string} id
  */
-export const deleteArticle = async (id) => {
+export const deleteArticle = async id => {
   const articles = await getArticles()
 
   await saveArticles(articles.filter(x => x.id != id))
