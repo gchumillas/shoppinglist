@@ -44,7 +44,7 @@ const Component = _ => {
   }, [lastInsertId])
 
   return <context.Provider value={{ reload }}>
-    <View style={styles.list}>
+    <View style={styles.body}>
       <FlatList
         data={articles}
         renderItem={({ item }) => <View style={styles.itemWrapper}>
@@ -60,7 +60,7 @@ const Component = _ => {
           </Pressable>
         </View>}
         keyExtractor={item => item.id}
-        style={styles.flatList} />
+        style={styles.list} />
     </View>
     <View style={styles.footer}>
       <Link to="/new-article">
@@ -83,9 +83,9 @@ const Component = _ => {
 }
 
 const styles = StyleSheet.create({
-  list: tw('flex-shrink flex-grow px-4'),
+  body: tw('flex-shrink flex-grow px-4'),
   // TODO: replace by StatusBar.currentHeight
-  flatList: { marginTop: 24 },
+  list: { marginTop: 24 },
   itemWrapper: tw('flex flex-row items-center justify-between'),
   itemText: { ...tw('text-2xl p-2 m-1'), fontFamily: 'patrickHand400Regular' },
   itemTextChecked: tw('line-through'),
