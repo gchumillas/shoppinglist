@@ -7,11 +7,10 @@ import ModalBox from '~/src/components/ModalBox'
 import { deleteAllArticles } from '~/src/providers/articles'
 import { context } from './Home'
 
-const Component = () => {
+const Component = _ => {
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
 
-  // TODO: (all) enforce _ vs. ()
   const doDeleteAll = async _ => {
     await deleteAllArticles()
     reload()
@@ -23,7 +22,7 @@ const Component = () => {
       <AppText style={tw('text-center pb-6')}>Delete all articles?</AppText>
     </View>
     <View style={styles.footer}>
-      <AppButton title="No" onPress={() => navigate('/')} />
+      <AppButton title="No" onPress={_ => navigate('/')} />
       <AppButton title="Yes" primary onPress={doDeleteAll} />
     </View>
   </ModalBox>

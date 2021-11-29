@@ -6,7 +6,7 @@ const Component = ({ visible = false, onRequestClose = undefined, children }) =>
   return <Modal animationType="fade" transparent visible={visible} onRequestClose={onRequestClose}>
     <Pressable onPress={onRequestClose}>
       <View style={styles.wrapper}>
-        <View style={styles.box} onStartShouldSetResponder={() => true}>
+        <View style={styles.box} onStartShouldSetResponder={_ => true}>
           {children}
         </View>
       </View>

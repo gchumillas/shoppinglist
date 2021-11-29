@@ -6,7 +6,7 @@ import { PatrickHand_400Regular as patrickHand400Regular } from '@expo-google-fo
 import { tw, getColor } from '~/src/libs/tailwind'
 import Home from '~/src/pages/Home'
 
-const App = () => {
+const App = _ => {
   // TODO: (?) replace ImageBackground by a canvas
   return <ImageBackground source={require('~/assets/bg.png')} style={styles.container}>
     <Home />
@@ -14,7 +14,7 @@ const App = () => {
   </ImageBackground>
 }
 
-const AppInit = () => {
+const AppInit = _ => {
   const [fontsLoaded] = useFonts({ patrickHand400Regular })
 
   return fontsLoaded

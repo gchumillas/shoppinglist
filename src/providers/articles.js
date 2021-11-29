@@ -11,7 +11,7 @@ const saveArticles = async articles => {
 /**
  * @returns {Promise<{ id: string, text: string, checked: boolean }[]>}
  */
-export const getArticles = async () => {
+export const getArticles = async _ => {
   try {
     return fixArticles(JSON.parse(await ss.getItemAsync('articles')))
   } catch (err) {
@@ -51,7 +51,6 @@ export const updateArticle = async ({ id, ...rest }) => {
   await saveArticles(articles.map(x => x.id == id ? ({ ...x, ...rest }) : x))
 }
 
-// TODO: (all) enforce id vs. (id)
 /**
  * @param {string} id
  */

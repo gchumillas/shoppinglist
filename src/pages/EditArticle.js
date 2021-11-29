@@ -7,19 +7,19 @@ import ModalBox from '~/src/components/ModalBox'
 import { updateArticle, readArticle } from '~/src/providers/articles'
 import { context } from './Home'
 
-const Component = () => {
+const Component = _ => {
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
   const { id } = useParams()
   const [text, setText] = React.useState('')
 
-  const doSave = async () => {
+  const doSave = async _ => {
     await updateArticle({ id, text })
     reload()
     navigate('/')
   }
 
-  React.useEffect(() => {
+  React.useEffect(_ => {
     const init = async _ => {
       const article = await readArticle(id)
       setText(article.text)
@@ -33,7 +33,7 @@ const Component = () => {
       <AppTextInput autoFocus value={text} onChangeText={setText} />
     </View>
     <View style={styles.footer}>
-      <AppButton title="Close" onPress={() => navigate('/')} />
+      <AppButton title="Close" onPress={_ => navigate('/')} />
       <AppButton title="Save" primary onPress={doSave} />
     </View>
   </ModalBox>

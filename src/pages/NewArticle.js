@@ -7,13 +7,13 @@ import ModalBox from '~/src/components/ModalBox'
 import { createArticle } from '~/src/providers/articles'
 import { context } from './Home'
 
-const Component = () => {
+const Component = _ => {
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
   const [text, setText] = React.useState('')
 
   // TODO: (all) text cannot be empty
-  const doSave = async () => {
+  const doSave = async _ => {
     await createArticle({ text })
     reload()
     navigate('/')
@@ -24,7 +24,7 @@ const Component = () => {
       <AppTextInput autoFocus value={text} onChangeText={setText} />
     </View>
     <View style={styles.footer}>
-      <AppButton title="Close" onPress={() => navigate('/')} />
+      <AppButton title="Close" onPress={_ => navigate('/')} />
       <AppButton title="Save" primary onPress={doSave} />
     </View>
   </ModalBox>

@@ -10,17 +10,17 @@ import ModalBox from '~/src/components/ModalBox'
 import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
 
 export const context = React.createContext({
-  reload: () => {}
+  reload: _ => {}
 })
 
-const Component = () => {
+const Component = _ => {
   const navigate = useNavigate()
   const location = useLocation()
   const { lastInsertId } = location.state || {}
   const [selectedArticleId, setSelectedArticleId] = React.useState('')
   const [articles, setArticles] = React.useState([])
-  const reload = async () => setArticles(await getArticles())
-  const doCloseDialog = () => setSelectedArticleId('')
+  const reload = async _ => setArticles(await getArticles())
+  const doCloseDialog = _ => setSelectedArticleId('')
 
   const doDeleteArticle = async _ => {
     await deleteArticle(selectedArticleId)
@@ -39,7 +39,7 @@ const Component = () => {
     reload()
   }
 
-  React.useEffect(() => {
+  React.useEffect(_ => {
     reload()
   }, [lastInsertId])
 
@@ -54,7 +54,7 @@ const Component = () => {
             style={{ ...styles.itemText, ...item.checked && tw('line-through') }}>
             {item.text}
           </AppText>
-          <Pressable onPress={() => setSelectedArticleId(item.id)}>
+          <Pressable onPress={_ => setSelectedArticleId(item.id)}>
             <OptionsIcon />
           </Pressable>
         </View>}
