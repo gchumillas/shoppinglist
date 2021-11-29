@@ -34,7 +34,7 @@ const Component = _ => {
     </View>
     <View style={styles.footer}>
       <AppButton title="Close" onPress={_ => navigate('/')} />
-      <AppButton title="Save" primary onPress={doSave} />
+      <AppButton title="Save" primary disabled={!text} onPress={doSave} />
     </View>
   </ModalBox>
 }
