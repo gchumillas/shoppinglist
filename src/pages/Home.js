@@ -4,7 +4,7 @@ import { Link, Outlet, useLocation, useNavigate } from 'react-router-native'
 import NewIcon from '~/assets/icons/new.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import OptionsIcon from '~/assets/icons/options.svg'
-import { tw } from '~/src/libs/tailwind'
+import { tw, Palette } from '~/src/libs/tailwind'
 import { AppText } from '~/src/components/elements'
 import ModalBox from '~/src/components/ModalBox'
 import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
@@ -64,10 +64,10 @@ const Component = _ => {
     </View>
     <View style={styles.footer}>
       <Link to="/new-article">
-        <NewIcon width={70} height={70} />
+        <NewIcon width={70} height={70} fill={Palette.PrimaryText} />
       </Link>
       <Link to="/delete-all-articles">
-        <DeleteIcon width={70} height={70} />
+        <DeleteIcon width={70} height={70} fill={Palette.PrimaryText} />
       </Link>
     </View>
     <ModalBox visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   itemText: { ...tw('text-2xl p-2 m-1'), fontFamily: 'patrickHand400Regular' },
   itemTextChecked: tw('line-through'),
   modalItemText: tw('py-2'),
-  footer: tw('flex flex-row justify-evenly items-center py-7')
+  footer: tw('flex flex-row justify-evenly items-center pt-5 pb-5')
 })
 
 export default Component
