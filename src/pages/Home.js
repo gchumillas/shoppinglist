@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, FlatList, Pressable, StatusBar } from 'react-native'
+import { StyleSheet, View, FlatList, Pressable } from 'react-native'
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-native'
 import NewIcon from '~/assets/icons/new.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
@@ -59,7 +59,8 @@ const Component = _ => {
             <OptionsIcon />
           </Pressable>
         </View>}
-        keyExtractor={item => item.id} />
+        keyExtractor={item => item.id}
+        style={styles.flatList} />
     </View>
     <View style={styles.footer}>
       <Link to="/new-article">
@@ -82,10 +83,9 @@ const Component = _ => {
 }
 
 const styles = StyleSheet.create({
-  list: {
-    ...tw('flex-shrink flex-grow py-3 px-4'),
-    marginTop: StatusBar.currentHeight || 0
-  },
+  list: tw('flex-shrink flex-grow px-4'),
+  // TODO: replace by StatusBar.currentHeight
+  flatList: { marginTop: 24 },
   itemWrapper: tw('flex flex-row items-center justify-between'),
   itemText: { ...tw('text-2xl p-2 m-1'), fontFamily: 'patrickHand400Regular' },
   itemTextChecked: tw('line-through'),
