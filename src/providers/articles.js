@@ -2,14 +2,14 @@ import * as ss from 'expo-secure-store'
 import uuid from 'react-native-uuid'
 import { fix, pipes } from '@gchumillas/schema-fixer'
 
-const fixArticles = articles => fix(articles, pipes.array({ type: { id: 'string', text: 'string' } }))
+const fixArticles = articles => fix(articles, pipes.array({ type: { id: 'string', text: 'string', checked: 'boolean' } }))
 
 const saveArticles = async articles => {
   await ss.setItemAsync('articles', JSON.stringify(fixArticles(articles)))
 }
 
 /**
- * @returns {Promise<{ id: string, text: string }[]>}
+ * @returns {Promise<{ id: string, text: string, checked: boolean }[]>}
  */
 export const getArticles = async () => {
   try {
@@ -21,20 +21,20 @@ export const getArticles = async () => {
 }
 
 /**
- * @param {string} text
+ * @param {{ text: string }} props
  * @returns {Promise<string>}
  */
-export const createArticle = async (text) => {
+export const createArticle = async ({ text }) => {
   const articles = await getArticles()
   const id = uuid.v1()
 
-  await saveArticles([...articles, { id, text }])
+  await saveArticles([...articles, { id, text, checked: false }])
   return id
 }
 
 /**
- * @param {*} id
- * @returns {Promise<{ id: string, text: string }>}
+ * @param {string} id
+ * @returns {Promise<{ id: string, text: string, checked: boolean }>}
  */
 export const readArticle = async (id) => {
   const articles = await getArticles()
@@ -43,13 +43,12 @@ export const readArticle = async (id) => {
 }
 
 /**
- * @param {string} id
- * @param {string} text
+ * @param {{ id: string, text?: string, checked?: boolean }} props
  */
-export const updateArticle = async (id, text) => {
+export const updateArticle = async ({ id, ...rest }) => {
   const articles = await getArticles()
 
-  await saveArticles(articles.map(x => ({ id: x.id, text: x.id == id ? text : x.text })))
+  await saveArticles(articles.map(x => x.id == id ? ({ ...x, ...rest }) : x))
 }
 
 // TODO: (all) enforce id vs. (id)
@@ -67,4 +66,22 @@ export const deleteArticle = async (id) => {
  */
 export const deleteAllArticles = async id => {
   await saveArticles([])
+}
+
+/**
+ * Checkes / Unchecks an article.
+ * @param {string} id
+ */
+export const toggleArticle = async id => {
+  const articles = await getArticles()
+  const pos = articles.findIndex(x => x.id == id)
+  let article = articles.splice(pos, 1)[0]
+  const checkedArticles = articles.filter(x => x.checked)
+  const uncheckedArticles = articles.filter(x => !x.checked)
+
+  article = { ...article, checked: !article.checked }
+  await saveArticles(article.checked
+    ? [...uncheckedArticles, article, ...checkedArticles]
+    : [article, ...uncheckedArticles, ...checkedArticles]
+  )
 }

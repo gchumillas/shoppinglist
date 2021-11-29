@@ -12,8 +12,9 @@ const Component = () => {
   const navigate = useNavigate()
   const [text, setText] = React.useState('')
 
+  // TODO: (all) text cannot be empty
   const doSave = async () => {
-    await createArticle(text)
+    await createArticle({ text })
     reload()
     navigate('/')
   }

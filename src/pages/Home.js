@@ -7,7 +7,7 @@ import OptionsIcon from '~/assets/icons/options.svg'
 import { tw } from '~/src/libs/tailwind'
 import { AppText } from '~/src/components/elements'
 import ModalBox from '~/src/components/ModalBox'
-import { getArticles, deleteArticle } from '~/src/providers/articles'
+import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
 
 export const context = React.createContext({
   reload: () => {}
@@ -33,6 +33,12 @@ const Component = () => {
     doCloseDialog()
   }
 
+  // checks or unchecks an article
+  const doToggleArticle = async ({ id }) => {
+    await toggleArticle(id)
+    reload()
+  }
+
   React.useEffect(() => {
     reload()
   }, [lastInsertId])
@@ -42,7 +48,12 @@ const Component = () => {
       <FlatList
         data={articles}
         renderItem={({ item }) => <View style={styles.itemWrapper}>
-          <AppText key={item.id} style={styles.itemText}>{item.text}</AppText>
+          <AppText
+            key={item.id}
+            onPress={_ => doToggleArticle(item)}
+            style={{ ...styles.itemText, ...item.checked && tw('line-through') }}>
+            {item.text}
+          </AppText>
           <Pressable onPress={() => setSelectedArticleId(item.id)}>
             <OptionsIcon />
           </Pressable>
@@ -76,6 +87,7 @@ const styles = StyleSheet.create({
   },
   itemWrapper: tw('flex flex-row items-center justify-between'),
   itemText: { ...tw('text-2xl p-2 m-1'), fontFamily: 'patrickHand400Regular' },
+  itemTextChecked: tw('line-through'),
   modalItemText: tw('py-2'),
   footer: tw('flex flex-row justify-evenly items-center py-3')
 })
