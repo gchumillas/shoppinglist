@@ -48,6 +48,7 @@ const Component = _ => {
       <FlatList
         data={articles}
         renderItem={({ item }) => <View style={styles.itemWrapper}>
+          {/* TODO: text should extends 100% */}
           <AppText
             key={item.id}
             onPress={_ => doToggleArticle(item)}
