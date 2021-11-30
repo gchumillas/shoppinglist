@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   // TODO: replace by StatusBar.currentHeight
   list: { ...tw('pt-5'), marginTop: 24 },
   itemWrapper: tw('flex flex-row items-center justify-between mb-5'),
-  itemText: { ...tw('text-3xl'), fontFamily: 'patrickHand400Regular' },
+  itemText: { ...tw('text-3xl flex-grow'), fontFamily: 'patrickHand400Regular' },
   itemTextChecked: tw('line-through'),
   modalItemText: tw('py-2'),
   footer: tw('flex flex-row justify-evenly items-center pt-5 pb-5')
