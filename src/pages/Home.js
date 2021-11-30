@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   itemText: { ...tw('text-2xl flex-grow'), fontFamily: 'patrickHand400Regular' },
   itemTextChecked: tw('line-through'),
   modalItemText: tw('py-2'),
-  footer: tw('flex flex-row justify-evenly items-center pt-5 pb-5')
+  footer: tw('flex flex-row justify-evenly items-center py-4')
 })
 
 export default Component
