@@ -52,7 +52,7 @@ const Component = _ => {
           <AppText
             key={item.id}
             onPress={_ => doToggleArticle(item)}
-            style={{ ...styles.itemText, ...item.checked && tw('line-through') }}>
+            style={{ ...styles.itemText, ...item.checked && styles.itemTextChecked }}>
             {item.text}
           </AppText>
           <Pressable onPress={_ => setSelectedArticleId(item.id)}>
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   list: { ...tw('pt-5'), marginTop: 24 },
   itemWrapper: tw('flex flex-row items-center justify-between mb-5'),
   itemText: { ...tw('text-2xl flex-grow'), fontFamily: 'patrickHand400Regular' },
-  itemTextChecked: tw('line-through'),
+  itemTextChecked: tw('line-through text-gray-400'),
   modalItemText: tw('py-2'),
   footer: tw('flex flex-row justify-evenly items-center py-4')
 })
