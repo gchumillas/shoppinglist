@@ -64,10 +64,10 @@ const Component = _ => {
     </View>
     <View style={styles.footer}>
       <Link to="/new-article">
-        <NewIcon width={70} height={70} fill={Palette.PrimaryText} />
+        <NewIcon width={55} height={55} fill={Palette.PrimaryText} />
       </Link>
       <Link to="/delete-all-articles">
-        <DeleteIcon width={70} height={70} fill={Palette.PrimaryText} />
+        <DeleteIcon width={55} height={55} fill={Palette.PrimaryText} />
       </Link>
     </View>
     <ModalBox visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
