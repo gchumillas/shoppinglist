@@ -83,11 +83,11 @@ const Component = _ => {
 }
 
 const styles = StyleSheet.create({
-  body: tw('flex-shrink flex-grow px-4'),
+  body: tw('flex-shrink flex-grow px-7'),
   // TODO: replace by StatusBar.currentHeight
-  list: { marginTop: 24 },
-  itemWrapper: tw('flex flex-row items-center justify-between'),
-  itemText: { ...tw('text-2xl p-2 m-1'), fontFamily: 'patrickHand400Regular' },
+  list: { ...tw('pt-5'), marginTop: 24 },
+  itemWrapper: tw('flex flex-row items-center justify-between mb-5'),
+  itemText: { ...tw('text-3xl'), fontFamily: 'patrickHand400Regular' },
   itemTextChecked: tw('line-through'),
   modalItemText: tw('py-2'),
   footer: tw('flex flex-row justify-evenly items-center pt-5 pb-5')
