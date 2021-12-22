@@ -19,8 +19,8 @@ const Component = _ => {
   }
 
   return <ModalBox visible>
-    <View>
-      <AppTextInput autoFocus value={text} onChangeText={setText} />
+    <View style={styles.body}>
+      <AppTextInput autoFocus dense value={text} onChangeText={setText} />
     </View>
     <View style={styles.footer}>
       <AppButton title="Close" onPress={_ => navigate('/')} />
@@ -30,6 +30,7 @@ const Component = _ => {
 }
 
 const styles = StyleSheet.create({
+  body: tw('py-8'),
   footer: tw('flex flex-row items-center justify-around')
 })
 
