@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { useNavigate } from 'react-router-native'
 import { tw } from '~/src/libs/tailwind'
-import { Button, AppTextInput } from '~/src/components/inputs'
+import { Button, TextField } from '~/src/components/inputs'
 import ModalBox from '~/src/components/ModalBox'
 import { createArticle } from '~/src/providers/articles'
 import { context } from './Home'
@@ -20,7 +20,7 @@ const Component = _ => {
 
   return <ModalBox visible>
     <View style={styles.body}>
-      <AppTextInput autoFocus dense value={text} onChangeText={setText} />
+      <TextField autoFocus dense value={text} onChangeText={setText} />
     </View>
     <View style={styles.footer}>
       <Button title="Close" onPress={_ => navigate('/')} />

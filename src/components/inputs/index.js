@@ -1,2 +1,2 @@
 export { default as Button } from './Button'
-export { default as AppTextInput } from './AppTextInput'
+export { default as TextField } from './TextField'
