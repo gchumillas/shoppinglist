@@ -1,1 +1,1 @@
-export { default as ModalBox } from './ModalBox'
+export { default as ModalDialog } from './ModalDialog'

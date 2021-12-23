@@ -6,7 +6,7 @@ import DeleteIcon from '~/assets/icons/delete.svg'
 import OptionsIcon from '~/assets/icons/options.svg'
 import { tw, Palette } from '~/src/libs/tailwind'
 import { Text } from '~/src/components/display'
-import { ModalBox } from '~/src/components/utils'
+import { ModalDialog } from '~/src/components/utils'
 import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
 
 export const context = React.createContext({
@@ -70,14 +70,14 @@ const Component = _ => {
         <DeleteIcon width={55} height={55} fill={Palette.PrimaryText} />
       </Link>
     </View>
-    <ModalBox visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
+    <ModalDialog visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
       <Pressable onPress={doEditArticle}>
         <Text style={styles.modalItemText}>Edit</Text>
       </Pressable>
       <Pressable onPress={doDeleteArticle}>
         <Text style={styles.modalItemText}>Delete</Text>
       </Pressable>
-    </ModalBox>
+    </ModalDialog>
     <Outlet />
   </context.Provider>
 }

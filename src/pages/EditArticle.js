@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native'
 import { useNavigate, useParams } from 'react-router-native'
 import { tw } from '~/src/libs/tailwind'
 import { Button, TextField } from '~/src/components/inputs'
-import { ModalBox } from '~/src/components/utils'
+import { ModalDialog } from '~/src/components/utils'
 import { updateArticle, readArticle } from '~/src/providers/articles'
 import { context } from './Home'
 
@@ -28,7 +28,7 @@ const Component = _ => {
     init()
   }, [])
 
-  return <ModalBox visible>
+  return <ModalDialog visible>
     <View>
       <TextField autoFocus value={text} onChangeText={setText} />
     </View>
@@ -36,7 +36,7 @@ const Component = _ => {
       <Button title="Close" onPress={_ => navigate('/')} />
       <Button title="Save" primary disabled={!text} onPress={doSave} />
     </View>
-  </ModalBox>
+  </ModalDialog>
 }
 
 const styles = StyleSheet.create({

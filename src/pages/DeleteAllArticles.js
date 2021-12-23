@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-native'
 import { tw } from '~/src/libs/tailwind'
 import { Text } from '~/src/components/display'
 import { Button } from '~/src/components/inputs'
-import { ModalBox } from '~/src/components/utils'
+import { ModalDialog } from '~/src/components/utils'
 import { deleteAllArticles } from '~/src/providers/articles'
 import { context } from './Home'
 
@@ -18,7 +18,7 @@ const Component = _ => {
     navigate('/')
   }
 
-  return <ModalBox visible>
+  return <ModalDialog visible>
     <View>
       <Text style={tw('text-center pb-6')}>Delete all articles?</Text>
     </View>
@@ -26,7 +26,7 @@ const Component = _ => {
       <Button title="No" onPress={_ => navigate('/')} />
       <Button title="Yes" primary onPress={doDeleteAll} />
     </View>
-  </ModalBox>
+  </ModalDialog>
 }
 
 const styles = StyleSheet.create({
