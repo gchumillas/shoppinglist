@@ -2,8 +2,8 @@ import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { useNavigate, useParams } from 'react-router-native'
 import { tw } from '~/src/libs/tailwind'
-import { AppButton, AppTextInput } from '~/src/components/elements'
-import ModalBox from '~/src/components/ModalBox'
+import { Button, TextField } from '~/src/components/inputs'
+import { ModalDialog } from '~/src/components/utils'
 import { updateArticle, readArticle } from '~/src/providers/articles'
 import { context } from './Home'
 
@@ -28,15 +28,15 @@ const Component = _ => {
     init()
   }, [])
 
-  return <ModalBox visible>
+  return <ModalDialog visible>
     <View>
-      <AppTextInput autoFocus value={text} onChangeText={setText} />
+      <TextField autoFocus value={text} onChangeText={setText} />
     </View>
     <View style={styles.footer}>
-      <AppButton title="Close" onPress={_ => navigate('/')} />
-      <AppButton title="Save" primary disabled={!text} onPress={doSave} />
+      <Button title="Close" onPress={_ => navigate('/')} />
+      <Button title="Save" primary disabled={!text} onPress={doSave} />
     </View>
-  </ModalBox>
+  </ModalDialog>
 }
 
 const styles = StyleSheet.create({

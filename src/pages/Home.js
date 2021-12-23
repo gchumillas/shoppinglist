@@ -5,8 +5,8 @@ import NewIcon from '~/assets/icons/new.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import OptionsIcon from '~/assets/icons/options.svg'
 import { tw, Palette } from '~/src/libs/tailwind'
-import { AppText } from '~/src/components/elements'
-import ModalBox from '~/src/components/ModalBox'
+import { Text } from '~/src/components/display'
+import { ModalDialog } from '~/src/components/utils'
 import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
 
 export const context = React.createContext({
@@ -49,12 +49,12 @@ const Component = _ => {
         data={articles}
         renderItem={({ item }) => <View style={styles.itemWrapper}>
           {/* TODO: text should extends 100% */}
-          <AppText
+          <Text
             key={item.id}
             onPress={_ => doToggleArticle(item)}
             style={{ ...styles.itemText, ...item.checked && styles.itemTextChecked }}>
             {item.text}
-          </AppText>
+          </Text>
           <Pressable onPress={_ => setSelectedArticleId(item.id)}>
             <OptionsIcon />
           </Pressable>
@@ -70,14 +70,14 @@ const Component = _ => {
         <DeleteIcon width={55} height={55} fill={Palette.PrimaryText} />
       </Link>
     </View>
-    <ModalBox visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
+    <ModalDialog visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
       <Pressable onPress={doEditArticle}>
-        <AppText style={styles.modalItemText}>Edit</AppText>
+        <Text style={styles.modalItemText}>Edit</Text>
       </Pressable>
       <Pressable onPress={doDeleteArticle}>
-        <AppText style={styles.modalItemText}>Delete</AppText>
+        <Text style={styles.modalItemText}>Delete</Text>
       </Pressable>
-    </ModalBox>
+    </ModalDialog>
     <Outlet />
   </context.Provider>
 }

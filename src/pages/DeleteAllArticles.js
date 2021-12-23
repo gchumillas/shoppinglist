@@ -2,8 +2,9 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { useNavigate } from 'react-router-native'
 import { tw } from '~/src/libs/tailwind'
-import { AppButton, AppText } from '~/src/components/elements'
-import ModalBox from '~/src/components/ModalBox'
+import { Text } from '~/src/components/display'
+import { Button } from '~/src/components/inputs'
+import { ModalDialog } from '~/src/components/utils'
 import { deleteAllArticles } from '~/src/providers/articles'
 import { context } from './Home'
 
@@ -17,15 +18,15 @@ const Component = _ => {
     navigate('/')
   }
 
-  return <ModalBox visible>
+  return <ModalDialog visible>
     <View>
-      <AppText style={tw('text-center pb-6')}>Delete all articles?</AppText>
+      <Text style={tw('text-center pb-6')}>Delete all articles?</Text>
     </View>
     <View style={styles.footer}>
-      <AppButton title="No" onPress={_ => navigate('/')} />
-      <AppButton title="Yes" primary onPress={doDeleteAll} />
+      <Button title="No" onPress={_ => navigate('/')} />
+      <Button title="Yes" primary onPress={doDeleteAll} />
     </View>
-  </ModalBox>
+  </ModalDialog>
 }
 
 const styles = StyleSheet.create({
