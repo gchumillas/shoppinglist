@@ -6,7 +6,7 @@ import DeleteIcon from '~/assets/icons/delete.svg'
 import OptionsIcon from '~/assets/icons/options.svg'
 import { tw, Palette } from '~/src/libs/tailwind'
 import { Text } from '~/src/components/display'
-import ModalBox from '~/src/components/ModalBox'
+import { ModalBox } from '~/src/components/utils'
 import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
 
 export const context = React.createContext({

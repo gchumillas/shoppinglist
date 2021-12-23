@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-native'
 import { tw } from '~/src/libs/tailwind'
 import { Text } from '~/src/components/display'
 import { Button } from '~/src/components/inputs'
-import ModalBox from '~/src/components/ModalBox'
+import { ModalBox } from '~/src/components/utils'
 import { deleteAllArticles } from '~/src/providers/articles'
 import { context } from './Home'
 

@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native'
 import { useNavigate } from 'react-router-native'
 import { tw } from '~/src/libs/tailwind'
 import { Button, TextField } from '~/src/components/inputs'
-import ModalBox from '~/src/components/ModalBox'
+import { ModalBox } from '~/src/components/utils'
 import { createArticle } from '~/src/providers/articles'
 import { context } from './Home'
 
