@@ -6,8 +6,8 @@ const Component = ({ title = '', dense = false, autoFocus = false, value, onChan
   const inputRef = React.useRef(null)
   const [text, setText] = React.useState('')
 
-  React.useEffect(() => {
-    autoFocus && inputRef.current && setTimeout(() => inputRef.current.focus(), 40)
+  React.useEffect(_ => {
+    autoFocus && inputRef.current && setTimeout(_ => inputRef.current.focus(), 100)
   }, [inputRef.current])
 
   React.useEffect(_ => {
