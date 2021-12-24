@@ -17,9 +17,11 @@ const Component = ({ title = '', dense = false, autoFocus = false, value, onChan
   }, [value])
 
   const doChangeText = text => {
-    if (value != text.trim()) {
-      onChange(text.trim())
+    const trimmedText = text.trim()
+    if (value != trimmedText) {
+      onChange(trimmedText)
     }
+
     setText(text)
   }
 
