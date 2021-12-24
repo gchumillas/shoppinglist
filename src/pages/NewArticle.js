@@ -10,22 +10,21 @@ import { context } from './Home'
 const Component = _ => {
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
-  const [inputs, setInputs] = React.useState({ text: '' })
-  const data = React.useMemo(() => ({ ...inputs, text: inputs.text.trim() }), [JSON.stringify(inputs)])
+  const [text, setText] = React.useState('')
 
   const doSave = async _ => {
-    await createArticle(data)
+    await createArticle({ text })
     reload()
     navigate('/')
   }
 
   return <ModalDialog visible>
     <View style={styles.body}>
-      <TextField autoFocus dense value={inputs.text} onChange={text => setInputs({ ...inputs, text })} />
+      <TextField autoFocus dense value={text} onChange={setText} />
     </View>
     <View style={styles.footer}>
       <Button title="Close" onPress={_ => navigate('/')} />
-      <Button title="Save" primary disabled={!data.text} onPress={doSave} />
+      <Button title="Save" primary disabled={!text} onPress={doSave} />
     </View>
   </ModalDialog>
 }
