@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, FlatList, Pressable } from 'react-native'
-import { Link, Outlet, useLocation, useNavigate } from 'react-router-native'
+import { Link, Outlet, useNavigate } from 'react-router-native'
 import NewIcon from '~/assets/icons/new.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import OptionsIcon from '~/assets/icons/options.svg'
