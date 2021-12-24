@@ -1,9 +1,11 @@
 import React from 'react'
 import { TextInput, StyleSheet, View, Text } from 'react-native'
 import { tw } from '~/src/libs/tailwind'
+import { useFirstRender } from '~/src/libs/hooks'
 
 const Component = ({ title = '', dense = false, autoFocus = false, value, onChangeText, ...props }) => {
   const inputRef = React.useRef(null)
+  const firstRender = useFirstRender()
   const [internalValue, setInternalValue] = React.useState('')
   const trimmedValue = React.useMemo(() => internalValue.trim(), [internalValue])
 
@@ -18,10 +20,10 @@ const Component = ({ title = '', dense = false, autoFocus = false, value, onChan
   }, [value])
 
   React.useEffect(() => {
-    if (trimmedValue != value) {
+    if (!firstRender && (trimmedValue != value)) {
       onChangeText(trimmedValue)
     }
-  }, [trimmedValue])
+  }, [firstRender, trimmedValue])
 
   return <View style={[styles.wrapper, dense && styles.dense]}>
     {!!title && <Text style={styles.title}>{title}</Text>}
