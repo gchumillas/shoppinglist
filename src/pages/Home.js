@@ -10,7 +10,7 @@ import { ModalDialog } from '~/src/components/utils'
 import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
 
 export const context = React.createContext({
-  reload: _ => {}
+  reload: _ => Promise.resolve()
 })
 
 const Component = _ => {
