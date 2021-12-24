@@ -7,23 +7,24 @@ const Component = ({ title = '', dense = false, autoFocus = false, value, onChan
   const inputRef = React.useRef(null)
   const firstRender = useFirstRender()
   const [internalValue, setInternalValue] = React.useState('')
-  const trimmedValue = React.useMemo(() => internalValue.trim(), [internalValue])
+  const trimmedValue = React.useMemo(() => value.trim(), [value])
+  const trimmedInternalValue = React.useMemo(() => internalValue.trim(), [internalValue])
 
   React.useEffect(() => {
     autoFocus && inputRef.current && setTimeout(() => inputRef.current.focus(), 40)
   }, [inputRef.current])
 
   React.useEffect(() => {
-    if (trimmedValue != value) {
-      setInternalValue(value)
+    if (trimmedInternalValue != trimmedValue) {
+      setInternalValue(trimmedValue)
     }
-  }, [value])
+  }, [trimmedValue])
 
   React.useEffect(() => {
-    if (!firstRender && (trimmedValue != value)) {
-      onChangeText(trimmedValue)
+    if (!firstRender && (trimmedInternalValue != trimmedValue)) {
+      onChangeText(trimmedInternalValue)
     }
-  }, [firstRender, trimmedValue])
+  }, [firstRender, trimmedInternalValue])
 
   return <View style={[styles.wrapper, dense && styles.dense]}>
     {!!title && <Text style={styles.title}>{title}</Text>}
