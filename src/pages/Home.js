@@ -15,8 +15,6 @@ export const context = React.createContext({
 
 const Component = _ => {
   const navigate = useNavigate()
-  const location = useLocation()
-  const { lastInsertId } = location.state || {}
   const [selectedArticleId, setSelectedArticleId] = React.useState('')
   const [articles, setArticles] = React.useState([])
   const reload = async _ => setArticles(await getArticles())
@@ -41,7 +39,7 @@ const Component = _ => {
 
   React.useEffect(_ => {
     reload()
-  }, [lastInsertId])
+  }, [])
 
   return <context.Provider value={{ reload }}>
     <View style={styles.body}>
