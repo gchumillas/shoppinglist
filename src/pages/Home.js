@@ -41,7 +41,7 @@ const Component = _ => {
     reload()
   }, [])
 
-  return <context.Provider value={{ reload }}>
+  return <context.Provider value={React.useMemo(() => ({ reload }), [])}>
     <View style={styles.body}>
       <FlatList
         data={articles}
