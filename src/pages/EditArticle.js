@@ -31,7 +31,7 @@ const Component = _ => {
 
   return <ModalDialog visible>
     <View>
-      <TextField autoFocus value={inputs.text} onChangeText={text => setInputs({ ...inputs, text })} />
+      <TextField autoFocus value={inputs.text} onChange={text => setInputs({ ...inputs, text })} />
     </View>
     <View style={styles.footer}>
       <Button title="Close" onPress={_ => navigate('/')} />

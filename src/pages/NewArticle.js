@@ -21,7 +21,7 @@ const Component = _ => {
 
   return <ModalDialog visible>
     <View style={styles.body}>
-      <TextField autoFocus dense value={inputs.text} onChangeText={text => setInputs({ ...inputs, text })} />
+      <TextField autoFocus dense value={inputs.text} onChange={text => setInputs({ ...inputs, text })} />
     </View>
     <View style={styles.footer}>
       <Button title="Close" onPress={_ => navigate('/')} />

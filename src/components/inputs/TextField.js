@@ -2,7 +2,7 @@ import React from 'react'
 import { TextInput, StyleSheet, View, Text } from 'react-native'
 import { tw } from '~/src/libs/tailwind'
 
-const Component = ({ title = '', dense = false, autoFocus = false, ...inputProps }) => {
+const Component = ({ title = '', dense = false, autoFocus = false, onChange, ...inputProps }) => {
   const inputRef = React.useRef(null)
 
   React.useEffect(() => {
@@ -11,7 +11,7 @@ const Component = ({ title = '', dense = false, autoFocus = false, ...inputProps
 
   return <View style={[styles.wrapper, dense && styles.dense]}>
     {!!title && <Text style={styles.title}>{title}</Text>}
-    <TextInput {...inputProps} ref={inputRef} style={styles.input} />
+    <TextInput {...inputProps} ref={inputRef} onChangeText={onChange} style={styles.input} />
   </View>
 }
 
