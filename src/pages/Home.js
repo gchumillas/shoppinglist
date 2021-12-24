@@ -52,7 +52,8 @@ const Component = _ => {
           <Text
             key={item.id}
             onPress={_ => doToggleArticle(item)}
-            style={{ ...styles.itemText, ...item.checked && styles.itemTextChecked }}>
+            style={{ ...styles.itemText, ...item.checked && styles.itemTextChecked }}
+          >
             {item.text}
           </Text>
           <Pressable onPress={_ => setSelectedArticleId(item.id)}>
@@ -60,7 +61,8 @@ const Component = _ => {
           </Pressable>
         </View>}
         keyExtractor={item => item.id}
-        style={styles.list} />
+        style={styles.list}
+      />
     </View>
     <View style={styles.footer}>
       <Link to="/new-article">
