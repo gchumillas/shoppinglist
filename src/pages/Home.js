@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, FlatList, Pressable } from 'react-native'
+import { StyleSheet, View, FlatList, Pressable, StatusBar } from 'react-native'
 import { Link, Outlet, useNavigate } from 'react-router-native'
 import NewIcon from '~/assets/icons/new.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
@@ -84,8 +84,7 @@ const Component = _ => {
 
 const styles = StyleSheet.create({
   body: tw('flex-shrink flex-grow px-7'),
-  // TODO: replace by StatusBar.currentHeight
-  list: { ...tw('pt-5'), marginTop: 24 },
+  list: { ...tw('pt-5'), marginTop: StatusBar.currentHeight },
   itemWrapper: tw('flex flex-row items-center justify-between mb-5'),
   itemText: { ...tw('text-2xl flex-grow'), fontFamily: 'patrickHand400Regular' },
   itemTextChecked: tw('line-through text-gray-400'),
