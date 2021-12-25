@@ -1,11 +1,11 @@
 import React from 'react'
 import { Pressable, Text, StyleSheet } from 'react-native'
+import cn from 'react-native-classnames'
 import { tw } from '~/src/libs/tailwind'
 
 const Component = ({ title, primary = false, disabled = false, ...props }) => {
-  return <Pressable style={[styles.wrapper, primary && styles.primary]} disabled={disabled} {...props}>
-    {/* TODO: (all?) use classNames */}
-    <Text style={[styles.text, primary && styles.primaryText, disabled && styles.disabledText]}>{title}</Text>
+  return <Pressable style={cn(styles, 'wrapper', { primary })} disabled={disabled} {...props}>
+    <Text style={cn(styles, { primaryText: primary, disabledText: disabled })}>{title}</Text>
   </Pressable>
 }
 

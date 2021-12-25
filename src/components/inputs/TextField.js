@@ -1,5 +1,6 @@
 import React from 'react'
 import { TextInput, StyleSheet, View, Text } from 'react-native'
+import cn from 'react-native-classnames'
 import { tw } from '~/src/libs/tailwind'
 
 const Component = ({ title = '', dense = false, autoFocus = false, value, onChange, ...inputProps }) => {
@@ -25,7 +26,7 @@ const Component = ({ title = '', dense = false, autoFocus = false, value, onChan
     setText(text)
   }
 
-  return <View style={[styles.wrapper, dense && styles.dense]}>
+  return <View style={cn(styles, 'wrapper', { dense })}>
     {!!title && <Text style={styles.title}>{title}</Text>}
     <TextInput {...inputProps} ref={inputRef} value={text} onChangeText={doChangeText} style={styles.input} />
   </View>
