@@ -10,7 +10,8 @@ module.exports = {
     },
     "extends": [
         "standard",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -35,6 +36,7 @@ module.exports = {
         "react/jsx-equals-spacing": ["error", "never"],
         "react/jsx-no-constructed-context-values": "error",
         "react/jsx-props-no-multi-spaces": "error",
-        "react/jsx-tag-spacing": "error"
+        "react/jsx-tag-spacing": "error",
+        "react-hooks/exhaustive-deps": "off"
     }
 };
