@@ -79,8 +79,5 @@ export const toggleArticle = async id => {
   const uncheckedArticles = articles.filter(x => !x.checked)
 
   article = { ...article, checked: !article.checked }
-  await saveArticles(article.checked
-    ? [...uncheckedArticles, article, ...checkedArticles]
-    : [article, ...uncheckedArticles, ...checkedArticles]
-  )
+  await saveArticles([...uncheckedArticles, article, ...checkedArticles])
 }
