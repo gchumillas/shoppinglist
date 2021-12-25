@@ -68,7 +68,7 @@ export const deleteAllArticles = async id => {
 }
 
 /**
- * Checkes / Unchecks an article.
+ * Checks / Unchecks an article.
  * @param {string} id
  */
 export const toggleArticle = async id => {
