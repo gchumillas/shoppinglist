@@ -83,9 +83,9 @@ const Component = _ => {
 }
 
 const styles = StyleSheet.create({
-  body: tw('flex-shrink flex-grow px-7'),
+  body: tw('flex-shrink flex-grow px-8'),
   list: { ...tw('pt-5'), marginTop: StatusBar.currentHeight },
-  itemWrapper: tw('flex flex-row items-center justify-between mb-5'),
+  itemWrapper: tw('flex flex-row items-center justify-between mb-6'),
   itemText: { ...tw('text-2xl flex-grow'), fontFamily: 'patrickHand400Regular' },
   itemTextChecked: tw('line-through text-gray-400'),
   modalItemText: tw('py-2'),
