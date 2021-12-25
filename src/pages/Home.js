@@ -46,9 +46,9 @@ const Component = _ => {
       <FlatList
         data={articles}
         renderItem={({ item }) => <View style={styles.itemWrapper}>
-          {/* TODO: text should extends 100% */}
           <Text
             key={item.id}
+            numberOfLines={1}
             onPress={_ => doToggleArticle(item)}
             style={{ ...styles.itemText, ...item.checked && styles.itemTextChecked }}
           >
