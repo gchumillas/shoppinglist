@@ -26,7 +26,7 @@ const Component = _ => {
     }
 
     init()
-  }, [])
+  }, [id])
 
   return <ModalDialog visible>
     <View>

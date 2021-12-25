@@ -8,7 +8,7 @@ const Component = ({ title = '', dense = false, autoFocus = false, value, onChan
 
   React.useEffect(_ => {
     autoFocus && inputRef.current && setTimeout(_ => inputRef.current.focus(), 100)
-  }, [inputRef.current])
+  }, [autoFocus])
 
   React.useEffect(_ => {
     if (value.trim() != text.trim()) {
