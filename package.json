@@ -11,7 +11,7 @@
     "lint": "eslint ./src"
   },
   "dependencies": {
-    "@expo-google-fonts/patrick-hand": "^0.2.0",
+    "@expo-google-fonts/nanum-pen-script": "^0.2.0",
     "@gchumillas/schema-fixer": "^0.1.2",
     "expo": "^44.0.0",
     "expo-font": "~10.0.4",

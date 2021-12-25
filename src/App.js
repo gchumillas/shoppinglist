@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, ActivityIndicator, ImageBackground } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { useFonts } from 'expo-font'
-import { PatrickHand_400Regular as patrickHand400Regular } from '@expo-google-fonts/patrick-hand'
+import { NanumPenScript_400Regular } from '@expo-google-fonts/nanum-pen-script'
 import { tw, getColor } from '~/src/libs/tailwind'
 import Home from '~/src/pages/Home'
 
@@ -15,7 +15,7 @@ const App = _ => {
 }
 
 const AppInit = _ => {
-  const [fontsLoaded] = useFonts({ patrickHand400Regular })
+  const [fontsLoaded] = useFonts({ NanumPenScript_400Regular }) // eslint-disable-line camelcase
 
   return fontsLoaded
     ? <App />

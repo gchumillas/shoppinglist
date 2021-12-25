@@ -84,9 +84,9 @@ const Component = _ => {
 
 const styles = StyleSheet.create({
   body: tw('flex-shrink flex-grow px-8'),
-  list: { ...tw('pt-5'), marginTop: StatusBar.currentHeight },
-  itemWrapper: tw('flex flex-row items-center justify-between mb-6'),
-  itemText: { ...tw('text-2xl flex-grow'), fontFamily: 'patrickHand400Regular' },
+  list: { ...tw('pt-6'), marginTop: StatusBar.currentHeight },
+  itemWrapper: tw('flex flex-row items-center justify-between mb-4'),
+  itemText: { ...tw('text-3xl flex-grow'), fontFamily: 'NanumPenScript_400Regular' },
   itemTextChecked: tw('line-through text-gray-400'),
   modalItemText: tw('py-2'),
   footer: tw('flex flex-row justify-evenly items-center py-4')

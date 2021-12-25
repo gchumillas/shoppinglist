@@ -1062,10 +1062,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@expo-google-fonts/patrick-hand@^0.2.0":
+"@expo-google-fonts/nanum-pen-script@^0.2.0":
   version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@expo-google-fonts/patrick-hand/-/patrick-hand-0.2.0.tgz#52ffa99f677417adc554c4958cdf5db1bd28454f"
-  integrity sha512-MV0vg6PgToLb0j/u3OhLWLpNJq0HKnotPkHG2gVQmJi3Vuax6K1OriY5EYJ0P0otL3RuSf+3OdNFoRKLhWKGjQ==
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/nanum-pen-script/-/nanum-pen-script-0.2.0.tgz#c3f9afe949fd41c989fb8d099deef21b7b8aa0ab"
+  integrity sha512-byNVjtpk1a4tpaA9q104DfsVhCa+/I2iSd7pnwjgfLXsuGSAslXpwC+q/S/ByA8bh/m3C2VXRLDwFh2smxps2Q==
 
 "@expo/config-plugins@4.0.15":
   version "4.0.15"
