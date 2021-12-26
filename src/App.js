@@ -25,6 +25,7 @@ const App = _ => {
 }
 
 const AppInit = _ => {
+  // TODO: NanumPenScript doesn't include tildes
   const [fontsLoaded] = useFonts({ NanumPenScript_400Regular }) // eslint-disable-line camelcase
 
   return fontsLoaded
