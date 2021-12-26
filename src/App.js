@@ -1,17 +1,27 @@
 import React from 'react'
-import { StyleSheet, View, ActivityIndicator, ImageBackground } from 'react-native'
+import { StyleSheet, View, ActivityIndicator } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { useFonts } from 'expo-font'
 import { NanumPenScript_400Regular } from '@expo-google-fonts/nanum-pen-script'
 import { tw, getColor } from '~/src/libs/tailwind'
+import BgImage from '~/src/components/BgImage'
 import Home from '~/src/pages/Home'
 
 const App = _ => {
-  // TODO: (?) replace ImageBackground by a canvas
-  return <ImageBackground source={require('~/assets/bg.png')} style={styles.container}>
+  const [bgWidth, setBgWidth] = React.useState(0)
+  const [bgHeight, setBgHeight] = React.useState(0)
+
+  const doLayout = e => {
+    const { nativeEvent: { layout } } = e
+    setBgWidth(layout.width)
+    setBgHeight(layout.height)
+  }
+
+  return <View style={styles.container} onLayout={doLayout}>
+    <BgImage width={bgWidth} height={bgHeight} style={tw('absolute')} />
     <Home />
     <StatusBar style="auto" />
-  </ImageBackground>
+  </View>
 }
 
 const AppInit = _ => {
