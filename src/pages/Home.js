@@ -1,6 +1,7 @@
 import React from 'react'
-import { StyleSheet, View, FlatList, Pressable, StatusBar } from 'react-native'
+import { StyleSheet, View, FlatList, Pressable } from 'react-native'
 import { Link, Outlet, useNavigate } from 'react-router-native'
+import cn from 'react-native-classnames'
 import NewIcon from '~/assets/icons/new.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import OptionsIcon from '~/assets/icons/options.svg'
@@ -50,7 +51,7 @@ const Component = _ => {
             key={item.id}
             numberOfLines={1}
             onPress={_ => doToggleArticle(item)}
-            style={{ ...styles.itemText, ...item.checked && styles.itemTextChecked }}
+            style={cn(styles, 'itemText', { itemTextChecked: item.checked })}
           >
             {item.text}
           </Text>
@@ -83,10 +84,11 @@ const Component = _ => {
 }
 
 const styles = StyleSheet.create({
-  body: tw('flex-shrink flex-grow px-8'),
-  list: { ...tw('pt-6'), marginTop: StatusBar.currentHeight },
-  itemWrapper: tw('flex flex-row items-center justify-between mb-4'),
-  itemText: { ...tw('text-3xl flex-grow'), fontFamily: 'NanumPenScript_400Regular' },
+  body: tw('flex-shrink flex-grow pr-8 pl-10'),
+  // TODO: replace 24 by StatusBar.currentHeight (it doesn't work on iPhone)
+  list: { ...tw('pt-5'), marginTop: 24 },
+  itemWrapper: tw('flex flex-row items-center justify-between'),
+  itemText: { ...tw('text-3xl flex-grow pt-2.5 pb-1 pl-4'), fontFamily: 'NanumPenScript_400Regular' },
   itemTextChecked: tw('line-through text-gray-400'),
   modalItemText: tw('py-2'),
   footer: tw('flex flex-row justify-evenly items-center py-4')
