@@ -5,7 +5,7 @@ import cn from 'react-native-classnames'
 import NewIcon from '~/assets/icons/new.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import OptionsIcon from '~/assets/icons/options.svg'
-import { tw, Palette } from '~/src/libs/tailwind'
+import { tw, getColor } from '~/src/libs/tailwind'
 import { Text } from '~/src/components/display'
 import { ModalDialog } from '~/src/components/utils'
 import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
@@ -55,6 +55,7 @@ const Component = _ => {
           >
             {item.text}
           </Text>
+          {/* TODO: options button is hidden when the text is too large */}
           <Pressable onPress={_ => setSelectedArticleId(item.id)}>
             <OptionsIcon />
           </Pressable>
@@ -65,10 +66,10 @@ const Component = _ => {
     </View>
     <View style={styles.footer}>
       <Link to="/new-article">
-        <NewIcon width={55} height={55} fill={Palette.PrimaryText} />
+        <NewIcon width={55} height={55} fill={getColor('gray-600')} />
       </Link>
       <Link to="/delete-all-articles">
-        <DeleteIcon width={55} height={55} fill={Palette.PrimaryText} />
+        <DeleteIcon width={55} height={55} fill={getColor('gray-600')} />
       </Link>
     </View>
     <ModalDialog visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
@@ -84,12 +85,12 @@ const Component = _ => {
 }
 
 const styles = StyleSheet.create({
-  body: tw('flex-shrink flex-grow pr-8 pl-10'),
+  body: tw('flex-shrink flex-grow pr-8 pl-9'),
   // TODO: replace 24 by StatusBar.currentHeight (it doesn't work on iPhone)
   list: { ...tw('pt-5'), marginTop: 24 },
   itemWrapper: tw('flex flex-row items-center justify-between'),
-  itemText: { ...tw('text-3xl flex-grow pt-2.5 pb-1 pl-4'), fontFamily: 'NanumPenScript_400Regular' },
-  itemTextChecked: tw('line-through text-gray-400'),
+  itemText: { ...tw('text-3xl text-gray-800 flex-grow pt-2 pb-1 pl-4'), fontFamily: 'NanumPenScript_400Regular' },
+  itemTextChecked: tw('line-through text-gray-800 text-opacity-50'),
   modalItemText: tw('py-2'),
   footer: tw('flex flex-row justify-evenly items-center py-4')
 })
