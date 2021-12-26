@@ -89,8 +89,8 @@ const styles = StyleSheet.create({
   // TODO: replace 24 by StatusBar.currentHeight (it doesn't work on iPhone)
   list: { ...tw('pt-5'), marginTop: 24 },
   itemWrapper: tw('flex flex-row items-center justify-between'),
-  itemText: { ...tw('text-3xl text-gray-800 flex-grow pt-2 pb-1 pl-4'), fontFamily: 'NanumPenScript_400Regular' },
-  itemTextChecked: tw('line-through text-gray-800 text-opacity-50'),
+  itemText: { ...tw('text-3xl text-primary flex-grow pt-2 pb-1 pl-4'), fontFamily: 'NanumPenScript_400Regular' },
+  itemTextChecked: tw('line-through text-primary text-opacity-50'),
   modalItemText: tw('py-2'),
   footer: tw('flex flex-row justify-evenly items-center py-4')
 })

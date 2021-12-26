@@ -6,7 +6,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // TODO: (all) text-primary is not being applied
         'primary': colors.gray[800],
         'primary-light': colors.white
       },
