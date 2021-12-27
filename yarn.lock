@@ -1062,10 +1062,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@expo-google-fonts/nanum-pen-script@^0.2.0":
+"@expo-google-fonts/roboto-slab@^0.2.0":
   version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@expo-google-fonts/nanum-pen-script/-/nanum-pen-script-0.2.0.tgz#c3f9afe949fd41c989fb8d099deef21b7b8aa0ab"
-  integrity sha512-byNVjtpk1a4tpaA9q104DfsVhCa+/I2iSd7pnwjgfLXsuGSAslXpwC+q/S/ByA8bh/m3C2VXRLDwFh2smxps2Q==
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/roboto-slab/-/roboto-slab-0.2.0.tgz#929eb7284bf0e35748005520f5d29bd091531d5a"
+  integrity sha512-JJu7szG1G6qeBInybVZcISRSedeN3Sgf9R/sgfKI60LmVDZbdcBydfgrphvk2jd0q2zsAUBd/hpshxoEkLv31w==
 
 "@expo/config-plugins@4.0.15":
   version "4.0.15"

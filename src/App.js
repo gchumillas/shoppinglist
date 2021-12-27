@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, ActivityIndicator } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { useFonts } from 'expo-font'
-import { NanumPenScript_400Regular } from '@expo-google-fonts/nanum-pen-script'
+import { RobotoSlab_500Medium } from '@expo-google-fonts/roboto-slab'
 import { tw, getColor } from '~/src/libs/tailwind'
 import BgImage from '~/src/components/BgImage'
 import Home from '~/src/pages/Home'
@@ -25,8 +25,7 @@ const App = _ => {
 }
 
 const AppInit = _ => {
-  // TODO: NanumPenScript doesn't include tildes
-  const [fontsLoaded] = useFonts({ NanumPenScript_400Regular }) // eslint-disable-line camelcase
+  const [fontsLoaded] = useFonts({ RobotoSlab_500Medium }) // eslint-disable-line camelcase
 
   return fontsLoaded
     ? <App />
