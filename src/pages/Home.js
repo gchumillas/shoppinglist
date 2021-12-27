@@ -3,12 +3,15 @@ import { StyleSheet, View, FlatList, Pressable } from 'react-native'
 import { Link, Outlet, useNavigate } from 'react-router-native'
 import cn from 'react-native-classnames'
 import NewIcon from '~/assets/icons/new.svg'
+import MicIcon from '~/assets/icons/mic.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import OptionsIcon from '~/assets/icons/options.svg'
 import { tw, getColor } from '~/src/libs/tailwind'
 import { Text } from '~/src/components/display'
 import { ModalDialog } from '~/src/components/utils'
 import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
+
+import Voice from '@react-native-voice/voice'
 
 export const context = React.createContext({
   reload: _ => Promise.resolve()
@@ -32,14 +35,24 @@ const Component = _ => {
     doCloseDialog()
   }
 
-  // checks or unchecks an article
   const doToggleArticle = async ({ id }) => {
     await toggleArticle(id)
     reload()
   }
 
+  const doListen = async () => {
+    await Voice.start('en-US')
+  }
+
   React.useEffect(_ => {
     reload()
+
+    Voice.onSpeechResults = e => console.log('results', e.value[0])
+    Voice.onSpeechError = e => console.log(e)
+
+    return _ => {
+      Voice.destroy().then(Voice.removeAllListeners)
+    }
   }, [])
 
   return <context.Provider value={React.useMemo(() => ({ reload }), [])}>
@@ -65,8 +78,12 @@ const Component = _ => {
     </View>
     <View style={styles.footer}>
       <Link to="/new-article">
+        {/* TODO: (all) don't repeat yourself */}
         <NewIcon width={55} height={55} fill={getColor('gray-600')} />
       </Link>
+      <Pressable onPress={doListen}>
+        <MicIcon width={55} height={55} fill={getColor('gray-600')} />
+      </Pressable>
       <Link to="/delete-all-articles">
         <DeleteIcon width={55} height={55} fill={getColor('gray-600')} />
       </Link>
