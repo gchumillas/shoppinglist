@@ -7,6 +7,7 @@ import { tw, getColor } from '~/src/libs/tailwind'
 import BgImage from '~/src/components/BgImage'
 import Home from '~/src/pages/Home'
 
+// TODO: React Native autocomplete
 const App = _ => {
   const [bgWidth, setBgWidth] = React.useState(0)
   const [bgHeight, setBgHeight] = React.useState(0)
