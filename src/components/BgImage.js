@@ -3,8 +3,8 @@ import Svg, { Line } from 'react-native-svg'
 import { getColor } from '~/src/libs/tailwind'
 import { range } from '~/src/libs/utils'
 
-const h0 = 25 // space between the first vertical line and the left edge
-const v0 = 45 // space between the first horizontal line and the top edge
+const h0 = 20 // space between the first vertical line and the left edge
+const v0 = 7 // space between the first horizontal line and the top edge
 const h = 5 // space between vertical lines
 const v = 40 // vertical space between horizontal lines
 
