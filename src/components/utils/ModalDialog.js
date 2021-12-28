@@ -3,12 +3,14 @@ import { Modal, Pressable, StyleSheet, View } from 'react-native'
 import { tw } from '~/src/libs/tailwind'
 
 const Component = ({ visible = false, width = 'xs', onRequestClose = undefined, children }) => {
+  const compact = React.useMemo(() => !['xs', 'sm', 'lg'].includes(width), [width])
+
   return <Modal animationType="fade" transparent visible={visible} onRequestClose={onRequestClose}>
     <Pressable onPress={onRequestClose}>
       <View style={styles.wrapper}>
         <View
           onStartShouldSetResponder={_ => true}
-          style={{ ...styles.box, ...width != 'none' && tw(`w-full max-w-${width}`) }}
+          style={{ ...styles.box, ...!compact && tw(`w-full max-w-${width}`) }}
         >
           {children}
         </View>
