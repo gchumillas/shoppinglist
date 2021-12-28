@@ -28,7 +28,7 @@ export const createArticle = async ({ text }) => {
   const articles = await getArticles()
   const id = uuid.v1()
 
-  await saveArticles([...articles, { id, text, checked: false }])
+  await saveArticles([{ id, text, checked: false }, ...articles])
   return id
 }
 
