@@ -11,8 +11,6 @@ import { Text } from '~/src/components/display'
 import { ModalDialog } from '~/src/components/utils'
 import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
 
-import Voice from '@react-native-voice/voice'
-
 export const context = React.createContext({
   reload: _ => Promise.resolve()
 })
@@ -40,19 +38,8 @@ const Component = _ => {
     reload()
   }
 
-  const doListen = async () => {
-    await Voice.start('en-US')
-  }
-
   React.useEffect(_ => {
     reload()
-
-    Voice.onSpeechResults = e => console.log('results', e.value[0])
-    Voice.onSpeechError = e => console.log(e)
-
-    return _ => {
-      Voice.destroy().then(Voice.removeAllListeners)
-    }
   }, [])
 
   return <context.Provider value={React.useMemo(() => ({ reload }), [])}>
@@ -81,9 +68,9 @@ const Component = _ => {
         {/* TODO: (all) don't repeat yourself */}
         <NewIcon width={55} height={55} fill={getColor('gray-600')} />
       </Link>
-      <Pressable onPress={doListen}>
+      <Link to="/recorder">
         <MicIcon width={55} height={55} fill={getColor('gray-600')} />
-      </Pressable>
+      </Link>
       <Link to="/delete-all-articles">
         <DeleteIcon width={55} height={55} fill={getColor('gray-600')} />
       </Link>
