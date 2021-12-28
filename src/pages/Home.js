@@ -10,12 +10,14 @@ import { tw, getColor } from '~/src/libs/tailwind'
 import { Text } from '~/src/components/display'
 import { ModalDialog } from '~/src/components/utils'
 import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
+import { useTranslation } from '~/src/hooks/i18n'
 
 export const context = React.createContext({
   reload: _ => Promise.resolve()
 })
 
 const Component = _ => {
+  const t = useTranslation('pages.home')
   const navigate = useNavigate()
   const [selectedArticleId, setSelectedArticleId] = React.useState('')
   const [articles, setArticles] = React.useState([])
@@ -77,10 +79,10 @@ const Component = _ => {
     </View>
     <ModalDialog visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
       <Pressable onPress={doEditArticle}>
-        <Text style={styles.modalItemText}>Edit</Text>
+        <Text style={styles.modalItemText}>{t`edit`}</Text>
       </Pressable>
       <Pressable onPress={doDeleteArticle}>
-        <Text style={styles.modalItemText}>Delete</Text>
+        <Text style={styles.modalItemText}>{t`delete`}</Text>
       </Pressable>
     </ModalDialog>
     <Outlet />

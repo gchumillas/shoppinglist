@@ -1,6 +1,7 @@
 import React from 'react'
 import { registerRootComponent } from 'expo'
 import { NativeRouter, Routes, Route } from 'react-router-native'
+import '~/src/i18n'
 import NewArticle from '~/src/pages/NewArticle'
 import EditArticle from '~/src/pages/EditArticle'
 import DeleteAllArticles from '~/src/pages/DeleteAllArticles'

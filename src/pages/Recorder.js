@@ -6,9 +6,11 @@ import MicIcon from '~/assets/icons/mic.svg'
 import { ModalDialog } from '~/src/components/utils'
 import { createArticle } from '~/src/providers/articles'
 import { tw, getColor } from '~/src/libs/tailwind'
+import { useTranslation } from '~/src/hooks/i18n'
 import { context } from './Home'
 
 const Component = () => {
+  const t = useTranslation('pages.recorder')
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
   const [message, setMessage] = React.useState('')
@@ -24,11 +26,11 @@ const Component = () => {
     }
 
     Voice.onSpeechStart = _ => {
-      setMessage('Say something')
+      setMessage(t`say-something`)
     }
 
     Voice.onSpeechError = e => {
-      setMessage('Something went wrong.\nPlease review the application\npermissions')
+      setMessage(t`something-went-wrong`)
       console.error(e)
     }
     // TODO: auto-detect language

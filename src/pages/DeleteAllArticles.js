@@ -6,9 +6,11 @@ import { Text } from '~/src/components/display'
 import { Button } from '~/src/components/inputs'
 import { ModalDialog } from '~/src/components/utils'
 import { deleteAllArticles } from '~/src/providers/articles'
+import { useTranslation } from '~/src/hooks/i18n'
 import { context } from './Home'
 
 const Component = _ => {
+  const t = useTranslation('pages.delete-all-articles')
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
 
@@ -20,11 +22,11 @@ const Component = _ => {
 
   return <ModalDialog visible>
     <View>
-      <Text style={tw('text-center pb-6')}>Delete all articles?</Text>
+      <Text style={tw('text-center pb-6')}>{t`delete-all-articles`}</Text>
     </View>
     <View style={styles.footer}>
-      <Button title="No" onPress={_ => navigate('/')} />
-      <Button title="Yes" primary onPress={doDeleteAll} />
+      <Button title={t`no`} onPress={_ => navigate('/')} />
+      <Button title={t`yes`} primary onPress={doDeleteAll} />
     </View>
   </ModalDialog>
 }

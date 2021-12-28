@@ -1,0 +1,21 @@
+{
+  "common": {
+    "close": "Close",
+    "save": "Save",
+    "no": "No",
+    "yes": "Yes"
+  },
+  "pages": {
+    "home": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "recorder": {
+      "say-something": "Say something",
+      "something-went-wrong": "Something went wrong.\nPlease review the application\npermissions"
+    },
+    "delete-all-articles": {
+      "delete-all-articles": "Delete all articles?"
+    }
+  }
+}
