@@ -11,11 +11,11 @@
       "delete": "Borrar"
     },
     "recorder": {
-      "say-something": "Diga algo",
-      "something-went-wrong": "Algo salió mal.\nPor favor, revise los permisos\nde la aplicación"
+      "say something": "Diga algo",
+      "something went wrong": "Algo salió mal.\nPor favor, revise los permisos\nde la aplicación"
     },
-    "delete-all-articles": {
-      "delete-all-articles": "Borrar todos los artículos?"
+    "delete all articles": {
+      "delete all articles?": "Borrar todos los artículos?"
     }
   }
 }

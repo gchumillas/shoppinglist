@@ -26,11 +26,11 @@ const Component = () => {
     }
 
     Voice.onSpeechStart = _ => {
-      setMessage(t`say-something`)
+      setMessage(t`say something`)
     }
 
     Voice.onSpeechError = e => {
-      setMessage(t`something-went-wrong`)
+      setMessage(t`something went wrong`)
       console.error(e)
     }
     // TODO: auto-detect language
