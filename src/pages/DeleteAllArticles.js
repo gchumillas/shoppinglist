@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { useNavigate } from 'react-router-native'
+import i18n from 'i18n-js'
 import { tw } from '~/src/libs/tailwind'
 import { Text } from '~/src/components/display'
 import { Button } from '~/src/components/inputs'
@@ -9,6 +10,7 @@ import { deleteAllArticles } from '~/src/providers/articles'
 import { context } from './Home'
 
 const Component = _ => {
+  const { t } = i18n
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
 
@@ -23,8 +25,8 @@ const Component = _ => {
       <Text style={tw('text-center pb-6')}>Delete all articles?</Text>
     </View>
     <View style={styles.footer}>
-      <Button title="No" onPress={_ => navigate('/')} />
-      <Button title="Yes" primary onPress={doDeleteAll} />
+      <Button title={t`no`} onPress={_ => navigate('/')} />
+      <Button title={t`yes`} primary onPress={doDeleteAll} />
     </View>
   </ModalDialog>
 }

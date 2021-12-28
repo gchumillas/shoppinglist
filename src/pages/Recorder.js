@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import { useNavigate } from 'react-router-native'
 import Voice from '@react-native-voice/voice'
+import i18n from 'i18n-js'
 import MicIcon from '~/assets/icons/mic.svg'
 import { ModalDialog } from '~/src/components/utils'
 import { createArticle } from '~/src/providers/articles'
@@ -9,6 +10,7 @@ import { tw, getColor } from '~/src/libs/tailwind'
 import { context } from './Home'
 
 const Component = () => {
+  const { t } = i18n
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
   const [message, setMessage] = React.useState('')
@@ -24,11 +26,11 @@ const Component = () => {
     }
 
     Voice.onSpeechStart = _ => {
-      setMessage('Say something')
+      setMessage(t`say-something`)
     }
 
     Voice.onSpeechError = e => {
-      setMessage('Something went wrong.\nPlease review the application\npermissions')
+      setMessage(t`something-went-wrong`)
       console.error(e)
     }
     // TODO: auto-detect language
