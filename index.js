@@ -8,7 +8,7 @@ import NewArticle from '~/src/pages/NewArticle'
 import EditArticle from '~/src/pages/EditArticle'
 import DeleteAllArticles from '~/src/pages/DeleteAllArticles'
 import Recorder from '~/src/pages/Recorder'
-import Settings from '~/src/pages/Settings'
+import SettingsPage from '~/src/pages/SettingsPage'
 import App from '~/src/App'
 
 const Root = () => {
@@ -20,7 +20,7 @@ const Root = () => {
           <Route path="/edit-article/:id" element={<EditArticle />} />
           <Route path="/delete-all-articles" element={<DeleteAllArticles />} />
           <Route path="/recorder" element={<Recorder />} />
-          <Route path="/settings" element={<Settings />} />
+          <Route path="/settings" element={<SettingsPage />} />
         </Route>
       </Routes>
     </NativeRouter>
