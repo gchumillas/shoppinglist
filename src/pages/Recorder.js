@@ -1,19 +1,19 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 import { useNavigate } from 'react-router-native'
+import { useTranslation } from 'react-i18next'
 import Voice from '@react-native-voice/voice'
 import MicIcon from '~/assets/icons/mic.svg'
 import { ModalDialog } from '~/src/components/utils'
 import { createArticle } from '~/src/providers/articles'
 import { tw, getColor } from '~/src/libs/tailwind'
-import { useTranslation } from '~/src/hooks/i18n'
 import { context } from './Home'
 
 const Component = () => {
-  const t = useTranslation('pages.recorder')
+  const { t } = useTranslation()
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
-  const [message, setMessage] = React.useState('')
+  const [message, setMessage] = React.useState(t`pages.recorder.say something`)
 
   React.useEffect(_ => {
     Voice.onSpeechResults = async e => {
@@ -26,11 +26,11 @@ const Component = () => {
     }
 
     Voice.onSpeechStart = _ => {
-      setMessage(t`say something`)
+      setMessage(t`pages.recorder.say something`)
     }
 
     Voice.onSpeechError = e => {
-      setMessage(t`something went wrong`)
+      setMessage(t`pages.recorder.something went wrong`)
       console.error(e)
     }
     // TODO: auto-detect language

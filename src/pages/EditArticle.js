@@ -1,15 +1,15 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { useNavigate, useParams } from 'react-router-native'
+import { useTranslation } from 'react-i18next'
 import { tw } from '~/src/libs/tailwind'
 import { Button, TextField } from '~/src/components/inputs'
 import { ModalDialog } from '~/src/components/utils'
 import { updateArticle, readArticle } from '~/src/providers/articles'
-import { useTranslation } from '~/src/hooks/i18n'
 import { context } from './Home'
 
 const Component = _ => {
-  const t = useTranslation('pages.edit-article')
+  const { t } = useTranslation()
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
   const { id } = useParams()
@@ -35,8 +35,8 @@ const Component = _ => {
       <TextField autoFocus value={text} onChange={setText} />
     </View>
     <View style={styles.footer}>
-      <Button title={t`close`} onPress={_ => navigate('/')} />
-      <Button title={t`save`} primary disabled={!text} onPress={doSave} />
+      <Button title={t`common.close`} onPress={_ => navigate('/')} />
+      <Button title={t`common.save`} primary disabled={!text} onPress={doSave} />
     </View>
   </ModalDialog>
 }

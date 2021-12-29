@@ -1,16 +1,16 @@
 import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 import { useNavigate } from 'react-router-native'
+import { useTranslation } from 'react-i18next'
 import Checkbox from 'expo-checkbox'
 import { Picker } from '@react-native-picker/picker'
 import { tw } from '~/src/libs/tailwind'
-import { useTranslation } from '~/src/hooks/i18n'
 import { useLanguage, useDetectLanguage } from '~/src/hooks/store'
 import { Button } from '~/src/components/inputs'
 import { ModalDialog } from '~/src/components/utils'
 
 const Component = _ => {
-  const t = useTranslation('pages.settings')
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const [detectLanguage, setDetectLanguage] = useDetectLanguage()
   const [language, setLanguage] = useLanguage()
@@ -34,8 +34,8 @@ const Component = _ => {
       </Picker>
     </View>
     <View style={styles.footer}>
-      <Button title={t`close`} onPress={_ => navigate('/')} />
-      <Button title={t`save`} primary onPress={doSave} />
+      <Button title={t`common.close`} onPress={_ => navigate('/')} />
+      <Button title={t`common.save`} primary onPress={doSave} />
     </View>
   </ModalDialog>
 }
