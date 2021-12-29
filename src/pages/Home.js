@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, FlatList, Pressable } from 'react-native'
 import { Link, Outlet, useNavigate } from 'react-router-native'
+import { useTranslation } from 'react-i18next'
 import cn from 'react-native-classnames'
 import NewIcon from '~/assets/icons/new.svg'
 import MicIcon from '~/assets/icons/mic.svg'
@@ -11,14 +12,13 @@ import { tw, getColor } from '~/src/libs/tailwind'
 import { Text } from '~/src/components/display'
 import { ModalDialog } from '~/src/components/utils'
 import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
-import { useTranslation } from '~/src/hooks/i18n'
 
 export const context = React.createContext({
   reload: _ => Promise.resolve()
 })
 
 const Component = _ => {
-  const t = useTranslation('pages.home')
+  const { t } = useTranslation('home')
   const navigate = useNavigate()
   const [selectedArticleId, setSelectedArticleId] = React.useState('')
   const [articles, setArticles] = React.useState([])

@@ -1,15 +1,15 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { useNavigate } from 'react-router-native'
+import { useTranslation } from 'react-i18next'
 import { tw } from '~/src/libs/tailwind'
 import { Button, TextField } from '~/src/components/inputs'
 import { ModalDialog } from '~/src/components/utils'
 import { createArticle } from '~/src/providers/articles'
-import { useTranslation } from '~/src/hooks/i18n'
 import { context } from './Home'
 
 const Component = _ => {
-  const t = useTranslation('pages.new-article')
+  const { t } = useTranslation('new article')
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
   const [text, setText] = React.useState('')

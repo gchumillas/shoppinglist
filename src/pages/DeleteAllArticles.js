@@ -1,16 +1,17 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { useNavigate } from 'react-router-native'
+import { useTranslation } from 'react-i18next'
 import { tw } from '~/src/libs/tailwind'
 import { Text } from '~/src/components/display'
 import { Button } from '~/src/components/inputs'
 import { ModalDialog } from '~/src/components/utils'
 import { deleteAllArticles } from '~/src/providers/articles'
-import { useTranslation } from '~/src/hooks/i18n'
 import { context } from './Home'
 
+// TODO: (all) close then tapping outside
 const Component = _ => {
-  const t = useTranslation('pages.delete all articles')
+  const { t } = useTranslation('delete all articles')
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
 
