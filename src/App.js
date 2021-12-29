@@ -5,10 +5,10 @@ import { StatusBar } from 'expo-status-bar'
 import { useFonts } from 'expo-font'
 import { RobotoSlab_500Medium } from '@expo-google-fonts/roboto-slab'
 import { tw, getColor } from '~/src/libs/tailwind'
+import i18n from '~/src/i18n'
 import { useLanguage, useDetectLanguage } from '~/src/hooks/store'
 import BgImage from '~/src/components/BgImage'
 import Home from '~/src/pages/Home'
-import i18n from 'i18n-js'
 
 // TODO: React Native autocomplete
 const App = _ => {
@@ -18,8 +18,8 @@ const App = _ => {
   const [bgHeight, setBgHeight] = React.useState(0)
 
   React.useEffect(() => {
-    const lang = detectLanguage || !language ? Localization.locale : language
-    i18n.locale = lang
+    const lng = detectLanguage || !language ? Localization.locale : language
+    i18n.changeLanguage(lng)
   }, [language, detectLanguage])
 
   const doLayout = e => {
