@@ -1,13 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux'
 
-export const useSystemLanguage = () => {
+export const useDetectLanguage = () => {
   const dispatch = useDispatch()
-  const systemLanguage = useSelector(state => state.systemLanguage)
-  const setSystemLanguage = payload => {
-    return dispatch({ type: 'SET_SYSTEM_LANGUAGE', payload })
+  const detectLanguage = useSelector(state => state.detectLanguage)
+  const setDetectLanguage = payload => {
+    return dispatch({ type: 'SET_DETECT_LANGUAGE', payload })
   }
 
-  return { systemLanguage, setSystemLanguage }
+  return [detectLanguage, setDetectLanguage]
 }
 
 export const useLanguage = () => {
@@ -17,5 +17,5 @@ export const useLanguage = () => {
     return dispatch({ type: 'SET_LANGUAGE', payload })
   }
 
-  return { language, setLanguage }
+  return [language, setLanguage]
 }

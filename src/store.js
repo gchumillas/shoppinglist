@@ -1,15 +1,15 @@
 import { createStore } from 'redux'
 
 const initState = {
-  useSystemLanguage: true,
+  detectLanguage: true,
   language: ''
 }
 
 const reducer = (state = initState, action) => {
-  if (action.type == 'SET_SYSTEM_LANGUAGE') {
+  if (action.type == 'SET_DETECT_LANGUAGE') {
     return {
       ...state,
-      useSystemLanguage: !!action.payload
+      detectLanguage: !!action.payload
     }
   } else if (action.type == 'SET_LANGUAGE') {
     return {
