@@ -18,7 +18,7 @@ export const context = React.createContext({
 })
 
 const Component = _ => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('home')
   const navigate = useNavigate()
   const [selectedArticleId, setSelectedArticleId] = React.useState('')
   const [articles, setArticles] = React.useState([])
@@ -83,10 +83,10 @@ const Component = _ => {
     </View>
     <ModalDialog visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
       <Pressable onPress={doEditArticle}>
-        <Text style={styles.modalItemText}>{t`pages.home.edit`}</Text>
+        <Text style={styles.modalItemText}>{t`edit`}</Text>
       </Pressable>
       <Pressable onPress={doDeleteArticle}>
-        <Text style={styles.modalItemText}>{t`pages.home.delete`}</Text>
+        <Text style={styles.modalItemText}>{t`delete`}</Text>
       </Pressable>
     </ModalDialog>
     <Outlet />

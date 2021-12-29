@@ -9,7 +9,7 @@ i18n
     compatibilityJSON: 'v3',
     lng: Localization.locale,
     fallbackLng: 'en',
-    defaultNS: 'default',
+    fallbackNS: 'common',
     resources,
     interpolation: {
       escapeValue: false

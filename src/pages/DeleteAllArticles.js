@@ -11,7 +11,7 @@ import { context } from './Home'
 
 // TODO: (all) close then tapping outside
 const Component = _ => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('delete all articles')
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
 
@@ -23,11 +23,11 @@ const Component = _ => {
 
   return <ModalDialog visible>
     <View>
-      <Text style={tw('text-center pb-6')}>{t`pages.delete all articles.delete all articles?`}</Text>
+      <Text style={tw('text-center pb-6')}>{t`delete all articles?`}</Text>
     </View>
     <View style={styles.footer}>
-      <Button title={t`common.no`} onPress={_ => navigate('/')} />
-      <Button title={t`common.yes`} primary onPress={doDeleteAll} />
+      <Button title={t`no`} onPress={_ => navigate('/')} />
+      <Button title={t`yes`} primary onPress={doDeleteAll} />
     </View>
   </ModalDialog>
 }

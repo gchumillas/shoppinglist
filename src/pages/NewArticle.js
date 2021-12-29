@@ -9,7 +9,7 @@ import { createArticle } from '~/src/providers/articles'
 import { context } from './Home'
 
 const Component = _ => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('new article')
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
   const [text, setText] = React.useState('')
@@ -25,8 +25,8 @@ const Component = _ => {
       <TextField autoFocus dense value={text} onChange={setText} />
     </View>
     <View style={styles.footer}>
-      <Button title={t`common.close`} onPress={_ => navigate('/')} />
-      <Button title={t`common.save`} primary disabled={!text} onPress={doSave} />
+      <Button title={t`close`} onPress={_ => navigate('/')} />
+      <Button title={t`save`} primary disabled={!text} onPress={doSave} />
     </View>
   </ModalDialog>
 }

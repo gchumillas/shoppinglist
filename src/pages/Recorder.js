@@ -10,10 +10,10 @@ import { tw, getColor } from '~/src/libs/tailwind'
 import { context } from './Home'
 
 const Component = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('recorder')
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
-  const [message, setMessage] = React.useState(t`pages.recorder.say something`)
+  const [message, setMessage] = React.useState(t`say something`)
 
   React.useEffect(_ => {
     Voice.onSpeechResults = async e => {
@@ -26,11 +26,11 @@ const Component = () => {
     }
 
     Voice.onSpeechStart = _ => {
-      setMessage(t`pages.recorder.say something`)
+      setMessage(t`say something`)
     }
 
     Voice.onSpeechError = e => {
-      setMessage(t`pages.recorder.something went wrong`)
+      setMessage(t`something went wrong`)
       console.error(e)
     }
     // TODO: auto-detect language
