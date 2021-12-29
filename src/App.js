@@ -12,8 +12,15 @@ import i18n from 'i18n-js'
 
 // TODO: React Native autocomplete
 const App = _ => {
+  const [language] = useLanguage()
+  const [detectLanguage] = useDetectLanguage()
   const [bgWidth, setBgWidth] = React.useState(0)
   const [bgHeight, setBgHeight] = React.useState(0)
+
+  React.useEffect(() => {
+    const lang = detectLanguage || !language ? Localization.locale : language
+    i18n.locale = lang
+  }, [language, detectLanguage])
 
   const doLayout = e => {
     const { nativeEvent: { layout } } = e
@@ -30,13 +37,6 @@ const App = _ => {
 
 const AppContainer = _ => {
   const [fontsLoaded] = useFonts({ RobotoSlab_500Medium }) // eslint-disable-line camelcase
-  const [language] = useLanguage()
-  const [detectLanguage] = useDetectLanguage()
-
-  React.useEffect(() => {
-    const lang = detectLanguage || !language ? Localization.locale : language
-    i18n.locale = lang
-  }, [language, detectLanguage])
 
   return fontsLoaded
     ? <App />
