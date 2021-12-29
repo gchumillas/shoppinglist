@@ -6,6 +6,7 @@ import NewIcon from '~/assets/icons/new.svg'
 import MicIcon from '~/assets/icons/mic.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import OptionsIcon from '~/assets/icons/options.svg'
+import SettingsIcon from '~/assets/icons/translate.svg'
 import { tw, getColor } from '~/src/libs/tailwind'
 import { Text } from '~/src/components/display'
 import { ModalDialog } from '~/src/components/utils'
@@ -66,6 +67,9 @@ const Component = _ => {
       />
     </View>
     <View style={styles.footer}>
+      <Link to="/settings">
+        <SettingsIcon width={55} height={55} fill={getColor('gray-600')} />
+      </Link>
       <Link to="/new-article">
         {/* TODO: (all) don't repeat yourself */}
         <NewIcon width={55} height={55} fill={getColor('gray-600')} />
