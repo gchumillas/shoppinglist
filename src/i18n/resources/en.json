@@ -10,8 +10,10 @@
     "delete": "Delete"
   },
   "recorder": {
+    "starting": "Starting...",
     "say something": "Say something",
     "something went wrong": "Something went wrong.\nPlease review the application\npermissions",
+    "i did not understand": "I did not understand.\nPlease try again.",
     "retry": "Retry"
   },
   "delete all articles": {
