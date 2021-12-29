@@ -16,9 +16,10 @@ const Component = () => {
   const navigate = useNavigate()
   const [listening, setListening] = React.useState(false)
   const [ready, setReady] = React.useState(false)
-  const [message, setMessage] = React.useState(t`loading`)
+  const [message, setMessage] = React.useState('')
 
   const startRecording = async _ => {
+    setMessage(t`starting`)
     await Voice.start(i18n.language)
     setReady(true)
   }
@@ -31,7 +32,7 @@ const Component = () => {
   const onSpeechResults = async e => {
     const text = e.value[0]
     if (!text) {
-      setMessage(t`something went wrong`)
+      setMessage(t`i did not understand`)
       setListening(false)
       return
     }
@@ -42,7 +43,7 @@ const Component = () => {
   }
 
   const onSpeechError = e => {
-    setMessage(t`something went wrong`)
+    setMessage(e.error?.code == '7' ? t`i did not understand` : t`something went wrong`)
     setListening(false)
     console.error(e)
   }
