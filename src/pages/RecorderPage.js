@@ -10,7 +10,7 @@ import { tw, getColor } from '~/src/libs/tailwind'
 import { context } from './HomePage'
 
 const Component = () => {
-  const { t } = useTranslation('recorder')
+  const { t, i18n } = useTranslation('recorder')
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
   const [message, setMessage] = React.useState(t`say something`)
@@ -33,13 +33,13 @@ const Component = () => {
       setMessage(t`something went wrong`)
       console.error(e)
     }
-    // TODO: auto-detect language
-    Voice.start('es-ES')
+
+    Voice.start(i18n.language)
 
     return _ => {
       Voice.destroy().then(Voice.removeAllListeners)
     }
-  }, [])
+  }, [i18n.language])
 
   return <ModalDialog visible width='none' onRequestClose={() => navigate('/')}>
     <View style={tw('flex items-center')}>
