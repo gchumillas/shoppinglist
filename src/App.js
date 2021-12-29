@@ -8,7 +8,7 @@ import { tw, getColor } from '~/src/libs/tailwind'
 import i18n from '~/src/i18n'
 import { useLanguage, useDetectLanguage } from '~/src/hooks/store'
 import BgImage from '~/src/components/BgImage'
-import Home from '~/src/pages/Home'
+import HomePage from '~/src/pages/HomePage'
 
 // TODO: React Native autocomplete
 const App = _ => {
@@ -30,7 +30,7 @@ const App = _ => {
 
   return <View style={styles.container} onLayout={doLayout}>
     <BgImage width={bgWidth} height={bgHeight} style={tw('absolute')} />
-    <Home />
+    <HomePage />
     <StatusBar style="auto" />
   </View>
 }

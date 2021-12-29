@@ -6,7 +6,7 @@ import { tw } from '~/src/libs/tailwind'
 import { Button, TextField } from '~/src/components/inputs'
 import { ModalDialog } from '~/src/components/utils'
 import { createArticle } from '~/src/providers/articles'
-import { context } from './Home'
+import { context } from './HomePage'
 
 const Component = _ => {
   const { t } = useTranslation('new article')

@@ -7,7 +7,7 @@ import MicIcon from '~/assets/icons/mic.svg'
 import { ModalDialog } from '~/src/components/utils'
 import { createArticle } from '~/src/providers/articles'
 import { tw, getColor } from '~/src/libs/tailwind'
-import { context } from './Home'
+import { context } from './HomePage'
 
 const Component = () => {
   const { t } = useTranslation('recorder')

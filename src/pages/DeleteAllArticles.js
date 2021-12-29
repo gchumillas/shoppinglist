@@ -7,7 +7,7 @@ import { Text } from '~/src/components/display'
 import { Button } from '~/src/components/inputs'
 import { ModalDialog } from '~/src/components/utils'
 import { deleteAllArticles } from '~/src/providers/articles'
-import { context } from './Home'
+import { context } from './HomePage'
 
 // TODO: (all) close then tapping outside
 const Component = _ => {
