@@ -11,7 +11,8 @@
   },
   "recorder": {
     "say something": "Say something",
-    "something went wrong": "Something went wrong.\nPlease review the application\npermissions"
+    "something went wrong": "Something went wrong.\nPlease review the application\npermissions",
+    "retry": "Retry"
   },
   "delete all articles": {
     "delete all articles?": "Delete all articles?"

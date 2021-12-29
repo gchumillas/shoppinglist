@@ -11,7 +11,8 @@
   },
   "recorder": {
     "say something": "Diga algo",
-    "something went wrong": "Algo salió mal.\nPor favor, revise los permisos\nde la aplicación"
+    "something went wrong": "Algo salió mal.\nPor favor, revise los permisos\nde la aplicación",
+    "retry": "Reintentar"
   },
   "delete all articles": {
     "delete all articles?": "Borrar todos los artículos?"
