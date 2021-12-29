@@ -10,10 +10,7 @@ i18n
     lng: Localization.locale,
     fallbackLng: 'en',
     defaultNS: 'default',
-    resources: {
-      en: { default: resources.en },
-      es: { default: resources.es }
-    },
+    resources,
     interpolation: {
       escapeValue: false
     },

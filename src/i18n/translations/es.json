@@ -1,21 +1,23 @@
 {
-  "common": {
-    "close": "Cerrar",
-    "save": "Guardar",
-    "no": "No",
-    "yes": "Sí"
-  },
-  "pages": {
-    "home": {
-      "edit": "Editar",
-      "delete": "Borrar"
+  "default": {
+    "common": {
+      "close": "Cerrar",
+      "save": "Guardar",
+      "no": "No",
+      "yes": "Sí"
     },
-    "recorder": {
-      "say something": "Diga algo",
-      "something went wrong": "Algo salió mal.\nPor favor, revise los permisos\nde la aplicación"
-    },
-    "delete all articles": {
-      "delete all articles?": "Borrar todos los artículos?"
+    "pages": {
+      "home": {
+        "edit": "Editar",
+        "delete": "Borrar"
+      },
+      "recorder": {
+        "say something": "Diga algo",
+        "something went wrong": "Algo salió mal.\nPor favor, revise los permisos\nde la aplicación"
+      },
+      "delete all articles": {
+        "delete all articles?": "Borrar todos los artículos?"
+      }
     }
   }
 }
