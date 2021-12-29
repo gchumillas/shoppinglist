@@ -22,6 +22,7 @@ const Component = _ => {
   return <ModalDialog visible>
     <View>
       <View style={tw('flex flex-row items-center')}>
+        {/* TODO: (all) replace inputs by nices ones */}
         <Checkbox value={detectLanguage} onValueChange={setDetectLanguage} />
         <Text style={tw('pl-2')}>Detect language</Text>
       </View>
