@@ -4,7 +4,7 @@ import { registerRootComponent } from 'expo'
 import { NativeRouter, Routes, Route } from 'react-router-native'
 import store from '~/src/store'
 import '~/src/i18n'
-import NewArticle from '~/src/pages/NewArticle'
+import NewArticlePage from '~/src/pages/NewArticlePage'
 import EditArticle from '~/src/pages/EditArticle'
 import DeleteAllArticles from '~/src/pages/DeleteAllArticles'
 import RecorderPage from '~/src/pages/RecorderPage'
@@ -16,7 +16,7 @@ const Root = () => {
     <NativeRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="/new-article" element={<NewArticle />} />
+          <Route path="/new-article" element={<NewArticlePage />} />
           <Route path="/edit-article/:id" element={<EditArticle />} />
           <Route path="/delete-all-articles" element={<DeleteAllArticles />} />
           <Route path="/recorder" element={<RecorderPage />} />
