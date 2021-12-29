@@ -1,11 +1,14 @@
 import React from 'react'
 import { StyleSheet, View, ActivityIndicator } from 'react-native'
+import * as Localization from 'expo-localization'
 import { StatusBar } from 'expo-status-bar'
 import { useFonts } from 'expo-font'
 import { RobotoSlab_500Medium } from '@expo-google-fonts/roboto-slab'
 import { tw, getColor } from '~/src/libs/tailwind'
+import { useLanguage, useDetectLanguage } from '~/src/hooks/store'
 import BgImage from '~/src/components/BgImage'
 import Home from '~/src/pages/Home'
+import i18n from 'i18n-js'
 
 // TODO: React Native autocomplete
 const App = _ => {
@@ -25,8 +28,15 @@ const App = _ => {
   </View>
 }
 
-const AppInit = _ => {
+const AppContainer = _ => {
   const [fontsLoaded] = useFonts({ RobotoSlab_500Medium }) // eslint-disable-line camelcase
+  const [language] = useLanguage()
+  const [detectLanguage] = useDetectLanguage()
+
+  React.useEffect(() => {
+    const lang = detectLanguage || !language ? Localization.locale : language
+    i18n.locale = lang
+  }, [language, detectLanguage])
 
   return fontsLoaded
     ? <App />
@@ -40,4 +50,4 @@ const styles = StyleSheet.create({
   container: tw('flex h-full')
 })
 
-export default AppInit
+export default AppContainer
