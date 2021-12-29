@@ -1,8 +1,8 @@
 import i18n from 'i18n-js'
 
-export const useTranslation = (prefix = '') => {
+export const useTranslation = (section = '') => {
   return key => {
-    const path = [prefix, key].filter(x => !!x).join('.')
+    const path = [section, key].filter(x => !!x).join('.')
     return i18n.t(path, { defaults: [{ scope: `common.${key}` }] })
   }
 }
