@@ -24,7 +24,9 @@ const Component = _ => {
       <View style={tw('flex flex-row items-center')}>
         {/* TODO: (all) replace inputs by nices ones */}
         <Checkbox value={detectLanguage} onValueChange={setDetectLanguage} />
-        <Text style={tw('pl-2')}>{t`detect language`}</Text>
+        <Text style={tw('pl-2')} onPress={() => setDetectLanguage(!detectLanguage)}>
+          {t`detect language`}
+        </Text>
       </View>
       {/* TODO: (all) replace tw('...') by tw`...` */}
       <Picker selectedValue={language} onValueChange={setLanguage} style={tw('bg-gray-300')}>
