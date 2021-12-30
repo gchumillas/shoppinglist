@@ -20,6 +20,12 @@ const Component = () => {
 
   const startRecording = async _ => {
     setMessage(t`starting`)
+
+    if (!await Voice.isAvailable()) {
+      setMessage(t`not available`)
+      return
+    }
+
     await Voice.start(i18n.language)
     setReady(true)
   }
