@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { registerRootComponent } from 'expo'
 import { NativeRouter, Routes, Route } from 'react-router-native'
-import store from '~/src/store'
+import store, { loadStore } from '~/src/store'
 import '~/src/i18n'
 import NewArticlePage from '~/src/pages/NewArticlePage'
 import EditArticlePage from '~/src/pages/EditArticlePage'
@@ -12,7 +12,13 @@ import SettingsPage from '~/src/pages/SettingsPage'
 import App from '~/src/App'
 
 const Root = () => {
-  return <Provider store={store}>
+  const [value, setValue] = React.useState(store)
+
+  React.useEffect(_ => {
+    loadStore().then(store => setValue(store))
+  }, [])
+
+  return <Provider store={value}>
     <NativeRouter>
       <Routes>
         <Route path="/" element={<App />}>
