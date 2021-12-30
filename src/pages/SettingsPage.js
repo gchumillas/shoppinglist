@@ -12,12 +12,9 @@ const Component = _ => {
   const { t } = useTranslation('settings')
   const navigate = useNavigate()
   const [language, setLanguage] = useLanguage()
+  const doClose = _ => navigate('/')
 
-  const doSave = async _ => {
-    navigate('/')
-  }
-
-  return <ModalDialog visible>
+  return <ModalDialog visible onRequestClose={doClose}>
     <View>
       <Picker selectedValue={language} onValueChange={setLanguage} style={tw`bg-gray-300`}>
         <Picker.Item label={t`detect language`} value="" />
@@ -26,8 +23,7 @@ const Component = _ => {
       </Picker>
     </View>
     <View style={styles.footer}>
-      <Button title={t`close`} onPress={_ => navigate('/')} />
-      <Button title={t`save`} primary onPress={doSave} />
+      <Button title={t`close`} onPress={doClose} />
     </View>
   </ModalDialog>
 }
