@@ -42,7 +42,7 @@ const Component = _ => {
 }
 
 const styles = StyleSheet.create({
-  footer: tw('flex flex-row items-center justify-around')
+  footer: tw`flex flex-row items-center justify-around`
 })
 
 export default Component

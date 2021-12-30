@@ -33,10 +33,10 @@ const Component = ({ title = '', dense = false, autoFocus = false, value, onChan
 }
 
 const styles = StyleSheet.create({
-  wrapper: tw('mb-4'),
-  dense: tw('mb-0'),
-  title: tw('text-xs'),
-  input: tw('border-b-2 text-primary')
+  wrapper: tw`mb-4`,
+  dense: tw`mb-0`,
+  title: tw`text-xs`,
+  input: tw`border-b-2 text-primary`
 })
 
 export default Component

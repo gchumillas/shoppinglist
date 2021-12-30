@@ -10,11 +10,11 @@ const Component = ({ title, primary = false, disabled = false, ...props }) => {
 }
 
 const styles = StyleSheet.create({
-  wrapper: tw('py-1.5 px-3 rounded-md'),
-  text: { ...tw('uppercase font-bold') },
-  primary: tw('bg-gray-500 text-primary-light'),
-  primaryText: tw('text-primary-light'),
-  disabledText: tw('text-gray-400')
+  wrapper: tw`py-1.5 px-3 rounded-md`,
+  text: { ...tw`uppercase font-bold` },
+  primary: tw`bg-gray-500 text-primary-light`,
+  primaryText: tw`text-primary-light`,
+  disabledText: tw`text-gray-400`
 })
 
 export default Component

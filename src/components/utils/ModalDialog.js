@@ -20,8 +20,8 @@ const Component = ({ visible = false, width = 'xs', onRequestClose = undefined, 
 }
 
 const styles = StyleSheet.create({
-  wrapper: tw('flex h-full justify-start items-center pt-10'),
-  box: tw('bg-white p-5 border rounded-lg')
+  wrapper: tw`flex h-full justify-start items-center pt-10`,
+  box: tw`bg-white p-5 border rounded-lg`
 })
 
 export default Component

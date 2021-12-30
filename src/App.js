@@ -27,7 +27,7 @@ const App = _ => {
   }
 
   return <View style={styles.container} onLayout={doLayout}>
-    <BgImage width={bgWidth} height={bgHeight} style={tw('absolute')} />
+    <BgImage width={bgWidth} height={bgHeight} style={tw`absolute`} />
     <HomePage />
     <StatusBar style="auto" />
   </View>
@@ -45,7 +45,7 @@ const AppContainer = _ => {
 }
 
 const styles = StyleSheet.create({
-  container: tw('flex h-full')
+  container: tw`flex h-full`
 })
 
 export default AppContainer

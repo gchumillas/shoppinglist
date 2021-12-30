@@ -66,9 +66,9 @@ const Component = () => {
   }, [])
 
   return <ModalDialog visible width='xs' onRequestClose={() => navigate('/')}>
-    <View style={tw('flex items-center')}>
+    <View style={tw`flex items-center`}>
       <MicIcon width={55} height={55} fill={getColor('gray-600')} />
-      <Text numberOfLines={3} style={tw('mt-4 text-center')}>{message}</Text>
+      <Text numberOfLines={3} style={tw`mt-4 text-center`}>{message}</Text>
     </View>
     <View style={styles.footer}>
       <Button title={t`close`} onPress={_ => navigate('/')} />
@@ -78,7 +78,7 @@ const Component = () => {
 }
 
 const styles = StyleSheet.create({
-  footer: tw('flex flex-row items-center justify-around')
+  footer: tw`flex flex-row items-center justify-around`
 })
 
 export default Component

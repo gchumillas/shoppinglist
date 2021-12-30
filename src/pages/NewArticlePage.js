@@ -32,8 +32,8 @@ const Component = _ => {
 }
 
 const styles = StyleSheet.create({
-  body: tw('py-8'),
-  footer: tw('flex flex-row items-center justify-around')
+  body: tw`py-8`,
+  footer: tw`flex flex-row items-center justify-around`
 })
 
 export default Component

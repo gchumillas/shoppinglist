@@ -19,8 +19,7 @@ const Component = _ => {
 
   return <ModalDialog visible>
     <View>
-      {/* TODO: (all) replace tw('...') by tw`...` */}
-      <Picker selectedValue={language} onValueChange={setLanguage} style={tw('bg-gray-300')}>
+      <Picker selectedValue={language} onValueChange={setLanguage} style={tw`bg-gray-300`}>
         <Picker.Item label={t`detect language`} value="" />
         <Picker.Item label={t`english`} value="en" />
         <Picker.Item label={t`spanish`} value="es" />
@@ -34,7 +33,7 @@ const Component = _ => {
 }
 
 const styles = StyleSheet.create({
-  footer: tw('flex flex-row items-center justify-around')
+  footer: tw`flex flex-row items-center justify-around`
 })
 
 export default Component

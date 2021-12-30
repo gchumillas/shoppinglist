@@ -58,7 +58,7 @@ const Component = _ => {
           >
             {item.text}
           </Text>
-          <Pressable onPress={_ => setSelectedArticleId(item.id)} style={tw('mt-2')}>
+          <Pressable onPress={_ => setSelectedArticleId(item.id)} style={tw`mt-2`}>
             <OptionsIcon />
           </Pressable>
         </View>}
@@ -94,18 +94,18 @@ const Component = _ => {
 }
 
 const styles = StyleSheet.create({
-  body: tw('flex-shrink flex-grow pr-8 pl-12'),
+  body: tw`flex-shrink flex-grow pr-8 pl-12`,
   // TODO: replace 24 by StatusBar.currentHeight (it doesn't work on iPhone)
-  list: { ...tw('pt-5'), marginTop: 24 },
-  itemWrapper: tw('flex flex-row items-center justify-between'),
+  list: { ...tw`pt-5`, marginTop: 24 },
+  itemWrapper: tw`flex flex-row items-center justify-between`,
   itemText: {
-    ...tw('text-xl text-gray-600 flex-grow pt-2 pb-1'),
+    ...tw`text-xl text-gray-600 flex-grow pt-2 pb-1`,
     maxWidth: '87%',
     fontFamily: 'RobotoSlab_500Medium'
   },
-  itemTextChecked: tw('line-through text-primary text-opacity-50'),
-  modalItemText: tw('py-2'),
-  footer: tw('flex flex-row justify-evenly items-center py-4')
+  itemTextChecked: tw`line-through text-primary text-opacity-50`,
+  modalItemText: tw`py-2`,
+  footer: tw`flex flex-row justify-evenly items-center py-4`
 })
 
 export default Component
