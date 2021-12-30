@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, FlatList, Pressable } from 'react-native'
+import { StyleSheet, View, FlatList, Pressable, StatusBar } from 'react-native'
 import { Link, Outlet, useNavigate } from 'react-router-native'
 import { useTranslation } from 'react-i18next'
 import cn from 'react-native-classnames'
@@ -94,8 +94,7 @@ const Component = _ => {
 
 const styles = StyleSheet.create({
   body: tw`flex-shrink flex-grow pr-8 pl-12`,
-  // TODO: replace 24 by StatusBar.currentHeight (it doesn't work on iPhone)
-  list: { ...tw`pt-5`, marginTop: 24 },
+  list: { ...tw`pt-5`, marginTop: StatusBar.currentHeight },
   itemWrapper: tw`flex flex-row items-center justify-between`,
   itemText: {
     ...tw`text-xl text-gray-600 flex-grow pt-2 pb-1`,
