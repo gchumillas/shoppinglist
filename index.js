@@ -6,7 +6,7 @@ import store from '~/src/store'
 import '~/src/i18n'
 import NewArticlePage from '~/src/pages/NewArticlePage'
 import EditArticlePage from '~/src/pages/EditArticlePage'
-import DeleteAllArticles from '~/src/pages/DeleteAllArticles'
+import DeleteAllArticlesPage from '~/src/pages/DeleteAllArticlesPage'
 import RecorderPage from '~/src/pages/RecorderPage'
 import SettingsPage from '~/src/pages/SettingsPage'
 import App from '~/src/App'
@@ -18,7 +18,7 @@ const Root = () => {
         <Route path="/" element={<App />}>
           <Route path="/new-article" element={<NewArticlePage />} />
           <Route path="/edit-article/:id" element={<EditArticlePage />} />
-          <Route path="/delete-all-articles" element={<DeleteAllArticles />} />
+          <Route path="/delete-all-articles" element={<DeleteAllArticlesPage />} />
           <Route path="/recorder" element={<RecorderPage />} />
           <Route path="/settings" element={<SettingsPage />} />
         </Route>
