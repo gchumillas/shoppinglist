@@ -16,7 +16,6 @@
     "@react-native-picker/picker": "2.2.1",
     "@react-native-voice/voice": "^3.2.2",
     "expo": "^44.0.0",
-    "expo-checkbox": "~2.0.0",
     "expo-dev-client": "~0.7.2",
     "expo-font": "~10.0.4",
     "expo-localization": "~12.0.0",
