@@ -12,7 +12,8 @@
   "recorder": {
     "starting": "Iniciando...",
     "say something": "Diga algo",
-    "something went wrong": "Algo salió mal.\nPor favor, revise los permisos\nde la aplicación",
+    "not available": "El reconocimiento de voz no está\ndisponible en este dispositivo.",
+    "something went wrong": "Algo salió mal.\nPor favor, revise los permisos\nde la aplicación.",
     "i did not understand": "No consigo entenderle.\nPor favor, inténtelo de nuevo.",
     "retry": "Reintentar"
   },
