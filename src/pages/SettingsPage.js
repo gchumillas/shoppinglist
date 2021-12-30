@@ -21,9 +21,9 @@ const Component = _ => {
     <View>
       {/* TODO: (all) replace tw('...') by tw`...` */}
       <Picker selectedValue={language} onValueChange={setLanguage} style={tw('bg-gray-300')}>
-        <Picker.Item label="Detect language" value="" />
-        <Picker.Item label="English" value="en" />
-        <Picker.Item label="Spanish" value="es" />
+        <Picker.Item label={t`detect language`} value="" />
+        <Picker.Item label={t`english`} value="en" />
+        <Picker.Item label={t`spanish`} value="es" />
       </Picker>
     </View>
     <View style={styles.footer}>

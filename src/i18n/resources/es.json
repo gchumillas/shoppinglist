@@ -21,6 +21,8 @@
     "delete all articles?": "Borrar todos los artículos?"
   },
   "settings": {
-    "detect language": "Detectar lenguaje"
+    "detect language": "Detectar lenguaje - Detect language",
+    "english": "Inglés - English",
+    "spanish": "Español - Spanish"
   }
 }
