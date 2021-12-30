@@ -19,6 +19,11 @@ const Component = _ => {
     navigate('/')
   }
 
+  const doChangeLanguage = language => {
+    setDetectLanguage(false)
+    setLanguage(language)
+  }
+
   return <ModalDialog visible>
     <View>
       <View style={tw('flex flex-row items-center')}>
@@ -29,8 +34,8 @@ const Component = _ => {
         </Text>
       </View>
       {/* TODO: (all) replace tw('...') by tw`...` */}
-      <Picker selectedValue={language} onValueChange={setLanguage} style={tw('bg-gray-300')}>
-        <Picker.Item label="No language selected" value="" />
+      <Picker selectedValue={language} onValueChange={doChangeLanguage} style={tw('bg-gray-300')}>
+        <Picker.Item label="Select a language" value="" />
         <Picker.Item label="English" value="en" />
         <Picker.Item label="Spanish" value="es" />
       </Picker>
