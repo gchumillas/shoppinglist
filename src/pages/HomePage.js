@@ -8,8 +8,8 @@ import MicIcon from '~/assets/icons/mic.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import OptionsIcon from '~/assets/icons/options.svg'
 import SettingsIcon from '~/assets/icons/translate.svg'
-import { tw, getColor } from '~/src/libs/tailwind'
-import { Text } from '~/src/components/display'
+import { tw } from '~/src/libs/tailwind'
+import { Text, Icon } from '~/src/components/display'
 import { ModalDialog } from '~/src/components/utils'
 import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
 
@@ -68,17 +68,16 @@ const Component = _ => {
     </View>
     <View style={styles.footer}>
       <Link to="/settings">
-        <SettingsIcon width={55} height={55} fill={getColor('gray-600')} />
+        <Icon component={SettingsIcon} size={55} />
       </Link>
       <Link to="/new-article">
-        {/* TODO: (all) don't repeat yourself */}
-        <NewIcon width={55} height={55} fill={getColor('gray-600')} />
+        <Icon component={NewIcon} size={55} />
       </Link>
       <Link to="/recorder">
-        <MicIcon width={55} height={55} fill={getColor('gray-600')} />
+        <Icon component={MicIcon} size={55} />
       </Link>
       <Link to="/delete-all-articles">
-        <DeleteIcon width={55} height={55} fill={getColor('gray-600')} />
+        <Icon component={DeleteIcon} size={55} />
       </Link>
     </View>
     <ModalDialog visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
