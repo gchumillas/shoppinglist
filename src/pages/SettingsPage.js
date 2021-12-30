@@ -1,41 +1,27 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { useNavigate } from 'react-router-native'
 import { useTranslation } from 'react-i18next'
-import Checkbox from 'expo-checkbox'
 import { Picker } from '@react-native-picker/picker'
 import { tw } from '~/src/libs/tailwind'
-import { useLanguage, useDetectLanguage } from '~/src/hooks/store'
+import { useLanguage } from '~/src/hooks/store'
 import { Button } from '~/src/components/inputs'
 import { ModalDialog } from '~/src/components/utils'
 
 const Component = _ => {
   const { t } = useTranslation('settings')
   const navigate = useNavigate()
-  const [detectLanguage, setDetectLanguage] = useDetectLanguage()
   const [language, setLanguage] = useLanguage()
 
   const doSave = async _ => {
     navigate('/')
   }
 
-  const doChangeLanguage = language => {
-    setDetectLanguage(false)
-    setLanguage(language)
-  }
-
   return <ModalDialog visible>
     <View>
-      <View style={tw('flex flex-row items-center')}>
-        {/* TODO: (all) replace inputs by nices ones */}
-        <Checkbox value={detectLanguage} onValueChange={setDetectLanguage} />
-        <Text style={tw('pl-2')} onPress={() => setDetectLanguage(!detectLanguage)}>
-          {t`detect language`}
-        </Text>
-      </View>
       {/* TODO: (all) replace tw('...') by tw`...` */}
-      <Picker selectedValue={language} onValueChange={doChangeLanguage} style={tw('bg-gray-300')}>
-        <Picker.Item label="Select a language" value="" />
+      <Picker selectedValue={language} onValueChange={setLanguage} style={tw('bg-gray-300')}>
+        <Picker.Item label="Detect language" value="" />
         <Picker.Item label="English" value="en" />
         <Picker.Item label="Spanish" value="es" />
       </Picker>

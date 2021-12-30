@@ -6,21 +6,19 @@ import { useFonts } from 'expo-font'
 import { RobotoSlab_500Medium } from '@expo-google-fonts/roboto-slab'
 import { tw, getColor } from '~/src/libs/tailwind'
 import i18n from '~/src/i18n'
-import { useLanguage, useDetectLanguage } from '~/src/hooks/store'
+import { useLanguage } from '~/src/hooks/store'
 import BgImage from '~/src/components/BgImage'
 import HomePage from '~/src/pages/HomePage'
 
 // TODO: React Native autocomplete
 const App = _ => {
   const [language] = useLanguage()
-  const [detectLanguage] = useDetectLanguage()
   const [bgWidth, setBgWidth] = React.useState(0)
   const [bgHeight, setBgHeight] = React.useState(0)
 
   React.useEffect(() => {
-    const lng = detectLanguage || !language ? Localization.locale : language
-    i18n.changeLanguage(lng)
-  }, [language, detectLanguage])
+    i18n.changeLanguage(language || Localization.locale)
+  }, [language])
 
   const doLayout = e => {
     const { nativeEvent: { layout } } = e
