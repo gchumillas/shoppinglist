@@ -9,11 +9,11 @@ import { ModalDialog } from '~/src/components/utils'
 import { deleteAllArticles } from '~/src/providers/articles'
 import { context } from './HomePage'
 
-// TODO: (all) close then tapping outside
 const Component = _ => {
   const { t } = useTranslation('delete all articles')
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
+  const doClose = _ => navigate('/')
 
   const doDeleteAll = async _ => {
     await deleteAllArticles()
@@ -21,12 +21,12 @@ const Component = _ => {
     navigate('/')
   }
 
-  return <ModalDialog visible>
+  return <ModalDialog visible onRequestClose={doClose}>
     <View>
       <Text style={tw`text-center pb-6`}>{t`delete all articles?`}</Text>
     </View>
     <View style={styles.footer}>
-      <Button title={t`no`} onPress={_ => navigate('/')} />
+      <Button title={t`no`} onPress={doClose} />
       <Button title={t`yes`} primary onPress={doDeleteAll} />
     </View>
   </ModalDialog>

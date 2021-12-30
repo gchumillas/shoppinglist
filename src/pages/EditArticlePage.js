@@ -14,6 +14,7 @@ const Component = _ => {
   const navigate = useNavigate()
   const { id } = useParams()
   const [text, setText] = React.useState('')
+  const doClose = _ => navigate('/')
 
   const doSave = async _ => {
     await updateArticle({ id, text })
@@ -30,12 +31,12 @@ const Component = _ => {
     init()
   }, [id])
 
-  return <ModalDialog visible>
+  return <ModalDialog visible onRequestClose={doClose}>
     <View>
       <TextField autoFocus value={text} onChange={setText} />
     </View>
     <View style={styles.footer}>
-      <Button title={t`close`} onPress={_ => navigate('/')} />
+      <Button title={t`close`} onPress={doClose} />
       <Button title={t`save`} primary disabled={!text} onPress={doSave} />
     </View>
   </ModalDialog>

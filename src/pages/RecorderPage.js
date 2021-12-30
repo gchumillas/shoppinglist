@@ -17,6 +17,7 @@ const Component = () => {
   const [listening, setListening] = React.useState(false)
   const [ready, setReady] = React.useState(false)
   const [message, setMessage] = React.useState('')
+  const doClose = _ => navigate('/')
 
   const startRecording = async _ => {
     setMessage(t`starting`)
@@ -65,13 +66,13 @@ const Component = () => {
     }
   }, [])
 
-  return <ModalDialog visible width='xs' onRequestClose={() => navigate('/')}>
+  return <ModalDialog visible width='xs' onRequestClose={doClose}>
     <View style={tw`flex items-center`}>
       <MicIcon width={55} height={55} fill={getColor('gray-600')} />
       <Text numberOfLines={3} style={tw`mt-4 text-center`}>{message}</Text>
     </View>
     <View style={styles.footer}>
-      <Button title={t`close`} onPress={_ => navigate('/')} />
+      <Button title={t`close`} onPress={doClose} />
       <Button title={t`retry`} primary disabled={!ready || listening} onPress={startRecording} />
     </View>
   </ModalDialog>
