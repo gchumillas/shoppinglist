@@ -10,7 +10,6 @@ import { useLanguage } from '~/src/hooks/store'
 import BgImage from '~/src/components/BgImage'
 import HomePage from '~/src/pages/HomePage'
 
-// TODO: React Native autocomplete
 const App = _ => {
   const [language] = useLanguage()
   const [bgWidth, setBgWidth] = React.useState(0)
