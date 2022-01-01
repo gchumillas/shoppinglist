@@ -67,7 +67,6 @@ const Component = () => {
   }, [])
 
   return <DialogLayout
-    width="xs"
     onRequestClose={doClose}
     actions={<>
       <Button title={t`close`} onPress={doClose} />
