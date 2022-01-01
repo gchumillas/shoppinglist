@@ -4,9 +4,10 @@ import { useNavigate } from 'react-router-native'
 import { useTranslation } from 'react-i18next'
 import Voice from '@react-native-voice/voice'
 import MicIcon from '~/assets/icons/mic.svg'
+import { Icon } from '~/src/components/display'
 import { Button } from '~/src/components/inputs'
 import { createArticle } from '~/src/providers/articles'
-import { tw, getColor } from '~/src/libs/tailwind'
+import { tw } from '~/src/libs/tailwind'
 import DialogLayout from '~/src/layouts/DialogLayout'
 import { context } from './HomePage'
 
@@ -73,7 +74,7 @@ const Component = () => {
       <Button title={t`retry`} primary disabled={!ready || listening} onPress={startRecording} />
     </>}>
     <View style={tw`flex items-center`}>
-      <MicIcon width={55} height={55} fill={getColor('gray-600')} />
+      <Icon component={MicIcon} />
       <Text numberOfLines={3} style={tw`mt-4 text-center`}>{message}</Text>
     </View>
   </DialogLayout>
