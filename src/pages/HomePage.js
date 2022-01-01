@@ -9,6 +9,7 @@ import DeleteIcon from '~/assets/icons/delete.svg'
 import OptionsIcon from '~/assets/icons/options.svg'
 import SettingsIcon from '~/assets/icons/translate.svg'
 import { tw } from '~/src/libs/tailwind'
+import PageLayout from '~/src/layouts/PageLayout'
 import { Text, Icon } from '~/src/components/display'
 import { ModalDialog } from '~/src/components/utils'
 import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
@@ -46,49 +47,51 @@ const Component = _ => {
   }, [])
 
   return <context.Provider value={React.useMemo(() => ({ reload }), [])}>
-    <View style={styles.body}>
-      <FlatList
-        data={articles}
-        renderItem={({ item }) => <View style={styles.itemWrapper}>
-          <Text
-            key={item.id}
-            numberOfLines={1}
-            onPress={_ => doToggleArticle(item)}
-            style={cn(styles, 'itemText', { itemTextChecked: item.checked })}
+    <PageLayout>
+      <View style={styles.body}>
+        <FlatList
+          data={articles}
+          renderItem={({ item }) => <View style={styles.itemWrapper}>
+            <Text
+              key={item.id}
+              numberOfLines={1}
+              onPress={_ => doToggleArticle(item)}
+              style={cn(styles, 'itemText', { itemTextChecked: item.checked })}
           >
-            {item.text}
-          </Text>
-          <Pressable onPress={_ => setSelectedArticleId(item.id)} style={tw`mt-2`}>
-            <OptionsIcon />
-          </Pressable>
-        </View>}
-        keyExtractor={item => item.id}
-        style={styles.list}
+              {item.text}
+            </Text>
+            <Pressable onPress={_ => setSelectedArticleId(item.id)} style={tw`mt-2`}>
+              <OptionsIcon />
+            </Pressable>
+          </View>}
+          keyExtractor={item => item.id}
+          style={styles.list}
       />
-    </View>
-    <View style={styles.footer}>
-      <Link to="/settings">
-        <Icon component={SettingsIcon} size={55} />
-      </Link>
-      <Link to="/new-article">
-        <Icon component={NewIcon} size={55} />
-      </Link>
-      <Link to="/recorder">
-        <Icon component={MicIcon} size={55} />
-      </Link>
-      <Link to="/delete-all-articles">
-        <Icon component={DeleteIcon} size={55} />
-      </Link>
-    </View>
-    <ModalDialog visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
-      <Pressable onPress={doEditArticle}>
-        <Text style={styles.modalItemText}>{t`edit`}</Text>
-      </Pressable>
-      <Pressable onPress={doDeleteArticle}>
-        <Text style={styles.modalItemText}>{t`delete`}</Text>
-      </Pressable>
-    </ModalDialog>
-    <Outlet />
+      </View>
+      <View style={styles.footer}>
+        <Link to="/settings">
+          <Icon component={SettingsIcon} size={55} />
+        </Link>
+        <Link to="/new-article">
+          <Icon component={NewIcon} size={55} />
+        </Link>
+        <Link to="/recorder">
+          <Icon component={MicIcon} size={55} />
+        </Link>
+        <Link to="/delete-all-articles">
+          <Icon component={DeleteIcon} size={55} />
+        </Link>
+      </View>
+      <ModalDialog visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
+        <Pressable onPress={doEditArticle}>
+          <Text style={styles.modalItemText}>{t`edit`}</Text>
+        </Pressable>
+        <Pressable onPress={doDeleteArticle}>
+          <Text style={styles.modalItemText}>{t`delete`}</Text>
+        </Pressable>
+      </ModalDialog>
+      <Outlet />
+    </PageLayout>
   </context.Provider>
 }
 

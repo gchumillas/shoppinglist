@@ -9,12 +9,12 @@ import { RobotoSlab_500Medium } from '@expo-google-fonts/roboto-slab'
 import { loadStore } from '~/src/store'
 import { tw, getColor } from '~/src/libs/tailwind'
 import '~/src/i18n'
+import HomePage from '~/src/pages/HomePage'
 import NewArticlePage from '~/src/pages/NewArticlePage'
 import EditArticlePage from '~/src/pages/EditArticlePage'
 import DeleteAllArticlesPage from '~/src/pages/DeleteAllArticlesPage'
 import RecorderPage from '~/src/pages/RecorderPage'
 import SettingsPage from '~/src/pages/SettingsPage'
-import App from '~/src/App'
 
 const Root = () => {
   const [fontsLoaded] = useFonts({ RobotoSlab_500Medium }) // eslint-disable-line camelcase
@@ -28,7 +28,7 @@ const Root = () => {
     ? <Provider store={value}>
       <NativeRouter>
         <Routes>
-          <Route path="/" element={<App />}>
+          <Route path="/" element={<HomePage />}>
             <Route path="/new-article" element={<NewArticlePage />} />
             <Route path="/edit-article/:id" element={<EditArticlePage />} />
             <Route path="/delete-all-articles" element={<DeleteAllArticlesPage />} />
