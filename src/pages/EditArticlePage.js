@@ -1,11 +1,9 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
 import { useNavigate, useParams } from 'react-router-native'
 import { useTranslation } from 'react-i18next'
-import { tw } from '~/src/libs/tailwind'
 import { Button, TextField } from '~/src/components/inputs'
-import { ModalDialog } from '~/src/components/utils'
 import { updateArticle, readArticle } from '~/src/providers/articles'
+import DialogLayout from '~/src/layouts/DialogLayout'
 import { context } from './HomePage'
 
 const Component = _ => {
@@ -31,19 +29,14 @@ const Component = _ => {
     init()
   }, [id])
 
-  return <ModalDialog visible onRequestClose={doClose}>
-    <View>
-      <TextField autoFocus value={text} onChange={setText} />
-    </View>
-    <View style={styles.footer}>
+  return <DialogLayout
+    onRequestClose={doClose}
+    actions={<>
       <Button title={t`close`} onPress={doClose} />
       <Button title={t`save`} primary disabled={!text} onPress={doSave} />
-    </View>
-  </ModalDialog>
+    </>}>
+    <TextField autoFocus value={text} onChange={setText} />
+  </DialogLayout>
 }
-
-const styles = StyleSheet.create({
-  footer: tw`flex flex-row items-center justify-around`
-})
 
 export default Component

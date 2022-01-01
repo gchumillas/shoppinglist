@@ -1,13 +1,13 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { View, Text } from 'react-native'
 import { useNavigate } from 'react-router-native'
 import { useTranslation } from 'react-i18next'
 import Voice from '@react-native-voice/voice'
 import MicIcon from '~/assets/icons/mic.svg'
 import { Button } from '~/src/components/inputs'
-import { ModalDialog } from '~/src/components/utils'
 import { createArticle } from '~/src/providers/articles'
 import { tw, getColor } from '~/src/libs/tailwind'
+import DialogLayout from '~/src/layouts/DialogLayout'
 import { context } from './HomePage'
 
 const Component = () => {
@@ -66,20 +66,18 @@ const Component = () => {
     }
   }, [])
 
-  return <ModalDialog visible width='xs' onRequestClose={doClose}>
+  return <DialogLayout
+    width="xs"
+    onRequestClose={doClose}
+    actions={<>
+      <Button title={t`close`} onPress={doClose} />
+      <Button title={t`retry`} primary disabled={!ready || listening} onPress={startRecording} />
+    </>}>
     <View style={tw`flex items-center`}>
       <MicIcon width={55} height={55} fill={getColor('gray-600')} />
       <Text numberOfLines={3} style={tw`mt-4 text-center`}>{message}</Text>
     </View>
-    <View style={styles.footer}>
-      <Button title={t`close`} onPress={doClose} />
-      <Button title={t`retry`} primary disabled={!ready || listening} onPress={startRecording} />
-    </View>
-  </ModalDialog>
+  </DialogLayout>
 }
-
-const styles = StyleSheet.create({
-  footer: tw`flex flex-row items-center justify-around`
-})
 
 export default Component

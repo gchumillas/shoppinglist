@@ -1,12 +1,11 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
 import { useNavigate } from 'react-router-native'
 import { useTranslation } from 'react-i18next'
 import { tw } from '~/src/libs/tailwind'
 import { Text } from '~/src/components/display'
 import { Button } from '~/src/components/inputs'
-import { ModalDialog } from '~/src/components/utils'
 import { deleteAllArticles } from '~/src/providers/articles'
+import DialogLayout from '~/src/layouts/DialogLayout'
 import { context } from './HomePage'
 
 const Component = _ => {
@@ -21,19 +20,14 @@ const Component = _ => {
     navigate('/')
   }
 
-  return <ModalDialog visible onRequestClose={doClose}>
-    <View>
-      <Text style={tw`text-center pb-6`}>{t`delete all articles?`}</Text>
-    </View>
-    <View style={styles.footer}>
+  return <DialogLayout
+    onRequestClose={doClose}
+    actions={<>
       <Button title={t`no`} onPress={doClose} />
       <Button title={t`yes`} primary onPress={doDeleteAll} />
-    </View>
-  </ModalDialog>
+    </>}>
+    <Text style={tw`text-center pb-6`}>{t`delete all articles?`}</Text>
+  </DialogLayout>
 }
-
-const styles = StyleSheet.create({
-  footer: tw`flex flex-row items-center justify-around`
-})
 
 export default Component

@@ -1,12 +1,11 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
 import { useNavigate } from 'react-router-native'
 import { useTranslation } from 'react-i18next'
 import { Picker } from '@react-native-picker/picker'
 import { tw } from '~/src/libs/tailwind'
 import { useLanguage } from '~/src/hooks/store'
+import DialogLayout from '~/src/layouts/DialogLayout'
 import { Button } from '~/src/components/inputs'
-import { ModalDialog } from '~/src/components/utils'
 
 const Component = _ => {
   const { t } = useTranslation('settings')
@@ -14,22 +13,15 @@ const Component = _ => {
   const [language, setLanguage] = useLanguage()
   const doClose = _ => navigate('/')
 
-  return <ModalDialog visible onRequestClose={doClose}>
-    <View>
-      <Picker selectedValue={language} onValueChange={setLanguage} style={tw`bg-gray-300`}>
-        <Picker.Item label={t`detect language`} value="" />
-        <Picker.Item label={t`english`} value="en" />
-        <Picker.Item label={t`spanish`} value="es" />
-      </Picker>
-    </View>
-    <View style={styles.footer}>
-      <Button title={t`close`} onPress={doClose} />
-    </View>
-  </ModalDialog>
+  return <DialogLayout
+    onRequestClose={doClose}
+    actions={<Button title={t`close`} onPress={doClose} />}>
+    <Picker selectedValue={language} onValueChange={setLanguage} style={tw`bg-gray-300`}>
+      <Picker.Item label={t`detect language`} value="" />
+      <Picker.Item label={t`english`} value="en" />
+      <Picker.Item label={t`spanish`} value="es" />
+    </Picker>
+  </DialogLayout>
 }
-
-const styles = StyleSheet.create({
-  footer: tw`flex flex-row items-center justify-around`
-})
 
 export default Component
