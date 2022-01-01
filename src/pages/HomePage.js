@@ -8,7 +8,7 @@ import MicIcon from '~/assets/icons/mic.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import OptionsIcon from '~/assets/icons/options.svg'
 import SettingsIcon from '~/assets/icons/translate.svg'
-import { tw } from '~/src/libs/tailwind'
+import { getColor, tw } from '~/src/libs/tailwind'
 import PageLayout from '~/src/layouts/PageLayout'
 import { Text, Icon } from '~/src/components/display'
 import { ModalDialog } from '~/src/components/utils'
@@ -61,7 +61,7 @@ const Component = _ => {
               {item.text}
             </Text>
             <Pressable onPress={_ => setSelectedArticleId(item.id)} style={tw`mt-2`}>
-              <OptionsIcon />
+              <Icon component={OptionsIcon} size={25} color={getColor('gray-800')} />
             </Pressable>
           </View>}
           keyExtractor={item => item.id}

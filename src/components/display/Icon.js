@@ -1,8 +1,8 @@
 import React from 'react'
 import { getColor } from '~/src/libs/tailwind'
 
-const Component = ({ component: Component, size, ...inconProps }) => {
-  return <Component width={size} height={size} fill={getColor('gray-600')} {...inconProps} />
+const Component = ({ component: Component, size, color = getColor('gray-600'), ...inconProps }) => {
+  return <Component {...inconProps} width={size} height={size} fill={color} />
 }
 
 export default Component
