@@ -74,7 +74,7 @@ const Component = () => {
       <Button title={t`retry`} primary disabled={!ready || listening} onPress={startRecording} />
     </>}>
     <View style={tw`flex items-center`}>
-      <Icon component={MicIcon} />
+      <Icon component={MicIcon} size={55} />
       <Text numberOfLines={3} style={tw`mt-4 text-center`}>{message}</Text>
     </View>
   </DialogLayout>
