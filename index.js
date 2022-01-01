@@ -1,8 +1,13 @@
 import React from 'react'
+import { View, ActivityIndicator } from 'react-native'
 import { Provider } from 'react-redux'
-import { registerRootComponent } from 'expo'
 import { NativeRouter, Routes, Route } from 'react-router-native'
-import store, { loadStore } from '~/src/store'
+import { registerRootComponent } from 'expo'
+import { useFonts } from 'expo-font'
+import { StatusBar } from 'expo-status-bar'
+import { RobotoSlab_500Medium } from '@expo-google-fonts/roboto-slab'
+import { loadStore } from '~/src/store'
+import { tw, getColor } from '~/src/libs/tailwind'
 import '~/src/i18n'
 import NewArticlePage from '~/src/pages/NewArticlePage'
 import EditArticlePage from '~/src/pages/EditArticlePage'
@@ -12,25 +17,31 @@ import SettingsPage from '~/src/pages/SettingsPage'
 import App from '~/src/App'
 
 const Root = () => {
-  const [value, setValue] = React.useState(store)
+  const [fontsLoaded] = useFonts({ RobotoSlab_500Medium }) // eslint-disable-line camelcase
+  const [value, setValue] = React.useState()
 
   React.useEffect(_ => {
     loadStore().then(store => setValue(store))
   }, [])
 
-  return <Provider store={value}>
-    <NativeRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route path="/new-article" element={<NewArticlePage />} />
-          <Route path="/edit-article/:id" element={<EditArticlePage />} />
-          <Route path="/delete-all-articles" element={<DeleteAllArticlesPage />} />
-          <Route path="/recorder" element={<RecorderPage />} />
-          <Route path="/settings" element={<SettingsPage />} />
-        </Route>
-      </Routes>
-    </NativeRouter>
-  </Provider>
+  return value && fontsLoaded
+    ? <Provider store={value}>
+      <NativeRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route path="/new-article" element={<NewArticlePage />} />
+            <Route path="/edit-article/:id" element={<EditArticlePage />} />
+            <Route path="/delete-all-articles" element={<DeleteAllArticlesPage />} />
+            <Route path="/recorder" element={<RecorderPage />} />
+            <Route path="/settings" element={<SettingsPage />} />
+          </Route>
+        </Routes>
+      </NativeRouter>
+    </Provider>
+    : <View style={tw`flex h-full justify-center items-center`}>
+      <ActivityIndicator size={55} color={getColor('gray-600')} />
+      <StatusBar style="auto" />
+    </View>
 }
 
 registerRootComponent(Root)
