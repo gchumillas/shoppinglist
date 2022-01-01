@@ -18,7 +18,7 @@ const reducer = (state = initState, action) => {
 
 export const loadStore = async _ => {
   const language = await ss.getItemAsync('language') || ''
-  return createStore(reducer, { language })
+  return createStore(reducer, { ...initState, language })
 }
 
 export default createStore(reducer)
