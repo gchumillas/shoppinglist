@@ -31,7 +31,6 @@ module.exports = {
         "react/jsx-indent": [2, 2],
         "react/jsx-indent-props": [2, 2],
         "react/jsx-boolean-value": ["error", "never"],
-        "react/jsx-closing-bracket-location": "error",
         "react/jsx-curly-newline": "error",
         "react/jsx-curly-spacing": "error",
         "react/jsx-equals-spacing": ["error", "never"],
