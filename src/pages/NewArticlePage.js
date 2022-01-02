@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Button, TextField } from '~/src/components/inputs'
 import { createArticle } from '~/src/providers/articles'
 import DialogLayout from '~/src/layouts/DialogLayout'
-import { context } from './HomePage'
+import { context } from '~/src/pages/HomePage'
 
 const Component = _ => {
   const { t } = useTranslation('new article')
