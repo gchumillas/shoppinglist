@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, FlatList, Pressable, StatusBar } from 'react-native'
-import { Link, Outlet, useNavigate } from 'react-router-native'
+import { Outlet, useNavigate } from 'react-router-native'
 import { useTranslation } from 'react-i18next'
 import cn from 'react-native-classnames'
 import NewIcon from '~/assets/icons/new.svg'
@@ -12,6 +12,7 @@ import { getColor, tw } from '~/src/libs/tailwind'
 import PageLayout from '~/src/layouts/PageLayout'
 import { Text, Icon } from '~/src/components/display'
 import { ModalDialog } from '~/src/components/utils'
+import { Link } from '~/src/components/navigation'
 import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
 import { context } from './context'
 
@@ -66,7 +67,7 @@ const Component = _ => {
       />
       </View>
       <View style={styles.footer}>
-        <Link to="/settings" underlayColor="transparent">
+        <Link to="/settings">
           <Icon component={SettingsIcon} size={55} />
         </Link>
         <Link to="/new-article">
