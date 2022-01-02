@@ -13,10 +13,7 @@ import PageLayout from '~/src/layouts/PageLayout'
 import { Text, Icon } from '~/src/components/display'
 import { ModalDialog } from '~/src/components/utils'
 import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
-
-export const context = React.createContext({
-  reload: _ => Promise.resolve()
-})
+import { context } from './context'
 
 const Component = _ => {
   const { t } = useTranslation('home')
