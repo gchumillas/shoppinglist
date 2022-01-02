@@ -26,7 +26,7 @@ const Component = _ => {
       <Button title={t`no`} onPress={doClose} />
       <Button title={t`yes`} primary onPress={doDeleteAll} />
     </>}>
-    <Text style={tw`text-center pb-6`}>{t`delete all articles?`}</Text>
+    <Text style={tw`text-center`}>{t`delete all articles?`}</Text>
   </DialogLayout>
 }
 

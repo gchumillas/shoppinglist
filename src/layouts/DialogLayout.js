@@ -15,7 +15,7 @@ const Component = ({ actions, children, ...modalDialogProps }) => {
 }
 
 const styles = StyleSheet.create({
-  body: tw`py-8`,
+  body: { ...tw`pt-4 pb-6` },
   footer: tw`flex flex-row items-center justify-around`
 })
 
