@@ -6,7 +6,7 @@ import { Text } from '~/src/components/display'
 import { Button } from '~/src/components/inputs'
 import { deleteAllArticles } from '~/src/providers/articles'
 import DialogLayout from '~/src/layouts/DialogLayout'
-import { context } from './HomePage'
+import { context } from '~/src/pages/HomePage'
 
 const Component = _ => {
   const { t } = useTranslation('delete all articles')
