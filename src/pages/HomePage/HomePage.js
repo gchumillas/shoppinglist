@@ -43,7 +43,7 @@ const Component = _ => {
     reload()
   }, [])
 
-  return <context.Provider value={React.useMemo(() => ({ reload }), [])}>
+  return <context.Provider value={React.useMemo(_ => ({ reload }), [])}>
     <PageLayout>
       <View style={styles.body}>
         <FlatList
@@ -66,7 +66,7 @@ const Component = _ => {
       />
       </View>
       <View style={styles.footer}>
-        <Link to="/settings">
+        <Link to="/settings" underlayColor="transparent">
           <Icon component={SettingsIcon} size={55} />
         </Link>
         <Link to="/new-article">

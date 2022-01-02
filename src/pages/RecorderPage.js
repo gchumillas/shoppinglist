@@ -11,7 +11,7 @@ import { tw } from '~/src/libs/tailwind'
 import DialogLayout from '~/src/layouts/DialogLayout'
 import { context } from '~/src/pages/HomePage'
 
-const Component = () => {
+const Component = _ => {
   const { t, i18n } = useTranslation('recorder')
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
