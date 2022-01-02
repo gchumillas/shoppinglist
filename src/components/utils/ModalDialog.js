@@ -17,7 +17,7 @@ const Component = ({ visible = false, onRequestClose = undefined, children }) =>
 const styles = StyleSheet.create({
   wrapper: tw`flex h-full justify-start items-center bg-black bg-opacity-30`,
   box: {
-    ...tw`bg-white mt-7 p-5 rounded-md w-11/12`,
+    ...tw`bg-white p-5 rounded-md w-11/12`,
     marginTop: StatusBar.currentHeight
   }
 })
