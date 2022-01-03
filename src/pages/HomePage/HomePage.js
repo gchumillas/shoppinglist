@@ -12,10 +12,10 @@ import SettingsIcon from '~/assets/icons/translate.svg'
 import { getColor, tw } from '~/src/libs/tailwind'
 import PageLayout from '~/src/layouts/PageLayout'
 import { Text, Icon } from '~/src/components/display'
-import { ModalDialog } from '~/src/components/utils'
 import { Link } from '~/src/components/navigation'
 import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
 import { context } from './context'
+import ContextMenu, { ContextMenuItem } from './ContextMenu'
 
 const Component = _ => {
   const { t } = useTranslation('home')
@@ -85,16 +85,10 @@ const Component = _ => {
           <Icon component={DeleteIcon} size={55} />
         </Link>
       </View>
-      <ModalDialog visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
-        <Pressable onPress={doEditArticle} style={tw`flex flex-row items-center mb-3`}>
-          <Icon component={EditIcon} size={30} color={getColor('primary')} style={tw`mr-3`} />
-          <Text style={styles.modalItemText}>{t`edit`}</Text>
-        </Pressable>
-        <Pressable onPress={doDeleteArticle} style={tw`flex flex-row items-center`}>
-          <Icon component={DeleteIcon} size={30} color={getColor('primary')} style={tw`mr-3`} />
-          <Text style={styles.modalItemText}>{t`delete`}</Text>
-        </Pressable>
-      </ModalDialog>
+      <ContextMenu visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
+        <ContextMenuItem icon={EditIcon} label={t`edit`} onPress={doEditArticle} />
+        <ContextMenuItem icon={DeleteIcon} label={t`delete`} onPress={doDeleteArticle} />
+      </ContextMenu>
       <Outlet />
     </PageLayout>
   </context.Provider>
@@ -110,10 +104,6 @@ const styles = StyleSheet.create({
     fontFamily: 'RobotoSlab_500Medium'
   },
   itemTextChecked: tw`text-gray-600 text-opacity-30`,
-  modalItemText: {
-    ...tw`py-2 text-lg`,
-    fontFamily: 'RobotoSlab_500Medium'
-  },
   footer: tw`flex flex-row justify-evenly items-center py-4`
 })
 
