@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     maxWidth: '87%',
     fontFamily: 'RobotoSlab_500Medium'
   },
-  itemTextChecked: tw`line-through text-gray-600 text-opacity-30`,
+  itemTextChecked: tw`text-gray-600 text-opacity-30`,
   modalItemText: {
     ...tw`py-2 text-lg`,
     fontFamily: 'RobotoSlab_500Medium'
