@@ -95,7 +95,7 @@ const Component = _ => {
 
 const styles = StyleSheet.create({
   body: tw`flex-shrink flex-grow pr-8 pl-12`,
-  list: { ...tw`pt-5`, marginTop: StatusBar.currentHeight },
+  list: { ...tw`pt-3`, marginTop: StatusBar.currentHeight },
   itemWrapper: tw`flex flex-row items-center justify-between`,
   itemText: {
     ...tw`text-xl text-gray-600 flex-grow pt-2 pb-1`,
