@@ -26,7 +26,7 @@ module.exports = {
     "rules": {
         "eqeqeq": "off",
         "arrow-parens": ["error", "as-needed"],
-        "camelcase": ["error", { "ignoreImports": true, properties: "never" }],
+        "camelcase": "off",
         "react/prop-types": "off",
         "react/jsx-indent": [2, 2],
         "react/jsx-indent-props": [2, 2],
