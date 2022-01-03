@@ -60,7 +60,11 @@ const Component = _ => {
               {item.text}
             </Text>
             <Pressable onPress={_ => setSelectedArticleId(item.id)} style={tw`mt-2`}>
-              <Icon component={OptionsIcon} size={25} color={getColor('gray-600')} />
+              <Icon
+                component={OptionsIcon}
+                size={25}
+                color={getColor('gray-600')}
+                style={item.checked ? tw`opacity-50` : tw`opacity-100`} />
             </Pressable>
           </View>}
           keyExtractor={item => item.id}
@@ -105,7 +109,7 @@ const styles = StyleSheet.create({
     maxWidth: '87%',
     fontFamily: 'RobotoSlab_500Medium'
   },
-  itemTextChecked: tw`line-through text-primary text-opacity-25`,
+  itemTextChecked: tw`line-through text-gray-600 text-opacity-30`,
   modalItemText: {
     ...tw`py-2 text-lg`,
     fontFamily: 'RobotoSlab_500Medium'
