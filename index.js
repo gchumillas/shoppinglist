@@ -6,6 +6,7 @@ import { registerRootComponent } from 'expo'
 import { useFonts } from 'expo-font'
 import { StatusBar } from 'expo-status-bar'
 import * as Localization from 'expo-localization'
+import * as ScreenOrientation from 'expo-screen-orientation'
 import { RobotoSlab_400Regular, RobotoSlab_500Medium, RobotoSlab_900Black } from '@expo-google-fonts/roboto-slab'
 import { loadStore } from '~/src/store'
 import { tw, getColor } from '~/src/libs/tailwind'
@@ -43,6 +44,7 @@ const AppLoader = _ => {
   const [value, setValue] = React.useState()
 
   React.useEffect(_ => {
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT)
     loadStore().then(store => setValue(store))
   }, [])
 
