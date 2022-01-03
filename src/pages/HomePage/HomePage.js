@@ -6,6 +6,7 @@ import cn from 'react-native-classnames'
 import NewIcon from '~/assets/icons/new.svg'
 import MicIcon from '~/assets/icons/mic.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
+import EditIcon from '~/assets/icons/edit.svg'
 import OptionsIcon from '~/assets/icons/options.svg'
 import SettingsIcon from '~/assets/icons/translate.svg'
 import { getColor, tw } from '~/src/libs/tailwind'
@@ -81,10 +82,12 @@ const Component = _ => {
         </Link>
       </View>
       <ModalDialog visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
-        <Pressable onPress={doEditArticle}>
+        <Pressable onPress={doEditArticle} style={tw`flex flex-row items-center mb-3`}>
+          <Icon component={EditIcon} size={30} color={getColor('primary')} style={tw`mr-3`} />
           <Text style={styles.modalItemText}>{t`edit`}</Text>
         </Pressable>
-        <Pressable onPress={doDeleteArticle}>
+        <Pressable onPress={doDeleteArticle} style={tw`flex flex-row items-center`}>
+          <Icon component={DeleteIcon} size={30} color={getColor('primary')} style={tw`mr-3`} />
           <Text style={styles.modalItemText}>{t`delete`}</Text>
         </Pressable>
       </ModalDialog>
@@ -103,7 +106,10 @@ const styles = StyleSheet.create({
     fontFamily: 'RobotoSlab_500Medium'
   },
   itemTextChecked: tw`line-through text-primary text-opacity-50`,
-  modalItemText: tw`py-2`,
+  modalItemText: {
+    ...tw`py-2 text-lg`,
+    fontFamily: 'RobotoSlab_500Medium'
+  },
   footer: tw`flex flex-row justify-evenly items-center py-4`
 })
 
