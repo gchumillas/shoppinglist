@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   disabled: tw`border-gray-300`,
   text: {
     ...tw`text-base text-primary`,
-    fontFamily: 'RobotoSlab_700Bold'
+    fontFamily: 'RobotoSlab_900Black'
   },
   primaryText: {
     fontFamily: 'RobotoSlab_900Black'
