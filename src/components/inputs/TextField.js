@@ -1,6 +1,7 @@
 import React from 'react'
-import { TextInput, StyleSheet, View, Text } from 'react-native'
+import { TextInput, StyleSheet, View } from 'react-native'
 import cn from 'react-native-classnames'
+import { Text } from '~/src/components/display'
 import { tw } from '~/src/libs/tailwind'
 
 const Component = ({ title = '', dense = false, autoFocus = false, value, onChange, ...inputProps }) => {

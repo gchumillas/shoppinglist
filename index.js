@@ -6,7 +6,7 @@ import { registerRootComponent } from 'expo'
 import { useFonts } from 'expo-font'
 import { StatusBar } from 'expo-status-bar'
 import * as Localization from 'expo-localization'
-import { RobotoSlab_500Medium, RobotoSlab_900Black } from '@expo-google-fonts/roboto-slab'
+import { RobotoSlab_400Regular, RobotoSlab_500Medium, RobotoSlab_900Black } from '@expo-google-fonts/roboto-slab'
 import { loadStore } from '~/src/store'
 import { tw, getColor } from '~/src/libs/tailwind'
 import { useLanguage } from '~/src/hooks/store'
@@ -39,7 +39,7 @@ const App = _ => {
 }
 
 const AppLoader = _ => {
-  const [fontsLoaded] = useFonts({ RobotoSlab_500Medium, RobotoSlab_900Black }) // eslint-disable-line camelcase
+  const [fontsLoaded] = useFonts({ RobotoSlab_400Regular, RobotoSlab_500Medium, RobotoSlab_900Black })
   const [value, setValue] = React.useState()
 
   React.useEffect(_ => {
