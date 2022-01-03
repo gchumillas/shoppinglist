@@ -15,7 +15,7 @@ const Component = _ => {
   const { t, i18n } = useTranslation('recorder')
   const { reload } = React.useContext(context)
   const navigate = useNavigate()
-  const [listening, setListening] = React.useState(false)
+  const [listening, setListening] = React.useState(true)
   const [ready, setReady] = React.useState(false)
   const [message, setMessage] = React.useState('')
   const doClose = _ => navigate('/')
