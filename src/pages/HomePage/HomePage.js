@@ -3,19 +3,16 @@ import { StyleSheet, View, FlatList, Pressable, StatusBar } from 'react-native'
 import { Outlet, useNavigate } from 'react-router-native'
 import { useTranslation } from 'react-i18next'
 import cn from 'react-native-classnames'
-import NewIcon from '~/assets/icons/new.svg'
-import MicIcon from '~/assets/icons/mic.svg'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import EditIcon from '~/assets/icons/edit.svg'
 import OptionsIcon from '~/assets/icons/options.svg'
-import SettingsIcon from '~/assets/icons/translate.svg'
 import { getColor, tw } from '~/src/libs/tailwind'
 import PageLayout from '~/src/layouts/PageLayout'
 import { Text, Icon } from '~/src/components/display'
-import { Link } from '~/src/components/navigation'
 import { getArticles, deleteArticle, toggleArticle } from '~/src/providers/articles'
 import { context } from './context'
 import ContextMenu, { ContextMenuItem } from './ContextMenu'
+import Footer from './Footer'
 
 const Component = _ => {
   const { t } = useTranslation('home')
@@ -71,26 +68,13 @@ const Component = _ => {
           style={styles.list}
       />
       </View>
-      <View style={styles.footer}>
-        <Link to="/settings">
-          <Icon component={SettingsIcon} size={55} />
-        </Link>
-        <Link to="/new-article">
-          <Icon component={NewIcon} size={55} />
-        </Link>
-        <Link to="/recorder">
-          <Icon component={MicIcon} size={55} />
-        </Link>
-        <Link to="/delete-all-articles">
-          <Icon component={DeleteIcon} size={55} />
-        </Link>
-      </View>
-      <ContextMenu visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
-        <ContextMenuItem icon={EditIcon} label={t`edit`} onPress={doEditArticle} />
-        <ContextMenuItem icon={DeleteIcon} label={t`delete`} onPress={doDeleteArticle} />
-      </ContextMenu>
+      <Footer />
       <Outlet />
     </PageLayout>
+    <ContextMenu visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
+      <ContextMenuItem icon={EditIcon} label={t`edit`} onPress={doEditArticle} />
+      <ContextMenuItem icon={DeleteIcon} label={t`delete`} onPress={doDeleteArticle} />
+    </ContextMenu>
   </context.Provider>
 }
 
@@ -103,8 +87,7 @@ const styles = StyleSheet.create({
     maxWidth: '87%',
     fontFamily: 'RobotoSlab_500Medium'
   },
-  itemTextChecked: tw`text-gray-600 text-opacity-30`,
-  footer: tw`flex flex-row justify-evenly items-center py-4`
+  itemTextChecked: tw`text-gray-600 text-opacity-30`
 })
 
 export default Component
