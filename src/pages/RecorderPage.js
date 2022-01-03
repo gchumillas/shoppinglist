@@ -71,7 +71,7 @@ const Component = _ => {
     onRequestClose={doClose}
     actions={<>
       <Button title={t`close`} onPress={doClose} />
-      <Button title={t`retry`} primary disabled={!ready || listening} onPress={startRecording} />
+      <Button title={t`retry`} disabled={!ready || listening} onPress={startRecording} />
     </>}>
     <View style={tw`flex items-center`}>
       <Icon component={MicIcon} size={55} />
