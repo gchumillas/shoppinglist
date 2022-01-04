@@ -26,8 +26,7 @@
       },
       "permissions": [
         "android.permission.RECORD_AUDIO"
-      ],
-      "package": "com.gchumillas.ShoppingList"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
