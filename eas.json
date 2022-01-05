@@ -5,5 +5,9 @@
         "credentialsSource": "local"
       }
     }
+  },
+  "cli": {
+    "version": ">= 0.43.0",
+    "requireCommit": true
   }
 }
