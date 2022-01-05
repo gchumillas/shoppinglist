@@ -132,7 +132,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.shoppinglist"
+        applicationId "com.gchumillas.shoppinglist"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
