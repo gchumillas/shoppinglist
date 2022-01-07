@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import cn from 'react-native-classnames'
 import DeleteIcon from '~/assets/icons/delete.svg'
 import EditIcon from '~/assets/icons/edit.svg'
+import DoneIcon from '~/assets/icons/done.svg'
 import OptionsIcon from '~/assets/icons/options.svg'
 import { getColor, tw } from '~/src/libs/tailwind'
 import PageLayout from '~/src/layouts/PageLayout'
@@ -35,6 +36,7 @@ const Component = _ => {
 
   const doToggleArticle = async ({ id }) => {
     await toggleArticle(id)
+    doCloseDialog()
     reload()
   }
 
@@ -73,6 +75,7 @@ const Component = _ => {
     </PageLayout>
     <ContextMenu visible={!!selectedArticleId} onRequestClose={doCloseDialog}>
       <ContextMenuItem icon={EditIcon} label={t`edit`} onPress={doEditArticle} />
+      <ContextMenuItem icon={DoneIcon} label={t`mark / unmark`} onPress={doToggleArticle} />
       <ContextMenuItem icon={DeleteIcon} label={t`delete`} onPress={doDeleteArticle} />
     </ContextMenu>
   </context.Provider>
