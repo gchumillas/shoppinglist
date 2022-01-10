@@ -2,9 +2,13 @@
 
 A simple shopping list application created in React Native with voice recognition.
 
+[View on Google Play](https://play.google.com/store/apps/details?id=com.gchumillas.shoppinglist)
+
+## Screenshots
+
 <img src="https://user-images.githubusercontent.com/5312427/148349979-a161f698-20bc-4026-a68f-e9814e13fe18.png" alt="screeshot" width="320"> <img src="https://user-images.githubusercontent.com/5312427/148349993-2c21c1bd-6a7e-4aa7-9b7c-98ca8300fbd8.png" alt="screeshot" width="320">
 
-# How to test the application
+## How to test the application
 
 You need an Android device with the "USB debugging" option enabled or an emulated device. See [Geanymotion](https://www.genymotion.com/download/) or [Android Studio](https://developer.android.com/studio) for more info. Then simply execute the following commands:
 
@@ -16,7 +20,7 @@ yarn
 yarn android
 ```
 
-# Most relevant libraries
+## Most relevant libraries
 
 The app uses these relevant libraries:
 
