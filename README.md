@@ -2,8 +2,7 @@
 
 A simple shopping list application created in React Native with voice recognition.
 
-View on Google Play:<br>
-https://play.google.com/store/apps/details?id=com.gchumillas.shoppinglist
+<a href="https://play.google.com/store/apps/details?id=com.gchumillas.shoppinglist"><img src="https://user-images.githubusercontent.com/5312427/158223874-c1db9dc7-95ff-4c27-8634-1c4105f77ebe.svg" height="40" alt="Get it on Google Play" /></a>
 
 ## Screenshots
 
